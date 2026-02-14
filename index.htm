@@ -14,8 +14,18 @@
             --color-text-light: #6b6b6b;
             --color-accent: #2563eb;
             --color-border: #e5e5e5;
+            --color-card-bg: #ffffff;
             --font-serif: 'Crimson Pro', serif;
             --font-sans: 'DM Sans', sans-serif;
+        }
+
+        [data-theme="dark"] {
+            --color-bg: #0f0f0f;
+            --color-text: #e5e5e5;
+            --color-text-light: #a3a3a3;
+            --color-accent: #3b82f6;
+            --color-border: #2a2a2a;
+            --color-card-bg: #1a1a1a;
         }
 
         * {
@@ -47,6 +57,10 @@
             z-index: 1000;
             border-bottom: 1px solid var(--color-border);
             animation: slideDown 0.6s ease-out;
+        }
+
+        [data-theme="dark"] nav {
+            background: rgba(15, 15, 15, 0.9);
         }
 
         @keyframes slideDown {
@@ -138,6 +152,29 @@
 
         .mobile-menu-toggle.active span:nth-child(3) {
             transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Dark mode toggle */
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .theme-toggle svg {
+            width: 22px;
+            height: 22px;
+            fill: var(--color-text);
+            stroke: var(--color-text);
         }
 
         /* Hero Section */
@@ -241,7 +278,7 @@
             border: 1px solid var(--color-border);
             border-radius: 18px;
             padding: 2rem;
-            background: white;
+            background: var(--color-card-bg);
             transition: all 0.3s ease;
             cursor: pointer;
         }
@@ -250,6 +287,10 @@
             transform: translateY(-4px);
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
             border-color: var(--color-accent);
+        }
+
+        [data-theme="dark"] .article-card:hover {
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15);
         }
 
         .article-meta {
@@ -314,6 +355,10 @@
             font-style: italic;
         }
 
+        [data-theme="dark"] .quote-block {
+            background: rgba(59, 130, 246, 0.1);
+        }
+
         .quote-block p {
             font-size: 1.3rem;
             line-height: 1.7;
@@ -337,15 +382,28 @@
             margin: 6rem 0;
         }
 
+        [data-theme="dark"] .newsletter {
+            background: var(--color-card-bg);
+            border: 1px solid var(--color-border);
+        }
+
         .newsletter h2 {
             color: var(--color-bg);
             margin-bottom: 1rem;
+        }
+
+        [data-theme="dark"] .newsletter h2 {
+            color: var(--color-text);
         }
 
         .newsletter p {
             color: rgba(253, 251, 247, 0.8);
             font-size: 1.15rem;
             margin-bottom: 2rem;
+        }
+
+        [data-theme="dark"] .newsletter p {
+            color: var(--color-text-light);
         }
 
         .newsletter-form {
@@ -371,13 +429,28 @@
             transition: all 0.3s ease;
         }
 
+        [data-theme="dark"] .newsletter-form input {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            color: var(--color-text);
+        }
+
         .newsletter-form input::placeholder {
             color: rgba(253, 251, 247, 0.5);
+        }
+
+        [data-theme="dark"] .newsletter-form input::placeholder {
+            color: var(--color-text-light);
         }
 
         .newsletter-form input:focus {
             background: rgba(253, 251, 247, 0.15);
             border-color: rgba(253, 251, 247, 0.4);
+        }
+
+        [data-theme="dark"] .newsletter-form input:focus {
+            background: var(--color-card-bg);
+            border-color: var(--color-accent);
         }
 
         .newsletter-form button {
@@ -528,10 +601,28 @@
     <nav>
         <div class="nav-content">
             <a href="#home" class="logo">Yagnik!</a>
-            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" style="display: none;" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
             <ul class="nav-links">
                 <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
@@ -846,7 +937,7 @@
     <!-- Footer -->
     <footer id="contact">
         <div class="social-links">
-            <a href="https://x.com/theiYags" aria-label="X(Formerly Twitter">
+            <a href="https://x.com/theiYags" aria-label="X (Formerly Twitter)">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                 </svg>
@@ -867,11 +958,43 @@
                 </svg>
             </a>
         </div>
-        <p>© 2026 Yagnik N. All rights reserved. 
-            Made with 😍❤️</p>
+        <p>© 2026 Yagnik N. All rights reserved. Made with 😍❤️</p>
     </footer>
 
     <script>
+        // Theme toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Toggle icons
+            const sunIcon = document.querySelector('.sun-icon');
+            const moonIcon = document.querySelector('.moon-icon');
+            
+            if (newTheme === 'dark') {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            } else {
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+            }
+        }
+
+        // Load saved theme on page load
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            if (savedTheme === 'dark') {
+                document.querySelector('.sun-icon').style.display = 'none';
+                document.querySelector('.moon-icon').style.display = 'block';
+            }
+        })();
+
         // Mobile menu toggle
         function toggleMobileMenu() {
             const navLinks = document.querySelector('.nav-links');
