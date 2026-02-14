@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Writer & Thinker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #fdfbf7;
+            --color-text: #1a1a1a;
+            --color-text-light: #6b6b6b;
+            --color-accent: #2563eb;
+            --color-border: #e5e5e5;
+            --font-serif: 'Crimson Pro', serif;
+            --font-sans: 'DM Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-serif);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(253, 251, 247, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--color-border);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-sans);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-text);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-text);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 12rem 2rem 6rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.35rem;
+            color: var(--color-text-light);
+            line-height: 1.7;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem 6rem;
+        }
+
+        section {
+            margin-bottom: 8rem;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        section:nth-child(2) { animation-delay: 0.3s; }
+        section:nth-child(3) { animation-delay: 0.4s; }
+        section:nth-child(4) { animation-delay: 0.5s; }
+
+        h2 {
+            font-family: var(--font-sans);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        h3 {
+            font-family: var(--font-sans);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            margin-top: 2.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        h4 {
+            font-family: var(--font-sans);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            letter-spacing: -0.01em;
+        }
+
+        .article-content h4:first-child {
+            margin-top: 0;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--color-text);
+        }
+
+        .highlight {
+            font-style: italic;
+            color: var(--color-text);
+            background: linear-gradient(to right, transparent, rgba(37, 99, 235, 0.1), transparent);
+            padding: 0.1rem 0;
+        }
+
+        /* Article Cards */
+        .article-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .article-card {
+            border: 1px solid var(--color-border);
+            border-radius: 18px;
+            padding: 2rem;
+            background: white;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--color-accent);
+        }
+
+        .article-meta {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-card h3 {
+            margin-top: 0;
+            font-size: 1.6rem;
+        }
+
+        .article-card p {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            margin-bottom: 0;
+        }
+
+        /* Quote Block */
+        .quote-block {
+            border-left: 3px solid var(--color-accent);
+            padding: 2rem 2rem 2rem 2.5rem;
+            margin: 3rem 0;
+            background: rgba(37, 99, 235, 0.03);
+            font-style: italic;
+        }
+
+        .quote-block p {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+
+        .quote-author {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-style: normal;
+            color: var(--color-text-light);
+            margin-top: 1rem;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background: var(--color-text);
+            color: var(--color-bg);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 6rem 0;
+        }
+
+        .newsletter h2 {
+            color: var(--color-bg);
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            color: rgba(253, 251, 247, 0.8);
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            min-width: 250px;
+            padding: 1rem 1.5rem;
+            border: 1px solid rgba(253, 251, 247, 0.2);
+            border-radius: 50px;
+            background: rgba(253, 251, 247, 0.1);
+            color: var(--color-bg);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(253, 251, 247, 0.5);
+        }
+
+        .newsletter-form input:focus {
+            background: rgba(253, 251, 247, 0.15);
+            border-color: rgba(253, 251, 247, 0.4);
+        }
+
+        .newsletter-form button {
+            padding: 1rem 2.5rem;
+            background: var(--color-accent);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            font-family: var(--font-sans);
+            color: var(--color-text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-links a:hover {
+            color: var(--color-accent);
+            transform: translateY(-2px);
+        }
+
+        .social-links svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        footer p {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .hero {
+                padding: 10rem 1.5rem 4rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.15rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+            }
+
+            .container {
+                padding: 0 1.5rem 4rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input {
+                min-width: 100%;
+            }
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <a href="#home" class="logo">YN</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#writing">Writing</a></li>
+                <li><a href="#newsletter">Newsletter</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Welcome. I'm a writer exploring ideas that matter.</h1>
+        <p>I write about productivity, philosophy, and the frameworks that shape how we think and work.</p>
+        <p>Join 800,000+ others who read my weekly insights.</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                I'm a writer, thinker, and creator dedicated to exploring the frameworks that help us live better lives. 
+                My work sits at the intersection of philosophy, productivity, and personal growth.
+            </p>
+            <p>
+                In 1789, philosopher Jeremy Bentham mused on the two forces that control our lives: 
+                <span class="highlight">the pursuit of pleasure and the avoidance of pain</span>. This simple idea 
+                became the foundation for understanding human motivation and behavior.
+            </p>
+            <p>
+                I believe that by understanding these fundamental patterns—the mental models, cognitive frameworks, 
+                and timeless principles—we can make better decisions, build better habits, and ultimately lead more 
+                meaningful lives.
+            </p>
+
+            <div class="quote-block">
+                <p>"The quality of your life is determined by the quality of the questions you ask yourself."</p>
+                <div class="quote-author">— Ancient wisdom, modern application</div>
+            </div>
+
+            <p>
+                My mission is to surface these powerful ideas, distill them into actionable frameworks, and share 
+                them with people who are committed to continuous growth. Every week, I research, synthesize, and 
+                publish insights that you can apply immediately to your work and life.
+            </p>
+        </section>
+
+        <!-- Writing Section -->
+        <section id="writing">
+            <h2>Featured Writing</h2>
+            <p>
+                I publish essays, frameworks, and mental models every week. Here are some of my most popular pieces:
+            </p>
+
+            <div class="article-grid">
+                <a href="article-procrastination.html" target="_blank" class="article-card">
+                    <div class="article-meta">Frameworks & Tools</div>
+                    <h3>How to Stop Procrastinating</h3>
+                    <p>
+                        A deep dive into Skinner's Law and the pleasure-pain framework that governs human behavior. 
+                        Learn how to hack your motivation when you find yourself avoiding important work.
+                    </p>
+                </a>
+
+                <a href="article-wealth.html" target="_blank" class="article-card">
+                    <div class="article-meta">Productivity</div>
+                    <h3>The 5 Types of Wealth</h3>
+                    <p>
+                        Money is just one form of wealth. Discover the five types that truly matter and how to 
+                        build a rich life across all dimensions.
+                    </p>
+                </a>
+
+                <a href="article-first-principles.html" target="_blank" class="article-card">
+                    <div class="article-meta">Mental Models</div>
+                    <h3>First Principles Thinking</h3>
+                    <p>
+                        Break down complex problems to their fundamental truths. This is how Elon Musk, Aristotle, 
+                        and other great thinkers approach challenges.
+                    </p>
+                </a>
+
+                <a href="article-stoicism.html" target="_blank" class="article-card">
+                    <div class="article-meta">Philosophy</div>
+                    <h3>The Stoic Path to Resilience</h3>
+                    <p>
+                        Ancient Stoic wisdom applied to modern challenges. How to build unshakeable mental strength 
+                        in an age of constant change.
+                    </p>
+                </a>
+            </div>
+        </section>
+
+        <!-- What I Believe -->
+        <section>
+            <h2>What I Believe</h2>
+            <p>
+                Over years of research and writing, I've developed a set of core principles that guide my work:
+            </p>
+
+            <h3>Simple beats complex</h3>
+            <p>
+                The most powerful ideas are often the simplest. My goal is to take complex concepts and distill 
+                them into frameworks you can remember and apply. If you can't explain it simply, you don't 
+                understand it well enough.
+            </p>
+
+            <h3>Action beats theory</h3>
+            <p>
+                Knowledge without application is just trivia. Every framework I share comes with concrete steps 
+                you can take today. The gap between knowing and doing is where most people get stuck—I help you 
+                bridge that gap.
+            </p>
+
+            <h3>Timeless beats trendy</h3>
+            <p>
+                I'm more interested in principles that have worked for centuries than tactics that might work 
+                this quarter. Stoic philosophy, cognitive psychology, behavioral economics—these fields offer 
+                insights that remain relevant regardless of technological change.
+            </p>
+
+            <h3>Questions beat answers</h3>
+            <p>
+                The right question is more valuable than the right answer. I try to equip you with better 
+                questions to ask yourself, your team, and your work. Questions open doors; answers close them.
+            </p>
+        </section>
+    </div>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="newsletter">
+        <h2>Join the Movement</h2>
+        <p>
+            Join 800,000+ others who receive high-signal, curiosity-inducing content every single week.
+        </p>
+        <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="social-links">
+            <a href="#" aria-label="Twitter/X">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+            </a>
+        </div>
+        <p>© 2026 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll reveal animation
+        const reveals = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
+
+        // Newsletter form handling
+        function handleSubscribe(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input').value;
+            alert(`Thank you for subscribing with ${email}! You'll receive your first email soon.`);
+            event.target.reset();
+        }
+
+        // Add smooth scrolling for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
