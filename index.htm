@@ -379,6 +379,110 @@
             margin-top: 1rem;
         }
 
+        
+        /* Quote Block */
+        .quote-block {
+            border-left: 3px solid var(--color-accent);
+            padding: 2rem 2rem 2rem 2.5rem;
+            margin: 3rem 0;
+            background: rgba(37, 99, 235, 0.03);
+            font-style: italic;
+        }
+
+        .quote-block p {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Scroll Reveal Animation */
+.reveal-quote {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-quote.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+        /* Quote of the Day */
+.quote-of-day {
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    background: white;
+}
+
+.quote-of-day h3 {
+    font-family: var(--font-sans);
+    margin-bottom: 1rem;
+}
+
+#daily-quote-text {
+    font-size: 1.3rem;
+    font-style: italic;
+}
+
+/* Quote List Styling */
+.quotes-list {
+    list-style: none;
+    padding: 0;
+}
+
+.quotes-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.quote-text {
+    flex: 1;
+    font-style: italic;
+}
+
+/* Copy Button */
+.copy-btn {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    border: 1px solid var(--color-border);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+    background: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+}
+
+      #quotes {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.quotes-list {
+    list-style-type: disc;
+    max-width: 700px;
+    margin: 30px auto;
+    text-align: left;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.quotes-list li {
+    margin-bottom: 15px;
+}
+
         /* Newsletter Section */
         .newsletter {
             background: var(--color-text);
@@ -911,6 +1015,56 @@
             </div>
         </section>
 
+                <!-- My Quotes Diaries Section -->
+<section id="quotes">
+    <h2>My Quotes Diaries!</h2>
+    <p>Thoughts I’ve written during silent nights, hard days, and ambitious mornings.</p>
+
+    <!-- Random Quote of the Day -->
+    <div class="quote-of-day">
+        <h3>Quote of the Day</h3>
+        <p id="daily-quote-text"></p>
+    </div>
+
+    <!-- All Quotes -->
+    <div class="quotes-container">
+        <ul class="quotes-list">
+            <li>
+                <span class="quote-text">Your comfort zone is renting space in your potential.</span>
+                <button class="copy-btn">Copy</button>
+            </li>
+            <li>
+                <span class="quote-text">Discipline is choosing what you want most over what you want now.</span>
+                <button class="copy-btn">Copy</button>
+            </li>
+            <li>
+                <span class="quote-text">If you can control your focus, you can control your future.</span>
+                <button class="copy-btn">Copy</button>
+            </li>
+            <li>
+                <span class="quote-text">Pain is temporary. Regret is permanent.</span>
+                <button class="copy-btn">Copy</button>
+            </li>
+            <li>
+                <span class="quote-text">Small actions done daily beat motivation done occasionally.</span>
+                <button class="copy-btn">Copy</button>
+            </li>
+            <li>
+                <span class="quote-text">You don’t lack talent — you lack consistent effort.</span>
+                <button class="copy-btn">Copy</button>
+            </li>
+            <li>
+                <span class="quote-text">Be the driver of your life, not the passenger of your habits.</span>
+                <button class="copy-btn">Copy</button>
+            </li>
+            <li>
+                <span class="quote-text">Your future is hidden inside your daily routine.</span>
+                <button class="copy-btn">Copy</button>
+            </li>
+        </ul>
+    </div>
+</section>
+
         <!-- What I Believe -->
         <section>
             <h2>What I Believe</h2>
@@ -1089,5 +1243,67 @@
             });
         });
     </script>
+
+    <script>
+const quoteElements = document.querySelectorAll('.reveal-quote');
+
+const revealQuotesOnScroll = () => {
+    const windowHeight = window.innerHeight;
+
+    quoteElements.forEach((el, index) => {
+        const elementTop = el.getBoundingClientRect().top;
+
+        if (elementTop < windowHeight - 60) {
+            setTimeout(() => {
+                el.classList.add('active');
+            }, index * 120); // stagger animation
+        }
+    });
+};
+
+window.addEventListener('scroll', revealQuotesOnScroll);
+revealQuotesOnScroll();
+</script>
+
+    <script>
+// ==============================
+// 🎲 Random Quote of the Day
+// ==============================
+
+const quotes = [
+"Your comfort zone is renting space in your potential.",
+"Discipline is choosing what you want most over what you want now.",
+"If you can control your focus, you can control your future.",
+"Pain is temporary. Regret is permanent.",
+"Small actions done daily beat motivation done occasionally.",
+"You don’t lack talent — you lack consistent effort.",
+"Be the driver of your life, not the passenger of your habits.",
+"Your future is hidden inside your daily routine."
+];
+
+function getDailyQuote() {
+    const today = new Date().getDate();
+    const index = today % quotes.length;
+    document.getElementById("daily-quote-text").textContent = quotes[index];
+}
+
+getDailyQuote();
+
+// ==============================
+// 📋 Copy to Clipboard
+// ==============================
+
+document.querySelectorAll(".copy-btn").forEach(button => {
+    button.addEventListener("click", function() {
+        const quote = this.parentElement.querySelector(".quote-text").textContent;
+        navigator.clipboard.writeText(quote);
+
+        this.textContent = "Copied!";
+        setTimeout(() => {
+            this.textContent = "Copy";
+        }, 1500);
+    });
+});
+</script>
 </body>
 </html>
