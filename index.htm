@@ -737,77 +737,9 @@ body.dark-mode .share-btn:hover {
             color: var(--color-text-light);
         }
 
-        /* =========================
-   DESKTOP NAV FIX
-========================= */
-
-@media (min-width: 769px) {
-
-    .nav-links {
-        display: flex !important;
-        position: static !important;
-        flex-direction: row !important;
-        max-height: none !important;
-        overflow: visible !important;
-        background: transparent !important;
-        gap: 2.5rem !important;
-        border: none !important;
-    }
-
-    .mobile-menu-toggle {
-        display: none !important;
-    }
-}
-
-
-
-        /* Responsive */
-      @media (max-width: 768px) {
-    .newsletter-form {
-        flex-direction: column;
-    }
-
-    .newsletter-form input,
-    .newsletter-form button {
-        width: 100%;
-    }
-}
-
-
-            .nav-right {
-                gap: 1rem;
-            }
-
-            .mobile-menu-toggle {
-                display: flex;
-            }
-
-           .nav-links {
-    display: flex;
-    gap: 2.5rem;
-}
-
-
-            .nav-links.active {
-                max-height: 300px;
-            }
-
-            .nav-links li {
-                border-bottom: 1px solid var(--color-border);
-            }
-
-            .nav-links li:last-child {
-                border-bottom: none;
-            }
-
-            .nav-links a {
-                display: block;
-                padding: 1.2rem 1.5rem;
-                font-size: 1rem;
-            }
-
-            .nav-links a::after {
-                display: none;
+       @media (max-width: 768px) {
+            .nav-links {
+                gap: 1.5rem;
             }
 
             .hero {
@@ -834,14 +766,26 @@ body.dark-mode .share-btn:hover {
                 padding: 0 1.5rem 4rem;
             }
 
-/* Mobile */
-@media (max-width: 768px) {
-    .newsletter-form {
-        flex-direction: column;
+            .newsletter-form {
+                flex-direction: column;
+            }
 
-    }
-}
+            .newsletter-form input {
+                min-width: 100%;
+            }
+        }
 
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
