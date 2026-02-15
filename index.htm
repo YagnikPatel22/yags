@@ -728,10 +728,30 @@ body.dark-mode .share-btn:hover {
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .nav-content {
-                padding: 1rem 1.5rem;
-            }
+       @media (max-width: 768px) {
+
+    .newsletter-form {
+        flex-direction: column;
+        gap: 1.2rem;
+        width: 100%;
+    }
+
+    .newsletter-form input,
+    .newsletter-form button {
+        width: 100%;
+        border-radius: 50px;
+    }
+
+    .newsletter-form input {
+        padding: 1.2rem 1.5rem;
+    }
+
+    .newsletter-form button {
+        padding: 1.2rem;
+    }
+
+}
+
 
             .nav-right {
                 gap: 1rem;
@@ -802,9 +822,14 @@ body.dark-mode .share-btn:hover {
                 padding: 0 1.5rem 4rem;
             }
 
-            .newsletter-form {
-                flex-direction: column;
-            }
+           .newsletter-form {
+    display: flex;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+}
+
 
             .newsletter-form input {
                 min-width: 100%;
