@@ -727,23 +727,28 @@ body.dark-mode .share-btn:hover {
             color: var(--color-text-light);
         }
 
-        /* Desktop Navbar */
+        /* =========================
+   DESKTOP NAV FIX
+========================= */
 
 @media (min-width: 769px) {
+
     .nav-links {
         display: flex !important;
-        position: static;
-        flex-direction: row;
-        gap: 2.5rem;
-        max-height: none;
-        background: transparent;
-        border: none;
+        position: static !important;
+        flex-direction: row !important;
+        max-height: none !important;
+        overflow: visible !important;
+        background: transparent !important;
+        gap: 2.5rem !important;
+        border: none !important;
     }
 
     .mobile-menu-toggle {
         display: none !important;
     }
 }
+
 
 
         /* Responsive */
@@ -828,7 +833,7 @@ body.dark-mode .share-btn:hover {
                 padding: 0 1.5rem 4rem;
             }
 /* =========================
-   Newsletter Layout
+   FINAL Newsletter Styling
 ========================= */
 
 .newsletter-form {
@@ -837,15 +842,14 @@ body.dark-mode .share-btn:hover {
     width: 100%;
     max-width: 650px;
     margin: 2rem auto 0;
-    justify-content: center;
 }
 
 .newsletter-form input {
     flex: 2;
     padding: 1rem 1.5rem;
     border-radius: 50px;
-    border: 1px solid var(--color-border);
-    background: #2a2a2a; /* dark clean input */
+    border: 1px solid #444;
+    background: #2a2a2a;
     color: #ffffff;
     font-family: var(--font-sans);
     font-size: 1rem;
@@ -871,16 +875,21 @@ body.dark-mode .share-btn:hover {
 
 .newsletter-form button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(37,99,235,0.4);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
 }
 
+/* Mobile */
+@media (max-width: 768px) {
+    .newsletter-form {
+        flex-direction: column;
+    }
 
+    .newsletter-form input,
+    .newsletter-form button {
+        width: 100%;
+    }
+}
 
-
-            .newsletter-form input {
-                min-width: 100%;
-            }
-        }
     </style>
 </head>
 <body>
