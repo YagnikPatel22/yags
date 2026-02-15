@@ -408,41 +408,22 @@ body.dark-mode .share-btn:hover {
             margin-top: 1rem;
         }
 
-        
-        /* Quote Block */
-        .quote-block {
-            border-left: 3px solid var(--color-accent);
-            padding: 2rem 2rem 2rem 2.5rem;
-            margin: 3rem 0;
-            background: rgba(37, 99, 235, 0.03);
-            font-style: italic;
-        }
+        /* ===============================
+   QUOTES SECTION (FIXED)
+=================================*/
 
-        .quote-block p {
-            font-size: 1.3rem;
-            line-height: 1.7;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Scroll Reveal Animation */
-.reveal-quote {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: transform 0.8s ease, opacity 0.8s ease;
+#quotes {
+    padding: 60px 20px;
+    text-align: center;
 }
 
-.reveal-quote.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-        /* Quote of the Day */
 .quote-of-day {
     border: 1px solid var(--color-border);
     border-radius: 18px;
     padding: 2rem;
     margin-bottom: 3rem;
-    background: white;
+    background: var(--color-card-bg);
+    transition: all 0.3s ease;
 }
 
 .quote-of-day h3 {
@@ -455,10 +436,18 @@ body.dark-mode .share-btn:hover {
     font-style: italic;
 }
 
-/* Quote List Styling */
+/* Quote List */
+.quotes-container {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+    padding: 2rem;
+}
+
 .quotes-list {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .quotes-list li {
@@ -483,6 +472,7 @@ body.dark-mode .share-btn:hover {
     border-radius: 20px;
     border: 1px solid var(--color-border);
     background: transparent;
+    color: var(--color-text);
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -492,6 +482,22 @@ body.dark-mode .share-btn:hover {
     color: white;
     border-color: var(--color-accent);
 }
+
+/* Scroll Reveal */
+.reveal-quote {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.reveal-quote.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+        
+   
 
       #quotes {
     padding: 60px 20px;
@@ -1052,47 +1058,47 @@ body.dark-mode .share-btn:hover {
 
                 <!-- My Quotes Diaries Section -->
 <section id="quotes">
-    <h2>My Quotes Diaries!</h2>
+    <h2>My Quotes Diaries!!</h2>
     <p>Thoughts I’ve written during silent nights, hard days, and ambitious mornings.</p>
 
     <!-- Random Quote of the Day -->
     <div class="quote-of-day">
-        <h3>Quote of the Day</h3>
+        <h3>Quote of the Day!</h3>
         <p id="daily-quote-text"></p>
     </div>
 
     <!-- All Quotes -->
     <div class="quotes-container">
         <ul class="quotes-list">
-            <li>
+            <li class="reveal-quote">
                 <span class="quote-text">Your comfort zone is renting space in your potential.</span>
                 <button class="copy-btn">Copy</button>
             </li>
-            <li>
+            <li class="reveal-quote">
                 <span class="quote-text">Discipline is choosing what you want most over what you want now.</span>
                 <button class="copy-btn">Copy</button>
             </li>
-            <li>
+            <li class="reveal-quote">
                 <span class="quote-text">If you can control your focus, you can control your future.</span>
                 <button class="copy-btn">Copy</button>
             </li>
-            <li>
+            <li class="reveal-quote">
                 <span class="quote-text">Pain is temporary. Regret is permanent.</span>
                 <button class="copy-btn">Copy</button>
             </li>
-            <li>
+            <li class="reveal-quote">
                 <span class="quote-text">Small actions done daily beat motivation done occasionally.</span>
                 <button class="copy-btn">Copy</button>
             </li>
-            <li>
+            <li class="reveal-quote">
                 <span class="quote-text">You don’t lack talent — you lack consistent effort.</span>
                 <button class="copy-btn">Copy</button>
             </li>
-            <li>
+            <li class="reveal-quote">
                 <span class="quote-text">Be the driver of your life, not the passenger of your habits.</span>
                 <button class="copy-btn">Copy</button>
             </li>
-            <li>
+            <li class="reveal-quote">
                 <span class="quote-text">Your future is hidden inside your daily routine.</span>
                 <button class="copy-btn">Copy</button>
             </li>
@@ -1319,7 +1325,16 @@ const quotes = [
 function getDailyQuote() {
     const today = new Date().getDate();
     const index = today % quotes.length;
-    document.getElementById("daily-quote-text").textContent = quotes[index];
+
+    const quoteEl = document.getElementById("daily-quote-text");
+
+    quoteEl.style.opacity = 0;
+
+    setTimeout(() => {
+        quoteEl.textContent = quotes[index];
+        quoteEl.style.transition = "opacity 0.5s ease";
+        quoteEl.style.opacity = 1;
+    }, 200);
 }
 
 getDailyQuote();
