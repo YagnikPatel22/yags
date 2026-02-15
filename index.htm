@@ -34,11 +34,49 @@
     --color-text-light: #a1a1aa;
     --color-border: #2a2a2e;
 }
+/* ===============================
+   Dark Mode – Quotes Section Upgrade
+=================================*/
 
-        [data-theme="dark"] {
-    --color-text: #f4f4f5;
-    --color-text-light: #a1a1aa;
+[data-theme="dark"] #quotes {
+    background: #1a1a1a; /* soft grey background */
+    border-radius: 20px;
+    padding: 60px 30px;
 }
+
+/* Title Styling */
+[data-theme="dark"] #quotes h2 {
+    color: #ffffff; /* pure white heading */
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+}
+
+/* Subtle Gradient Glow */
+[data-theme="dark"] #quotes h2::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 140%;
+    background: radial-gradient(
+        circle,
+        rgba(59, 130, 246, 0.25),
+        rgba(59, 130, 246, 0.08),
+        transparent 70%
+    );
+    z-index: -1;
+    filter: blur(20px);
+    opacity: 0.8;
+}
+
+/* Make subtitle readable */
+[data-theme="dark"] #quotes p {
+    color: #cfcfcf;
+}
+
 
 }
 
