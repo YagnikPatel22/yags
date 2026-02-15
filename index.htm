@@ -732,24 +732,27 @@ body.dark-mode .share-btn:hover {
 
     .newsletter-form {
         flex-direction: column;
-        gap: 1.2rem;
+        align-items: stretch;
         width: 100%;
     }
 
     .newsletter-form input,
     .newsletter-form button {
-        width: 100%;
-        border-radius: 50px;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0;
+        box-sizing: border-box;
     }
 
     .newsletter-form input {
         padding: 1.2rem 1.5rem;
+        border-radius: 50px;
     }
 
     .newsletter-form button {
         padding: 1.2rem;
+        border-radius: 50px;
     }
-
 }
 
 
