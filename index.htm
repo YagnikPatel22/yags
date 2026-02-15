@@ -1,11 +1,13 @@
-NEW
+KAMCHALAU
+
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yagnik N. Patel - Writer & Thinker</title>
+    <title>Your Name - Writer & Thinker</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -16,73 +18,9 @@ NEW
             --color-text-light: #6b6b6b;
             --color-accent: #2563eb;
             --color-border: #e5e5e5;
-            --color-card-bg: #ffffff;
             --font-serif: 'Crimson Pro', serif;
             --font-sans: 'DM Sans', sans-serif;
         }
-
-        [data-theme="dark"] {
-            --color-bg: #0f0f0f;
-            --color-text: #e5e5e5;
-            --color-text-light: #a3a3a3;
-            --color-accent: #3b82f6;
-            --color-border: #2a2a2a;
-            --color-card-bg: #1a1a1a;
-        }
-
-        body.dark-mode {
-    --color-bg: #0e0e11;
-    --color-text: #f5f5f5;
-    --color-text-light: #a1a1aa;
-    --color-border: #2a2a2e;
-}
-/* ===============================
-   Dark Mode – Quotes Section Upgrade
-=================================*/
-
-[data-theme="dark"] #quotes {
-    background: #1a1a1a; /* soft grey background */
-    border-radius: 20px;
-    padding: 60px 30px;
-}
-
-/* Title Styling */
-[data-theme="dark"] #quotes h2 {
-    color: #ffffff; /* pure white heading */
-    position: relative;
-    display: inline-block;
-    z-index: 1;
-}
-
-/* Subtle Gradient Glow */
-[data-theme="dark"] #quotes h2::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 120%;
-    height: 140%;
-    background: radial-gradient(
-        circle,
-        rgba(59, 130, 246, 0.25),
-        rgba(59, 130, 246, 0.08),
-        transparent 70%
-    );
-    z-index: -1;
-    filter: blur(20px);
-    opacity: 0.8;
-}
-
-/* Make subtitle readable */
-[data-theme="dark"] #quotes p {
-    color: #cfcfcf;
-}
-
-
-}
-
-
 
         * {
             margin: 0;
@@ -98,6 +36,7 @@ NEW
             overflow-x: hidden;
         }
 
+        /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
@@ -113,10 +52,6 @@ NEW
             z-index: 1000;
             border-bottom: 1px solid var(--color-border);
             animation: slideDown 0.6s ease-out;
-        }
-
-        [data-theme="dark"] nav {
-            background: rgba(15, 15, 15, 0.9);
         }
 
         @keyframes slideDown {
@@ -137,12 +72,6 @@ NEW
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
         }
 
         .logo {
@@ -187,78 +116,6 @@ NEW
         .nav-links a:hover::after {
             width: 100%;
         }
-
-        /* Mobile menu toggle */
-        .mobile-menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        .mobile-menu-toggle span {
-            width: 25px;
-            height: 2px;
-            background: var(--color-text);
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(7px, 7px);
-        }
-
-        .mobile-menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        /* Dark mode toggle */
-        .theme-toggle {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.1);
-        }
-
-        .theme-toggle svg {
-            width: 22px;
-            height: 22px;
-            fill: var(--color-text);
-            stroke: var(--color-text);
-        }
-
-        /* Quotes Dark Mode */
-
-        body.dark-mode .quotes-container,
-body.dark-mode .quote-of-day {
-    background: #16161a;
-    border-color: #2a2a2e;
-}
-
-body.dark-mode .copy-btn,
-body.dark-mode .share-btn {
-    border-color: #2a2a2e;
-    color: #f5f5f5;
-}
-
-body.dark-mode .copy-btn:hover,
-body.dark-mode .share-btn:hover {
-    background: var(--color-accent);
-    color: white;
-}
-
 
         /* Hero Section */
         .hero {
@@ -336,6 +193,10 @@ body.dark-mode .share-btn:hover {
             letter-spacing: -0.01em;
         }
 
+        .article-content h4:first-child {
+            margin-top: 0;
+        }
+
         p {
             font-size: 1.2rem;
             line-height: 1.8;
@@ -361,19 +222,31 @@ body.dark-mode .share-btn:hover {
             border: 1px solid var(--color-border);
             border-radius: 18px;
             padding: 2rem;
-            background: var(--color-card-bg);
+            background: white;
             transition: all 0.3s ease;
             cursor: pointer;
+            overflow: hidden;
+        }
+
+        .article-card.expanded {
+            max-height: none;
+        }
+
+        .article-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, margin-top 0.3s ease;
+        }
+
+        .article-card.expanded .article-content {
+            max-height: 5000px;
+            margin-top: 1.5rem;
         }
 
         .article-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
             border-color: var(--color-accent);
-        }
-
-        [data-theme="dark"] .article-card:hover {
-            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15);
         }
 
         .article-meta {
@@ -390,43 +263,10 @@ body.dark-mode .share-btn:hover {
             font-size: 1.6rem;
         }
 
-        .article-card > p {
+        .article-card p {
             font-size: 1.1rem;
             color: var(--color-text-light);
             margin-bottom: 0;
-        }
-
-        /* Article Content (hidden by default) */
-        .article-full-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease, margin-top 0.3s ease, opacity 0.3s ease;
-            opacity: 0;
-        }
-
-        .article-card.expanded .article-full-content {
-            max-height: 5000px;
-            margin-top: 2rem;
-            opacity: 1;
-        }
-
-        .article-full-content h4 {
-            margin-top: 2rem;
-        }
-
-        .article-full-content h4:first-child {
-            margin-top: 0;
-        }
-
-        .article-full-content ul {
-            margin-left: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .article-full-content li {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 0.5rem;
         }
 
         /* Quote Block */
@@ -438,40 +278,31 @@ body.dark-mode .share-btn:hover {
             font-style: italic;
         }
 
-        [data-theme="dark"] .quote-block {
-            background: rgba(59, 130, 246, 0.1);
-        }
-
         .quote-block p {
             font-size: 1.3rem;
             line-height: 1.7;
             margin-bottom: 0.5rem;
         }
 
-        .quote-author {
-            font-family: var(--font-sans);
-            font-size: 0.95rem;
-            font-style: normal;
-            color: var(--color-text-light);
-            margin-top: 1rem;
-        }
-
-        /* ===============================
-   QUOTES SECTION (FIXED)
-=================================*/
-
-#quotes {
-    padding: 60px 20px;
-    text-align: center;
+        /* Scroll Reveal Animation */
+.reveal-quote {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
+.reveal-quote.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+        /* Quote of the Day */
 .quote-of-day {
     border: 1px solid var(--color-border);
     border-radius: 18px;
     padding: 2rem;
     margin-bottom: 3rem;
-    background: var(--color-card-bg);
-    transition: all 0.3s ease;
+    background: white;
 }
 
 .quote-of-day h3 {
@@ -484,18 +315,10 @@ body.dark-mode .share-btn:hover {
     font-style: italic;
 }
 
-/* Quote List */
-.quotes-container {
-    background: var(--color-card-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 18px;
-    padding: 2rem;
-}
-
+/* Quote List Styling */
 .quotes-list {
     list-style: none;
     padding: 0;
-    margin: 0;
 }
 
 .quotes-list li {
@@ -520,7 +343,6 @@ body.dark-mode .share-btn:hover {
     border-radius: 20px;
     border: 1px solid var(--color-border);
     background: transparent;
-    color: var(--color-text);
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -531,23 +353,19 @@ body.dark-mode .share-btn:hover {
     border-color: var(--color-accent);
 }
 
-/* Scroll Reveal */
-.reveal-quote {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: transform 0.8s ease, opacity 0.8s ease;
-}
-
-.reveal-quote.active {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 
         
-   
 
-      #quotes {
+        .quote-author {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-style: normal;
+            color: var(--color-text-light);
+            margin-top: 1rem;
+        }
+
+        #quotes {
     padding: 60px 20px;
     background-color: #f9f9f9;
     text-align: center;
@@ -566,11 +384,6 @@ body.dark-mode .share-btn:hover {
     margin-bottom: 15px;
 }
 
-        body.dark-mode .content-disclaimer {
-    background: rgba(255,255,255,0.03);
-    border-left: 3px solid #2a2a2e;
-}
-
 
         /* Newsletter Section */
         .newsletter {
@@ -581,28 +394,15 @@ body.dark-mode .share-btn:hover {
             margin: 6rem 0;
         }
 
-        [data-theme="dark"] .newsletter {
-            background: var(--color-card-bg);
-            border: 1px solid var(--color-border);
-        }
-
         .newsletter h2 {
             color: var(--color-bg);
             margin-bottom: 1rem;
-        }
-
-        [data-theme="dark"] .newsletter h2 {
-            color: var(--color-text);
         }
 
         .newsletter p {
             color: rgba(253, 251, 247, 0.8);
             font-size: 1.15rem;
             margin-bottom: 2rem;
-        }
-
-        [data-theme="dark"] .newsletter p {
-            color: var(--color-text-light);
         }
 
         .newsletter-form {
@@ -628,28 +428,13 @@ body.dark-mode .share-btn:hover {
             transition: all 0.3s ease;
         }
 
-        [data-theme="dark"] .newsletter-form input {
-            background: var(--color-bg);
-            border: 1px solid var(--color-border);
-            color: var(--color-text);
-        }
-
         .newsletter-form input::placeholder {
             color: rgba(253, 251, 247, 0.5);
-        }
-
-        [data-theme="dark"] .newsletter-form input::placeholder {
-            color: var(--color-text-light);
         }
 
         .newsletter-form input:focus {
             background: rgba(253, 251, 247, 0.15);
             border-color: rgba(253, 251, 247, 0.4);
-        }
-
-        [data-theme="dark"] .newsletter-form input:focus {
-            background: var(--color-card-bg);
-            border-color: var(--color-accent);
         }
 
         .newsletter-form button {
@@ -670,21 +455,6 @@ body.dark-mode .share-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
         }
-
-        .content-disclaimer {
-    margin-top: 3rem;
-    padding: 1.5rem 2rem;
-    border-left: 3px solid var(--color-border);
-    background: rgba(0, 0, 0, 0.02);
-    font-size: 0.95rem;
-    color: var(--color-text-light);
-}
-
-.content-disclaimer strong {
-    font-family: var(--font-sans);
-    color: var(--color-text);
-}
-
 
         /* Footer */
         footer {
@@ -730,74 +500,9 @@ body.dark-mode .share-btn:hover {
         }
 
         /* Responsive */
-       @media (max-width: 768px) {
-
-    .newsletter-form {
-        flex-direction: column;
-        gap: 1.2rem;
-        width: 100%;
-    }
-
-    .newsletter-form input,
-    .newsletter-form button {
-        width: 100%;
-        border-radius: 50px;
-    }
-
-    .newsletter-form input {
-        padding: 1.2rem 1.5rem;
-    }
-
-    .newsletter-form button {
-        padding: 1.2rem;
-    }
-
-}
-
-
-            .nav-right {
-                gap: 1rem;
-            }
-
-            .mobile-menu-toggle {
-                display: flex;
-            }
-
+        @media (max-width: 768px) {
             .nav-links {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: var(--color-bg);
-                flex-direction: column;
-                gap: 0;
-                padding: 0;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-                border-bottom: 1px solid var(--color-border);
-            }
-
-            .nav-links.active {
-                max-height: 300px;
-            }
-
-            .nav-links li {
-                border-bottom: 1px solid var(--color-border);
-            }
-
-            .nav-links li:last-child {
-                border-bottom: none;
-            }
-
-            .nav-links a {
-                display: block;
-                padding: 1.2rem 1.5rem;
-                font-size: 1rem;
-            }
-
-            .nav-links a::after {
-                display: none;
+                gap: 1.5rem;
             }
 
             .hero {
@@ -824,18 +529,25 @@ body.dark-mode .share-btn:hover {
                 padding: 0 1.5rem 4rem;
             }
 
-           .newsletter-form {
-    display: flex;
-    gap: 1rem;
-    max-width: 500px;
-    margin: 0 auto;
-    width: 100%;
-}
-
+            .newsletter-form {
+                flex-direction: column;
+            }
 
             .newsletter-form input {
                 min-width: 100%;
             }
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -843,36 +555,13 @@ body.dark-mode .share-btn:hover {
     <!-- Navigation -->
     <nav>
         <div class="nav-content">
-            <a href="#home" class="logo">Yagnik!</a>
-            <div class="nav-right">
-                <ul class="nav-links">
-                    <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
-                    <li><a href="#writing" onclick="closeMobileMenu()">Writing</a></li>
-                    <li><a href="#newsletter" onclick="closeMobileMenu()">Newsletter</a></li>
-                    <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
-                </ul>
-                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
-                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                    <svg class="moon-icon" style="display: none;" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                </button>
-                <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
+            <a href="#home" class="logo">YN</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#writing">Writing</a></li>
+                <li><a href="#newsletter">Newsletter</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
@@ -880,7 +569,7 @@ body.dark-mode .share-btn:hover {
     <section id="home" class="hero">
         <h1>Welcome. I'm a writer exploring ideas that matter.</h1>
         <p>I write about productivity, philosophy, and the frameworks that shape how we think and work.</p>
-        <p>Let's join and together read my weekly insights.</p>
+        <p>Join 800,000+ others who read my weekly insights.</p>
     </section>
 
     <!-- Main Content -->
@@ -890,7 +579,7 @@ body.dark-mode .share-btn:hover {
             <h2>About Me</h2>
             <p>
                 I'm a writer, thinker, and creator dedicated to exploring the frameworks that help us live better lives. 
-                My work sits at the intersection of philosophy, productivity, and personal growth. Btw, ICT Engineering Student :(
+                My work sits at the intersection of philosophy, productivity, and personal growth.
             </p>
             <p>
                 In 1789, philosopher Jeremy Bentham mused on the two forces that control our lives: 
@@ -923,7 +612,6 @@ body.dark-mode .share-btn:hover {
             </p>
 
             <div class="article-grid">
-                <!-- Article 1: Procrastination -->
                 <div class="article-card" onclick="toggleArticle(this)">
                     <div class="article-meta">Frameworks & Tools</div>
                     <h3>How to Stop Procrastinating</h3>
@@ -931,8 +619,7 @@ body.dark-mode .share-btn:hover {
                         A deep dive into Skinner's Law and the pleasure-pain framework that governs human behavior. 
                         Learn how to hack your motivation when you find yourself avoiding important work.
                     </p>
-                    
-                    <div class="article-full-content">
+                    <div class="article-content">
                         <h4>Understanding Skinner's Law</h4>
                         <p>
                             In 1789, philosopher Jeremy Bentham mused on the two forces that control our lives: 
@@ -946,7 +633,7 @@ body.dark-mode .share-btn:hover {
                         <p>
                             Skinner's Law says that to get yourself to do something, you need to either:
                         </p>
-                        <ul>
+                        <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
                             <li>Make the pain of not doing it greater than the pain of doing it, or</li>
                             <li>Make the pleasure of doing it greater than the pleasure of not doing it</li>
                         </ul>
@@ -954,7 +641,6 @@ body.dark-mode .share-btn:hover {
                             It's a very simple way of hacking your motivation when you find yourself 
                             procrastinating on or avoiding something important.
                         </p>
-
                         <h4>Practical Application</h4>
                         <p>
                             When I was writing my book, I kept saying it was my top priority, but weeks would 
@@ -974,7 +660,6 @@ body.dark-mode .share-btn:hover {
                     </div>
                 </div>
 
-                <!-- Article 2: Wealth -->
                 <div class="article-card" onclick="toggleArticle(this)">
                     <div class="article-meta">Productivity</div>
                     <h3>The 5 Types of Wealth</h3>
@@ -982,42 +667,23 @@ body.dark-mode .share-btn:hover {
                         Money is just one form of wealth. Discover the five types that truly matter and how to 
                         build a rich life across all dimensions.
                     </p>
-                    
-                    <div class="article-full-content">
+                    <div class="article-content">
                         <h4>Redefining Wealth</h4>
                         <p>
                             We live in a world that equates wealth with money. But true wealth is measured across 
                             multiple dimensions, and financial wealth is just one piece of the puzzle.
                         </p>
-
                         <h4>The Five Types of Wealth</h4>
-                        <p>
-                            <strong>1. Social Wealth:</strong> The strength of your relationships and community. 
-                            This includes deep friendships, family bonds, and meaningful connections. No amount 
-                            of money can replace the joy of genuine human connection.
-                        </p>
-                        <p>
-                            <strong>2. Time Wealth:</strong> The freedom to spend your time as you choose. 
-                            It's not about having unlimited time, but having control over how you use it. 
-                            The wealthiest people guard their time fiercely.
-                        </p>
-                        <p>
-                            <strong>3. Physical Wealth:</strong> Your health and vitality. No amount of money 
-                            can compensate for poor health. Energy, strength, and wellness are the foundation 
-                            for everything else in life.
-                        </p>
-                        <p>
-                            <strong>4. Mental Wealth:</strong> Peace of mind, emotional well-being, and mental 
-                            clarity. This is the foundation for everything else. Without mental wealth, no other 
-                            form of wealth truly matters.
-                        </p>
-                        <p>
-                            <strong>5. Financial Wealth:</strong> Yes, money matters. But it's a tool to build 
-                            the other four types of wealth, not an end in itself. Money provides options, security, 
-                            and freedom—but only when used intentionally.
-                        </p>
-
-                        <h4>Building True Wealth</h4>
+                        <p><strong>1. Social Wealth:</strong> The strength of your relationships and community. 
+                        This includes deep friendships, family bonds, and meaningful connections.</p>
+                        <p><strong>2. Time Wealth:</strong> The freedom to spend your time as you choose. 
+                        It's not about having unlimited time, but having control over how you use it.</p>
+                        <p><strong>3. Physical Wealth:</strong> Your health and vitality. No amount of money 
+                        can compensate for poor health.</p>
+                        <p><strong>4. Mental Wealth:</strong> Peace of mind, emotional well-being, and mental 
+                        clarity. This is the foundation for everything else.</p>
+                        <p><strong>5. Financial Wealth:</strong> Yes, money matters. But it's a tool to build 
+                        the other four types of wealth, not an end in itself.</p>
                         <p>
                             The wealthiest people I know aren't necessarily the richest. They're the ones who 
                             have achieved balance across all five dimensions. Start tracking your wealth across 
@@ -1026,7 +692,6 @@ body.dark-mode .share-btn:hover {
                     </div>
                 </div>
 
-                <!-- Article 3: First Principles -->
                 <div class="article-card" onclick="toggleArticle(this)">
                     <div class="article-meta">Mental Models</div>
                     <h3>First Principles Thinking</h3>
@@ -1034,8 +699,7 @@ body.dark-mode .share-btn:hover {
                         Break down complex problems to their fundamental truths. This is how Elon Musk, Aristotle, 
                         and other great thinkers approach challenges.
                     </p>
-                    
-                    <div class="article-full-content">
+                    <div class="article-content">
                         <h4>What Is First Principles Thinking?</h4>
                         <p>
                             First principles thinking is the practice of breaking down complex problems into 
@@ -1046,7 +710,6 @@ body.dark-mode .share-btn:hover {
                             first principles thinking asks: What are the fundamental truths? What do we know to be 
                             absolutely true?
                         </p>
-
                         <h4>The Elon Musk Example</h4>
                         <p>
                             When Elon Musk wanted to build SpaceX, everyone told him rockets were too expensive. 
@@ -1058,7 +721,6 @@ body.dark-mode .share-btn:hover {
                             The rest was markup, inefficiency, and legacy costs. By rebuilding from first principles, 
                             SpaceX was able to reduce costs by 10x.
                         </p>
-
                         <h4>How to Apply It</h4>
                         <p>
                             1. Identify and challenge your assumptions<br>
@@ -1073,7 +735,6 @@ body.dark-mode .share-btn:hover {
                     </div>
                 </div>
 
-                <!-- Article 4: Stoicism -->
                 <div class="article-card" onclick="toggleArticle(this)">
                     <div class="article-meta">Philosophy</div>
                     <h3>The Stoic Path to Resilience</h3>
@@ -1081,15 +742,13 @@ body.dark-mode .share-btn:hover {
                         Ancient Stoic wisdom applied to modern challenges. How to build unshakeable mental strength 
                         in an age of constant change.
                     </p>
-                    
-                    <div class="article-full-content">
+                    <div class="article-content">
                         <h4>The Core of Stoicism</h4>
                         <p>
                             Stoicism, developed in ancient Greece and Rome, offers a practical philosophy for 
                             navigating life's challenges. At its core is a simple but profound insight: 
                             We cannot control what happens to us, but we can always control how we respond.
                         </p>
-
                         <h4>The Dichotomy of Control</h4>
                         <p>
                             The Stoics divided everything into two categories: things we can control and things 
@@ -1101,25 +760,19 @@ body.dark-mode .share-btn:hover {
                             neglecting what we can. The path to resilience is accepting this dichotomy and 
                             focusing our energy accordingly.
                         </p>
-
                         <h4>Three Stoic Practices for Modern Life</h4>
                         <p>
                             <strong>Negative Visualization:</strong> Regularly imagine losing what you have. 
-                            This builds gratitude and prepares you for potential loss. By mentally rehearsing 
-                            loss, you become more resilient when challenges actually arise.
+                            This builds gratitude and prepares you for potential loss.
                         </p>
                         <p>
                             <strong>The View from Above:</strong> Zoom out and see your problems from a cosmic 
-                            perspective. Most of what troubles us is small when viewed from this lens. This 
-                            practice helps you maintain perspective and avoid being overwhelmed by minor setbacks.
+                            perspective. Most of what troubles us is small when viewed from this lens.
                         </p>
                         <p>
                             <strong>Voluntary Discomfort:</strong> Deliberately practice discomfort (cold showers, 
-                            fasting, hard workouts) to build resilience and reduce dependence on comfort. By 
-                            choosing discomfort, you train yourself to handle involuntary discomfort better.
+                            fasting, hard workouts) to build resilience and reduce dependence on comfort.
                         </p>
-
-                        <h4>Building Unshakeable Strength</h4>
                         <p>
                             Stoicism isn't about suppressing emotions—it's about not being controlled by them. 
                             It's about building mental strength that serves you in both good times and bad.
@@ -1129,55 +782,57 @@ body.dark-mode .share-btn:hover {
             </div>
         </section>
 
-                <!-- My Quotes Diaries Section -->
+        <!-- My Quotes Diaries Section -->
 <section id="quotes">
-    <h2>My Quotes Diaries!!</h2>
+    <h2>My Quotes Diaries!</h2>
     <p>Thoughts I’ve written during silent nights, hard days, and ambitious mornings.</p>
 
     <!-- Random Quote of the Day -->
     <div class="quote-of-day">
-        <h3>Quote of the Day!</h3>
+        <h3>Quote of the Day</h3>
         <p id="daily-quote-text"></p>
     </div>
 
     <!-- All Quotes -->
     <div class="quotes-container">
         <ul class="quotes-list">
-            <li class="reveal-quote">
+            <li>
                 <span class="quote-text">Your comfort zone is renting space in your potential.</span>
                 <button class="copy-btn">Copy</button>
             </li>
-            <li class="reveal-quote">
+            <li>
                 <span class="quote-text">Discipline is choosing what you want most over what you want now.</span>
                 <button class="copy-btn">Copy</button>
             </li>
-            <li class="reveal-quote">
+            <li>
                 <span class="quote-text">If you can control your focus, you can control your future.</span>
                 <button class="copy-btn">Copy</button>
             </li>
-            <li class="reveal-quote">
+            <li>
                 <span class="quote-text">Pain is temporary. Regret is permanent.</span>
                 <button class="copy-btn">Copy</button>
             </li>
-            <li class="reveal-quote">
+            <li>
                 <span class="quote-text">Small actions done daily beat motivation done occasionally.</span>
                 <button class="copy-btn">Copy</button>
             </li>
-            <li class="reveal-quote">
+            <li>
                 <span class="quote-text">You don’t lack talent — you lack consistent effort.</span>
                 <button class="copy-btn">Copy</button>
             </li>
-            <li class="reveal-quote">
+            <li>
                 <span class="quote-text">Be the driver of your life, not the passenger of your habits.</span>
                 <button class="copy-btn">Copy</button>
             </li>
-            <li class="reveal-quote">
+            <li>
                 <span class="quote-text">Your future is hidden inside your daily routine.</span>
                 <button class="copy-btn">Copy</button>
             </li>
         </ul>
     </div>
 </section>
+
+
 
         <!-- What I Believe -->
         <section>
@@ -1215,23 +870,11 @@ body.dark-mode .share-btn:hover {
         </section>
     </div>
 
-              <div class="content-disclaimer">
-    <p>
-        <strong>Note:</strong> Some ideas, frameworks, and quotations shared on this website are inspired by and derived from various books, research papers, articles, and online platforms including X (formerly Twitter). 
-        Wherever possible, I aim to provide proper attribution to the original creators.
-    </p>
-    <p>
-        If you believe any content has been shared without appropriate credit, please feel free to reach out. 
-        I will gladly review and resolve the matter promptly.
-    </p>
-              </div>
-
-
     <!-- Newsletter Section -->
     <section id="newsletter" class="newsletter">
         <h2>Join the Movement</h2>
         <p>
-            Join and receive high-signal, curiosity-inducing content every single week.
+            Join 800,000+ others who receive high-signal, curiosity-inducing content every single week.
         </p>
         <form class="newsletter-form" onsubmit="handleSubscribe(event)">
             <input type="email" placeholder="Enter your email" required>
@@ -1242,17 +885,17 @@ body.dark-mode .share-btn:hover {
     <!-- Footer -->
     <footer id="contact">
         <div class="social-links">
-            <a href="https://x.com/theiYags" aria-label="X (Formerly Twitter)">
+            <a href="#" aria-label="Twitter/X">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                 </svg>
             </a>
-            <a href="https://www.linkedin.com/in/yagnik-n-patel" aria-label="LinkedIn">
+            <a href="#" aria-label="LinkedIn">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                 </svg>
             </a>
-            <a href="https://www.instagram.com/yagsvision/" aria-label="Instagram">
+            <a href="#" aria-label="Instagram">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                 </svg>
@@ -1263,77 +906,31 @@ body.dark-mode .share-btn:hover {
                 </svg>
             </a>
         </div>
-        <p>© 2026 Yagnik N. All rights reserved.</p>
+        <p>© 2026 Your Name. All rights reserved.</p>
     </footer>
 
     <script>
-        // Theme toggle
-        function toggleTheme() {
-            const html = document.documentElement;
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            
-            // Toggle icons
-            const sunIcon = document.querySelector('.sun-icon');
-            const moonIcon = document.querySelector('.moon-icon');
-            
-            if (newTheme === 'dark') {
-                sunIcon.style.display = 'none';
-                moonIcon.style.display = 'block';
-            } else {
-                sunIcon.style.display = 'block';
-                moonIcon.style.display = 'none';
-            }
-        }
-
-        // Load saved theme on page load
-        (function() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            
-            if (savedTheme === 'dark') {
-                document.querySelector('.sun-icon').style.display = 'none';
-                document.querySelector('.moon-icon').style.display = 'block';
-            }
-        })();
-
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            const toggle = document.querySelector('.mobile-menu-toggle');
-            navLinks.classList.toggle('active');
-            toggle.classList.toggle('active');
-        }
-
-        function closeMobileMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            const toggle = document.querySelector('.mobile-menu-toggle');
-            navLinks.classList.remove('active');
-            toggle.classList.remove('active');
-        }
-
         // Toggle article expansion
         function toggleArticle(card) {
-            // Close all other articles
-            document.querySelectorAll('.article-card').forEach(c => {
-                if (c !== card) {
-                    c.classList.remove('expanded');
+            card.classList.toggle('expanded');
+        }
+
+        // Smooth scroll reveal animation
+        const reveals = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('active');
                 }
             });
-            
-            // Toggle current article
-            card.classList.toggle('expanded');
-            
-            // Smooth scroll to article if expanding
-            if (card.classList.contains('expanded')) {
-                setTimeout(() => {
-                    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 100);
-            }
-        }
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
 
         // Newsletter form handling
         function handleSubscribe(event) {
@@ -1357,7 +954,6 @@ body.dark-mode .share-btn:hover {
             });
         });
     </script>
-
     <script>
 const quoteElements = document.querySelectorAll('.reveal-quote');
 
@@ -1398,16 +994,7 @@ const quotes = [
 function getDailyQuote() {
     const today = new Date().getDate();
     const index = today % quotes.length;
-
-    const quoteEl = document.getElementById("daily-quote-text");
-
-    quoteEl.style.opacity = 0;
-
-    setTimeout(() => {
-        quoteEl.textContent = quotes[index];
-        quoteEl.style.transition = "opacity 0.5s ease";
-        quoteEl.style.opacity = 1;
-    }, 200);
+    document.getElementById("daily-quote-text").textContent = quotes[index];
 }
 
 getDailyQuote();
@@ -1428,5 +1015,6 @@ document.querySelectorAll(".copy-btn").forEach(button => {
     });
 });
 </script>
+
 </body>
 </html>
