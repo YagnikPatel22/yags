@@ -1,5 +1,3 @@
-Yags Web Code SAFE
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,6 +27,14 @@ Yags Web Code SAFE
             --color-border: #2a2a2a;
             --color-card-bg: #1a1a1a;
         }
+
+        body.dark-mode {
+    --color-bg: #0e0e11;
+    --color-text: #f5f5f5;
+    --color-text-light: #a1a1aa;
+    --color-border: #2a2a2e;
+}
+
 
         * {
             margin: 0;
@@ -184,6 +190,27 @@ Yags Web Code SAFE
             fill: var(--color-text);
             stroke: var(--color-text);
         }
+
+        /* Quotes Dark Mode */
+
+        body.dark-mode .quotes-container,
+body.dark-mode .quote-of-day {
+    background: #16161a;
+    border-color: #2a2a2e;
+}
+
+body.dark-mode .copy-btn,
+body.dark-mode .share-btn {
+    border-color: #2a2a2e;
+    color: #f5f5f5;
+}
+
+body.dark-mode .copy-btn:hover,
+body.dark-mode .share-btn:hover {
+    background: var(--color-accent);
+    color: white;
+}
+
 
         /* Hero Section */
         .hero {
@@ -381,20 +408,32 @@ Yags Web Code SAFE
             margin-top: 1rem;
         }
 
-        /* Disclaimer paragraph */
+        
+        /* Quote Block */
+        .quote-block {
+            border-left: 3px solid var(--color-accent);
+            padding: 2rem 2rem 2rem 2.5rem;
+            margin: 3rem 0;
+            background: rgba(37, 99, 235, 0.03);
+            font-style: italic;
+        }
 
-        .content-disclaimer {
-    margin-top: 3rem;
-    padding: 1.5rem 2rem;
-    border-left: 3px solid var(--color-border);
-    background: rgba(0, 0, 0, 0.02);
-    font-size: 0.95rem;
-    color: var(--color-text-light);
+        .quote-block p {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Scroll Reveal Animation */
+.reveal-quote {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: transform 0.8s ease, opacity 0.8s ease;
 }
 
-.content-disclaimer strong {
-    font-family: var(--font-sans);
-    color: var(--color-text);
+.reveal-quote.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
         /* Quote of the Day */
@@ -453,37 +492,30 @@ Yags Web Code SAFE
     color: white;
     border-color: var(--color-accent);
 }
-        /* ===============================
-   Scroll Reveal for Quotes
-=================================*/
 
-.reveal-quote {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
+      #quotes {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
 }
 
-.reveal-quote.active {
-    opacity: 1;
-    transform: translateY(0);
+.quotes-list {
+    list-style-type: disc;
+    max-width: 700px;
+    margin: 30px auto;
+    text-align: left;
+    font-size: 18px;
+    line-height: 1.8;
 }
 
-/* ===============================
-   Daily Quote Fade Animation
-=================================*/
-
-.fade-quote {
-    opacity: 0;
-    transform: scale(0.98);
-    transition: all 0.6s ease;
+.quotes-list li {
+    margin-bottom: 15px;
 }
 
-.fade-quote.show {
-    opacity: 1;
-    transform: scale(1);
+        body.dark-mode .content-disclaimer {
+    background: rgba(255,255,255,0.03);
+    border-left: 3px solid #2a2a2e;
 }
-
-
 
 
         /* Newsletter Section */
@@ -584,6 +616,21 @@ Yags Web Code SAFE
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
         }
+
+        .content-disclaimer {
+    margin-top: 3rem;
+    padding: 1.5rem 2rem;
+    border-left: 3px solid var(--color-border);
+    background: rgba(0, 0, 0, 0.02);
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+}
+
+.content-disclaimer strong {
+    font-family: var(--font-sans);
+    color: var(--color-text);
+}
+
 
         /* Footer */
         footer {
@@ -1003,57 +1050,55 @@ Yags Web Code SAFE
             </div>
         </section>
 
-        <!-- Quote Section -->
-
-        <section id="quotes">
+                <!-- My Quotes Diaries Section -->
+<section id="quotes">
     <h2>My Quotes Diaries!</h2>
     <p>Thoughts I’ve written during silent nights, hard days, and ambitious mornings.</p>
 
     <!-- Random Quote of the Day -->
     <div class="quote-of-day">
         <h3>Quote of the Day</h3>
-        <p id="daily-quote-text" class="fade-quote"></p>
+        <p id="daily-quote-text"></p>
     </div>
 
     <!-- All Quotes -->
     <div class="quotes-container">
         <ul class="quotes-list">
-            <li class="reveal-quote">
+            <li>
                 <span class="quote-text">Your comfort zone is renting space in your potential.</span>
                 <button class="copy-btn">Copy</button>
             </li>
-            <li class="reveal-quote">
+            <li>
                 <span class="quote-text">Discipline is choosing what you want most over what you want now.</span>
                 <button class="copy-btn">Copy</button>
             </li>
-            <li class="reveal-quote">
+            <li>
                 <span class="quote-text">If you can control your focus, you can control your future.</span>
                 <button class="copy-btn">Copy</button>
             </li>
-            <li class="reveal-quote">
+            <li>
                 <span class="quote-text">Pain is temporary. Regret is permanent.</span>
                 <button class="copy-btn">Copy</button>
             </li>
-            <li class="reveal-quote">
+            <li>
                 <span class="quote-text">Small actions done daily beat motivation done occasionally.</span>
                 <button class="copy-btn">Copy</button>
             </li>
-            <li class="reveal-quote">
+            <li>
                 <span class="quote-text">You don’t lack talent — you lack consistent effort.</span>
                 <button class="copy-btn">Copy</button>
             </li>
-            <li class="reveal-quote">
+            <li>
                 <span class="quote-text">Be the driver of your life, not the passenger of your habits.</span>
                 <button class="copy-btn">Copy</button>
             </li>
-            <li class="reveal-quote">
+            <li>
                 <span class="quote-text">Your future is hidden inside your daily routine.</span>
                 <button class="copy-btn">Copy</button>
             </li>
         </ul>
     </div>
 </section>
-
 
         <!-- What I Believe -->
         <section>
@@ -1091,7 +1136,7 @@ Yags Web Code SAFE
         </section>
     </div>
 
-    <div class="content-disclaimer">
+              <div class="content-disclaimer">
     <p>
         <strong>Note:</strong> Some ideas, frameworks, and quotations shared on this website are inspired by and derived from various books, research papers, articles, and online platforms including X (formerly Twitter). 
         Wherever possible, I aim to provide proper attribution to the original creators.
@@ -1100,7 +1145,7 @@ Yags Web Code SAFE
         If you believe any content has been shared without appropriate credit, please feel free to reach out. 
         I will gladly review and resolve the matter promptly.
     </p>
-</div>
+              </div>
 
 
     <!-- Newsletter Section -->
@@ -1139,7 +1184,7 @@ Yags Web Code SAFE
                 </svg>
             </a>
         </div>
-        <p>© 2026 Yagnik N. All rights reserved. Made with 😍❤️</p>
+        <p>© 2026 Yagnik N. All rights reserved.</p>
     </footer>
 
     <script>
@@ -1235,12 +1280,30 @@ Yags Web Code SAFE
     </script>
 
     <script>
-<script>
+const quoteElements = document.querySelectorAll('.reveal-quote');
 
-    
-/* ===============================
-   🎲 Random Quote of the Day
-=================================*/
+const revealQuotesOnScroll = () => {
+    const windowHeight = window.innerHeight;
+
+    quoteElements.forEach((el, index) => {
+        const elementTop = el.getBoundingClientRect().top;
+
+        if (elementTop < windowHeight - 60) {
+            setTimeout(() => {
+                el.classList.add('active');
+            }, index * 120); // stagger animation
+        }
+    });
+};
+
+window.addEventListener('scroll', revealQuotesOnScroll);
+revealQuotesOnScroll();
+</script>
+
+    <script>
+// ==============================
+// 🎲 Random Quote of the Day
+// ==============================
 
 const quotes = [
 "Your comfort zone is renting space in your potential.",
@@ -1253,27 +1316,17 @@ const quotes = [
 "Your future is hidden inside your daily routine."
 ];
 
-let currentDailyQuote = "";
-
 function getDailyQuote() {
     const today = new Date().getDate();
     const index = today % quotes.length;
-    currentDailyQuote = quotes[index];
-
-    const quoteEl = document.getElementById("daily-quote-text");
-    quoteEl.classList.remove("show");
-
-    setTimeout(() => {
-        quoteEl.textContent = currentDailyQuote;
-        quoteEl.classList.add("show");
-    }, 200);
+    document.getElementById("daily-quote-text").textContent = quotes[index];
 }
 
 getDailyQuote();
 
-/* ===============================
-   📋 Copy to Clipboard
-=================================*/
+// ==============================
+// 📋 Copy to Clipboard
+// ==============================
 
 document.querySelectorAll(".copy-btn").forEach(button => {
     button.addEventListener("click", function() {
@@ -1283,35 +1336,11 @@ document.querySelectorAll(".copy-btn").forEach(button => {
         this.textContent = "Copied!";
         setTimeout(() => {
             this.textContent = "Copy";
-        }, 1200);
+        }, 1500);
     });
 });
-
-/* ===============================
-   🚀 Scroll Reveal Animation
-=================================*/
-
-const revealQuotes = document.querySelectorAll(".reveal-quote");
-
-function revealOnScroll() {
-    const windowHeight = window.innerHeight;
-
-    revealQuotes.forEach((el, index) => {
-        const elementTop = el.getBoundingClientRect().top;
-
-        if (elementTop < windowHeight - 80) {
-            setTimeout(() => {
-                el.classList.add("active");
-            }, index * 120);
-        }
-    });
-}
-
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll();
-
 </script>
-
-
 </body>
 </html>
+
+
