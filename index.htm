@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yagnik N. Patel - Writer & Thinker</title>
+    <title>Yagnik N. Patel - Creative Thinker</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -18,7 +18,6 @@
             --font-serif: 'Crimson Pro', serif;
             --font-sans: 'DM Sans', sans-serif;
         }
-
         [data-theme="dark"] {
             --color-bg: #0f0f0f;
             --color-text: #e5e5e5;
@@ -27,791 +26,279 @@
             --color-border: #2a2a2a;
             --color-card-bg: #1a1a1a;
         }
-
         body.dark-mode {
-    --color-bg: #0e0e11;
-    --color-text: #f5f5f5;
-    --color-text-light: #a1a1aa;
-    --color-border: #2a2a2e;
-}
-
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --color-bg: #0e0e11;
+            --color-text: #f5f5f5;
+            --color-text-light: #a1a1aa;
+            --color-border: #2a2a2e;
         }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-serif); background-color: var(--color-bg); color: var(--color-text); line-height: 1.6; overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
 
-        body {
-            font-family: var(--font-serif);
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+        /* FESTIVAL BANNER */
+        #festival-banner { display: none; position: fixed; top: 0; left: 0; right: 0; min-height: 62px; padding: 16px 52px; text-align: center; z-index: 1001; overflow: hidden; animation: bannerSlideIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) both; }
+        #festival-banner::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.04) 50%, rgba(0,0,0,0.1) 100%); pointer-events: none; }
+        @keyframes bannerSlideIn { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        #festival-banner .banner-inner { position: relative; z-index: 2; display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-sans); font-size: 0.88rem; font-weight: 600; letter-spacing: 0.02em; line-height: 1.5; }
+        #festival-banner .festival-emoji { font-size: 1.25rem; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3)); animation: popIn 0.5s 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+        @keyframes popIn { from { transform: scale(0) rotate(-15deg); } to { transform: scale(1) rotate(0deg); } }
+        #festival-banner .fp { position: absolute; border-radius: 2px; pointer-events: none; animation: fpDrift linear infinite; opacity: 0; }
+        @keyframes fpDrift { 0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0; } 12% { opacity: 0.65; } 88% { opacity: 0.4; } 100% { transform: translateY(-68px) rotate(270deg) scale(0.2); opacity: 0; } }
+        #festival-banner .close-banner { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); z-index: 3; background: rgba(0,0,0,0.2); border: none; cursor: pointer; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; opacity: 0.5; transition: opacity 0.2s, background 0.2s; color: inherit; }
+        #festival-banner .close-banner:hover { opacity: 1; background: rgba(0,0,0,0.35); }
+        #festival-banner.theme-diwali { background: linear-gradient(118deg, #78200a, #c2410c, #f59e0b, #fef08a); color: #ffe8c8; }
+        #festival-banner.theme-holi { background: linear-gradient(118deg, #5b0f6b, #9d174d, #1e40af, #065f46); color: #fff; }
+        #festival-banner.theme-christmas { background: linear-gradient(118deg, #14532d, #16a34a, #991b1b, #dc2626); color: #dcfce7; }
+        #festival-banner.theme-newyear { background: linear-gradient(118deg, #020617, #0f172a, #1e1b4b, #4f46e5); color: #c7d2fe; }
+        #festival-banner.theme-eid { background: linear-gradient(118deg, #022c22, #065f46, #059669, #a7f3d0); color: #fff; }
+        #festival-banner.theme-navratri { background: linear-gradient(118deg, #4a044e, #86198f, #be185d, #ea580c); color: #fff; }
+        #festival-banner.theme-independence { background: linear-gradient(118deg, #431407, #c2410c, #f97316, #fef9c3); color: #431407; }
+        #festival-banner.theme-halloween { background: linear-gradient(118deg, #0c0a09, #1c1917, #78350f, #ea580c); color: #fed7aa; }
+        #festival-banner.theme-valentines { background: linear-gradient(118deg, #4c0519, #9f1239, #e11d48, #fb7185); color: #fff; }
+        #festival-banner.theme-thanksgiving { background: linear-gradient(118deg, #431407, #7c2d12, #b45309, #fbbf24); color: #fff7ed; }
+        #festival-banner.theme-easter { background: linear-gradient(118deg, #2e1065, #5b21b6, #a21caf, #f0abfc); color: #fff; }
+        #festival-banner.theme-janmashtami { background: linear-gradient(118deg, #0c1445, #1e3a8a, #2563eb, #f59e0b); color: #fff; }
+        #festival-banner.theme-ganesh { background: linear-gradient(118deg, #451a03, #92400e, #d97706, #fef08a); color: #1a0800; }
+        #festival-banner.theme-pongal { background: linear-gradient(118deg, #052e16, #14532d, #16a34a, #a3e635); color: #fff; }
+        #festival-banner.theme-lohri { background: linear-gradient(118deg, #431407, #7c2d12, #ea580c, #fbbf24); color: #fff; }
+        #festival-banner.theme-guru { background: linear-gradient(118deg, #172554, #1e40af, #2563eb, #fbbf24); color: #fff; }
+        #festival-banner.theme-republic { background: linear-gradient(118deg, #431407, #c2410c, #f97316, #fef9c3); color: #431407; }
+        #festival-banner.theme-raksha { background: linear-gradient(118deg, #500724, #9d174d, #db2777, #fbcfe8); color: #fff; }
+        #festival-banner.theme-default { background: linear-gradient(118deg, #1e1b4b, #312e81, #4f46e5, #818cf8); color: #fff; }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        /* NAVIGATION */
+        nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(253, 251, 247, 0.9); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid var(--color-border); animation: slideDown 0.6s ease-out; }
+        [data-theme="dark"] nav { background: rgba(15, 15, 15, 0.9); }
+        @keyframes slideDown { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .nav-content { max-width: 1200px; margin: 0 auto; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-right { display: flex; align-items: center; gap: 2rem; }
+        .logo { font-family: var(--font-sans); font-size: 1.5rem; font-weight: 700; color: var(--color-text); text-decoration: none; letter-spacing: -0.02em; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a { font-family: var(--font-sans); font-size: 0.95rem; color: var(--color-text-light); text-decoration: none; transition: color 0.3s ease; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--color-accent); transition: width 0.3s ease; }
+        .nav-links a:hover { color: var(--color-text); }
+        .nav-links a:hover::after { width: 100%; }
+        .mobile-menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 5px; }
+        .mobile-menu-toggle span { width: 25px; height: 2px; background: var(--color-text); transition: all 0.3s ease; }
+        .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(7px, 7px); }
+        .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+        .theme-toggle { background: none; border: none; cursor: pointer; padding: 8px; display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease; }
+        .theme-toggle:hover { transform: scale(1.1); }
+        .theme-toggle svg { width: 22px; height: 22px; fill: var(--color-text); stroke: var(--color-text); }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(253, 251, 247, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--color-border);
-            animation: slideDown 0.6s ease-out;
-        }
+        /* HERO */
+        .hero { max-width: 800px; margin: 0 auto; padding: 12rem 2rem 6rem; animation: fadeInUp 0.8s ease-out 0.2s both; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .hero h1 { font-size: 3.5rem; font-weight: 600; line-height: 1.2; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+        .hero p { font-size: 1.35rem; color: var(--color-text-light); line-height: 1.7; margin-bottom: 0.8rem; }
 
-        [data-theme="dark"] nav {
-            background: rgba(15, 15, 15, 0.9);
-        }
-
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .nav-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .logo {
-            font-family: var(--font-sans);
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--color-text);
-            text-decoration: none;
-            letter-spacing: -0.02em;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-family: var(--font-sans);
-            font-size: 0.95rem;
-            color: var(--color-text-light);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--color-accent);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--color-text);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Mobile menu toggle */
-        .mobile-menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        .mobile-menu-toggle span {
-            width: 25px;
-            height: 2px;
-            background: var(--color-text);
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(7px, 7px);
-        }
-
-        .mobile-menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        /* Dark mode toggle */
-        .theme-toggle {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.1);
-        }
-
-        .theme-toggle svg {
-            width: 22px;
-            height: 22px;
-            fill: var(--color-text);
-            stroke: var(--color-text);
-        }
-
-
-
-        /* Hero Section */
-        .hero {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 12rem 2rem 6rem;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 600;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .hero p {
-            font-size: 1.35rem;
-            color: var(--color-text-light);
-            line-height: 1.7;
-            margin-bottom: 0.8rem;
-        }
-
-        /* Main Content */
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem 6rem;
-        }
-
-        section {
-            margin-bottom: 8rem;
-            animation: fadeInUp 0.8s ease-out both;
-        }
-
+        /* MAIN CONTENT */
+        .container { max-width: 800px; margin: 0 auto; padding: 0 2rem 6rem; }
+        section { margin-bottom: 8rem; animation: fadeInUp 0.8s ease-out both; }
         section:nth-child(2) { animation-delay: 0.3s; }
         section:nth-child(3) { animation-delay: 0.4s; }
         section:nth-child(4) { animation-delay: 0.5s; }
+        h2 { font-family: var(--font-sans); font-size: 2.2rem; font-weight: 700; margin-bottom: 2rem; letter-spacing: -0.02em; }
+        h3 { font-family: var(--font-sans); font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; margin-top: 2.5rem; letter-spacing: -0.01em; }
+        h4 { font-family: var(--font-sans); font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; margin-top: 2rem; letter-spacing: -0.01em; }
+        p { font-size: 1.2rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--color-text); }
+        .highlight { font-style: italic; color: var(--color-text); background: linear-gradient(to right, transparent, rgba(37, 99, 235, 0.1), transparent); padding: 0.1rem 0; }
 
-        h2 {
-            font-family: var(--font-sans);
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            letter-spacing: -0.02em;
-        }
+        /* ARTICLE CARDS */
+        .article-grid { display: grid; gap: 2rem; margin-top: 3rem; }
+        .article-card { border: 1px solid var(--color-border); border-radius: 18px; padding: 2rem; background: var(--color-card-bg); transition: all 0.3s ease; cursor: pointer; }
+        .article-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08); border-color: var(--color-accent); }
+        [data-theme="dark"] .article-card:hover { box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15); }
+        .article-meta { font-family: var(--font-sans); font-size: 0.85rem; color: var(--color-text-light); margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .article-card h3 { margin-top: 0; font-size: 1.6rem; }
+        .article-card > p { font-size: 1.1rem; color: var(--color-text-light); margin-bottom: 0; }
+        .article-full-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, margin-top 0.3s ease, opacity 0.3s ease; opacity: 0; }
+        .article-card.expanded .article-full-content { max-height: 5000px; margin-top: 2rem; opacity: 1; }
+        .article-full-content h4 { margin-top: 2rem; }
+        .article-full-content h4:first-child { margin-top: 0; }
+        .article-full-content ul { margin-left: 2rem; margin-bottom: 1.5rem; }
+        .article-full-content li { font-size: 1.2rem; line-height: 1.8; margin-bottom: 0.5rem; }
 
-        h3 {
-            font-family: var(--font-sans);
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            margin-top: 2.5rem;
-            letter-spacing: -0.01em;
-        }
+        /* QUOTE BLOCK */
+        .quote-block { border-left: 3px solid var(--color-accent); padding: 2rem 2rem 2rem 2.5rem; margin: 3rem 0; background: rgba(37, 99, 235, 0.03); font-style: italic; }
+        [data-theme="dark"] .quote-block { background: rgba(59, 130, 246, 0.1); }
+        .quote-block p { font-size: 1.3rem; line-height: 1.7; margin-bottom: 0.5rem; }
+        .quote-author { font-family: var(--font-sans); font-size: 0.95rem; font-style: normal; color: var(--color-text-light); margin-top: 1rem; }
 
-        h4 {
-            font-family: var(--font-sans);
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            margin-top: 2rem;
-            letter-spacing: -0.01em;
-        }
+        /* QUOTES SECTION */
+        #quotes { text-align: center; }
+        .reveal-quote { opacity: 0; transform: translateY(30px); transition: transform 0.8s ease, opacity 0.8s ease; }
+        .reveal-quote.active { opacity: 1; transform: translateY(0); }
+        .quote-of-day { border: 1px solid var(--color-border); border-radius: 18px; padding: 2rem; margin-bottom: 3rem; background: var(--color-card-bg); transition: all 0.3s ease; }
+        .quote-of-day h3 { font-family: var(--font-sans); margin-bottom: 1rem; margin-top: 0; }
+        #daily-quote-text { font-size: 1.3rem; font-style: italic; margin-bottom: 0; }
+        .quotes-container { background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 18px; padding: 2rem; }
+        .quotes-list { list-style: none; padding: 0; margin: 0; }
+        .quotes-list li { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1.5rem; font-size: 1.2rem; }
+        .quotes-list li:last-child { margin-bottom: 0; }
+        .quote-text { flex: 1; font-style: italic; }
+        .copy-btn { font-family: var(--font-sans); font-size: 0.85rem; padding: 0.4rem 0.8rem; border-radius: 20px; border: 1px solid var(--color-border); background: transparent; color: var(--color-text); cursor: pointer; transition: all 0.3s ease; white-space: nowrap; }
+        .copy-btn:hover { background: var(--color-accent); color: white; border-color: var(--color-accent); }
 
-        p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            color: var(--color-text);
-        }
+        /* CONTENT DISCLAIMER */
+        .content-disclaimer { margin-top: 3rem; padding: 1.5rem 2rem; border-left: 3px solid var(--color-border); background: rgba(0, 0, 0, 0.02); font-size: 0.95rem; color: var(--color-text-light); }
+        .content-disclaimer strong { font-family: var(--font-sans); color: var(--color-text); }
+        [data-theme="dark"] .content-disclaimer { background: rgba(255,255,255,0.03); border-left: 3px solid #2a2a2e; }
 
-        .highlight {
-            font-style: italic;
-            color: var(--color-text);
-            background: linear-gradient(to right, transparent, rgba(37, 99, 235, 0.1), transparent);
-            padding: 0.1rem 0;
-        }
+        /* MOVIES SECTION */
+        #movies { padding-bottom: 2rem; }
+        .movies-header { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 1.2rem; margin-bottom: 2.4rem; }
+        .movies-header h2 { margin-bottom: 0.3rem; }
+        .movies-header > div > p { font-size: 1.1rem; color: var(--color-text-light); margin-bottom: 0; }
+        .movie-filters { display: flex; gap: 6px; flex-shrink: 0; }
+        .mf-btn { font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; padding: 6px 16px; border-radius: 50px; border: 1.5px solid var(--color-border); background: transparent; color: var(--color-text-light); cursor: pointer; transition: all 0.22s ease; }
+        .mf-btn:hover { color: var(--color-text); border-color: var(--color-text-light); }
+        .mf-btn.active { background: var(--color-text); color: var(--color-bg); border-color: var(--color-text); }
+        .movie-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.25rem; }
+        .movie-card { border-radius: 16px; background: var(--color-card-bg); border: 1px solid var(--color-border); padding: 1.5rem; transition: transform 0.28s cubic-bezier(0.34,1.28,0.64,1), box-shadow 0.28s ease, border-color 0.28s ease; animation: movieCardIn 0.5s cubic-bezier(0.22,1,0.36,1) both; display: flex; flex-direction: column; gap: 0.6rem; }
+        @keyframes movieCardIn { from { opacity: 0; transform: translateY(18px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        .movie-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); border-color: var(--color-accent); }
+        [data-theme="dark"] .movie-card:hover { box-shadow: 0 16px 40px rgba(59,130,246,0.1); }
+        .movie-card.hide { display: none; }
+        .movie-top-row { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+        .movie-genre { font-family: var(--font-sans); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-light); }
+        .movie-type-badge { font-family: var(--font-sans); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 20px; background: transparent; border: 1px solid var(--color-border); color: var(--color-text-light); white-space: nowrap; }
+        .movie-title-row { display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem; }
+        .movie-title { font-family: var(--font-sans); font-size: 1.1rem; font-weight: 700; line-height: 1.2; color: var(--color-text); letter-spacing: -0.02em; }
+        .movie-rating-inline { font-family: var(--font-sans); font-size: 0.82rem; font-weight: 700; color: #d4a017; white-space: nowrap; flex-shrink: 0; }
+        [data-theme="dark"] .movie-rating-inline { color: #f59e0b; }
+        .movie-year { font-family: var(--font-sans); font-size: 0.75rem; color: var(--color-text-light); }
+        .movie-divider { height: 1px; background: var(--color-border); margin: 0.2rem 0; }
+        .movie-take { font-family: var(--font-serif); font-size: 1rem; line-height: 1.65; color: var(--color-text-light); font-style: italic; margin: 0; flex: 1; }
 
-        /* Article Cards */
-        .article-grid {
-            display: grid;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .article-card {
-            border: 1px solid var(--color-border);
-            border-radius: 18px;
-            padding: 2rem;
-            background: var(--color-card-bg);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .article-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-            border-color: var(--color-accent);
-        }
-
-        [data-theme="dark"] .article-card:hover {
-            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15);
-        }
-
-        .article-meta {
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            color: var(--color-text-light);
-            margin-bottom: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .article-card h3 {
-            margin-top: 0;
-            font-size: 1.6rem;
-        }
-
-        .article-card > p {
-            font-size: 1.1rem;
-            color: var(--color-text-light);
-            margin-bottom: 0;
-        }
-
-        /* Article Content (hidden by default) */
-        .article-full-content {
-            max-height: 0;
+        /* ================================
+           SEE MORE / SEE LESS — Movies
+        ================================ */
+        .movie-overflow {
             overflow: hidden;
-            transition: max-height 0.5s ease, margin-top 0.3s ease, opacity 0.3s ease;
-            opacity: 0;
+            transition: max-height 0.65s cubic-bezier(0.22, 1, 0.36, 1);
         }
-
-        .article-card.expanded .article-full-content {
-            max-height: 5000px;
-            margin-top: 2rem;
-            opacity: 1;
-        }
-
-        .article-full-content h4 {
-            margin-top: 2rem;
-        }
-
-        .article-full-content h4:first-child {
-            margin-top: 0;
-        }
-
-        .article-full-content ul {
-            margin-left: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .article-full-content li {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Quote Block */
-        .quote-block {
-            border-left: 3px solid var(--color-accent);
-            padding: 2rem 2rem 2rem 2.5rem;
-            margin: 3rem 0;
-            background: rgba(37, 99, 235, 0.03);
-            font-style: italic;
-        }
-
-        [data-theme="dark"] .quote-block {
-            background: rgba(59, 130, 246, 0.1);
-        }
-
-        .quote-block p {
-            font-size: 1.3rem;
-            line-height: 1.7;
-            margin-bottom: 0.5rem;
-        }
-
-        .quote-author {
-            font-family: var(--font-sans);
-            font-size: 0.95rem;
-            font-style: normal;
-            color: var(--color-text-light);
-            margin-top: 1rem;
-        }
-
-        
-        /* Quote Block */
-        .quote-block {
-            border-left: 3px solid var(--color-accent);
-            padding: 2rem 2rem 2rem 2.5rem;
-            margin: 3rem 0;
-            background: rgba(37, 99, 235, 0.03);
-            font-style: italic;
-        }
-
-        .quote-block p {
-            font-size: 1.3rem;
-            line-height: 1.7;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Scroll Reveal Animation */
-.reveal-quote {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: transform 0.8s ease, opacity 0.8s ease;
-}
-
-.reveal-quote.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-        /* Quote of the Day */
-.quote-of-day {
-    border: 1px solid var(--color-border);
-    border-radius: 18px;
-    padding: 2rem;
-    margin-bottom: 3rem;
-    background: white;
-}
-
-.quote-of-day h3 {
-    font-family: var(--font-sans);
-    margin-bottom: 1rem;
-}
-
-#daily-quote-text {
-    font-size: 1.3rem;
-    font-style: italic;
-}
-
-/* Quote List Styling */
-.quotes-list {
-    list-style: none;
-    padding: 0;
-}
-
-.quotes-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    font-size: 1.2rem;
-}
-
-.quote-text {
-    flex: 1;
-    font-style: italic;
-}
-
-/* Copy Button */
-.copy-btn {
-    font-family: var(--font-sans);
-    font-size: 0.85rem;
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    border: 1px solid var(--color-border);
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.copy-btn:hover {
-    background: var(--color-accent);
-    color: white;
-    border-color: var(--color-accent);
-}
-
-/* ===============================
-   QUOTES SECTION (FIXED)
-=================================*/
-
-#quotes {
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.quote-of-day {
-    border: 1px solid var(--color-border);
-    border-radius: 18px;
-    padding: 2rem;
-    margin-bottom: 3rem;
-    background: var(--color-card-bg);
-    transition: all 0.3s ease;
-}
-
-.quote-of-day h3 {
-    font-family: var(--font-sans);
-    margin-bottom: 1rem;
-}
-
-#daily-quote-text {
-    font-size: 1.3rem;
-    font-style: italic;
-}
-
-/* Quote List */
-.quotes-container {
-    background: var(--color-card-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 18px;
-    padding: 2rem;
-}
-
-.quotes-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.quotes-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    font-size: 1.2rem;
-}
-
-.quote-text {
-    flex: 1;
-    font-style: italic;
-}
-
-/* Copy Button */
-.copy-btn {
-    font-family: var(--font-sans);
-    font-size: 0.85rem;
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    border: 1px solid var(--color-border);
-    background: transparent;
-    color: var(--color-text);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.copy-btn:hover {
-    background: var(--color-accent);
-    color: white;
-    border-color: var(--color-accent);
-}
-
-/* Scroll Reveal */
-.reveal-quote {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: transform 0.8s ease, opacity 0.8s ease;
-}
-
-.reveal-quote.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-        body.dark-mode .content-disclaimer {
-    background: rgba(255,255,255,0.03);
-    border-left: 3px solid #2a2a2e;
-}
-
-
-        /* Newsletter Section */
-        .newsletter {
-            background: var(--color-text);
-            color: var(--color-bg);
-            padding: 4rem 2rem;
+        .movie-overflow.collapsed { max-height: 0 !important; }
+        .see-more-wrap {
             text-align: center;
-            margin: 6rem 0;
+            margin-top: 1.75rem;
+            position: relative;
         }
-
-        [data-theme="dark"] .newsletter {
-            background: var(--color-card-bg);
-            border: 1px solid var(--color-border);
-        }
-
-        .newsletter h2 {
-            color: var(--color-bg);
-            margin-bottom: 1rem;
-        }
-
-        [data-theme="dark"] .newsletter h2 {
-            color: var(--color-text);
-        }
-
-        .newsletter p {
-            color: rgba(253, 251, 247, 0.8);
-            font-size: 1.15rem;
-            margin-bottom: 2rem;
-        }
-
-        [data-theme="dark"] .newsletter p {
-            color: var(--color-text-light);
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 1rem;
-            max-width: 500px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            min-width: 250px;
-            padding: 1rem 1.5rem;
-            border: 1px solid rgba(253, 251, 247, 0.2);
-            border-radius: 50px;
-            background: rgba(253, 251, 247, 0.1);
-            color: var(--color-bg);
-            font-family: var(--font-sans);
-            font-size: 1rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        [data-theme="dark"] .newsletter-form input {
-            background: var(--color-bg);
-            border: 1px solid var(--color-border);
-            color: var(--color-text);
-        }
-
-        .newsletter-form input::placeholder {
-            color: rgba(253, 251, 247, 0.5);
-        }
-
-        [data-theme="dark"] .newsletter-form input::placeholder {
-            color: var(--color-text-light);
-        }
-
-        .newsletter-form input:focus {
-            background: rgba(253, 251, 247, 0.15);
-            border-color: rgba(253, 251, 247, 0.4);
-        }
-
-        [data-theme="dark"] .newsletter-form input:focus {
-            background: var(--color-card-bg);
-            border-color: var(--color-accent);
-        }
-
-        .newsletter-form button {
-            padding: 1rem 2.5rem;
-            background: var(--color-accent);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-family: var(--font-sans);
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .newsletter-form button:hover {
-            background: #1d4ed8;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
-        }
-
-        .content-disclaimer {
-    margin-top: 3rem;
-    padding: 1.5rem 2rem;
-    border-left: 3px solid var(--color-border);
-    background: rgba(0, 0, 0, 0.02);
-    font-size: 0.95rem;
-    color: var(--color-text-light);
-}
-
-.content-disclaimer strong {
-    font-family: var(--font-sans);
-    color: var(--color-text);
-}
-
-
-        /* Footer */
-        footer {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-            text-align: center;
-            border-top: 1px solid var(--color-border);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .social-links a {
-            font-family: var(--font-sans);
-            color: var(--color-text-light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: flex;
+        .see-more-btn {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 8px;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 50px;
+            border: 1.5px solid var(--color-border);
+            background: var(--color-card-bg);
+            color: var(--color-text);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            letter-spacing: 0.02em;
         }
-
-        .social-links a:hover {
+        .see-more-btn:hover {
+            border-color: var(--color-accent);
             color: var(--color-accent);
             transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.13);
         }
-
-        .social-links svg {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
+        .see-more-btn svg {
+            width: 16px; height: 16px;
+            transition: transform 0.3s ease;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
-
-        footer p {
+        .see-more-btn.open svg { transform: rotate(180deg); }
+        .movie-count-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             font-family: var(--font-sans);
-            font-size: 0.95rem;
-            color: var(--color-text-light);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 2px 9px;
+            border-radius: 20px;
+            background: var(--color-accent);
+            color: #fff;
+            letter-spacing: 0.04em;
+            margin-left: 2px;
         }
 
-        /* Responsive */
+        /* NEWSLETTER */
+        .newsletter { background: var(--color-text); color: var(--color-bg); padding: 4rem 2rem; text-align: center; margin: 6rem 0; }
+        [data-theme="dark"] .newsletter { background: var(--color-card-bg); border: 1px solid var(--color-border); }
+        .newsletter h2 { color: var(--color-bg); margin-bottom: 1rem; }
+        [data-theme="dark"] .newsletter h2 { color: var(--color-text); }
+        .newsletter p { color: rgba(253, 251, 247, 0.8); font-size: 1.15rem; margin-bottom: 2rem; }
+        [data-theme="dark"] .newsletter p { color: var(--color-text-light); }
+        .newsletter-form { display: flex; gap: 1rem; max-width: 500px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+        .newsletter-form input { flex: 1; min-width: 250px; padding: 1rem 1.5rem; border: 1px solid rgba(253, 251, 247, 0.2); border-radius: 50px; background: rgba(253, 251, 247, 0.1); color: var(--color-bg); font-family: var(--font-sans); font-size: 1rem; outline: none; transition: all 0.3s ease; }
+        [data-theme="dark"] .newsletter-form input { background: var(--color-bg); border: 1px solid var(--color-border); color: var(--color-text); }
+        .newsletter-form input::placeholder { color: rgba(253, 251, 247, 0.5); }
+        [data-theme="dark"] .newsletter-form input::placeholder { color: var(--color-text-light); }
+        .newsletter-form input:focus { background: rgba(253, 251, 247, 0.15); border-color: rgba(253, 251, 247, 0.4); }
+        [data-theme="dark"] .newsletter-form input:focus { background: var(--color-card-bg); border-color: var(--color-accent); }
+        .newsletter-form button { padding: 1rem 2.5rem; background: var(--color-accent); color: white; border: none; border-radius: 50px; font-family: var(--font-sans); font-size: 1rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; }
+        .newsletter-form button:hover { background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3); }
+
+        /* FOOTER */
+        footer { max-width: 800px; margin: 0 auto; padding: 4rem 2rem; text-align: center; border-top: 1px solid var(--color-border); }
+        .social-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; }
+        .social-links a { font-family: var(--font-sans); color: var(--color-text-light); text-decoration: none; transition: all 0.3s ease; display: flex; align-items: center; gap: 0.5rem; }
+        .social-links a:hover { color: var(--color-accent); transform: translateY(-2px); }
+        .social-links svg { width: 24px; height: 24px; fill: currentColor; }
+        footer p { font-family: var(--font-sans); font-size: 0.95rem; color: var(--color-text-light); }
+
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .nav-content {
-                padding: 1rem 1.5rem;
-            }
-
-            .nav-right {
-                gap: 1rem;
-            }
-
-            .mobile-menu-toggle {
-                display: flex;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: var(--color-bg);
-                flex-direction: column;
-                gap: 0;
-                padding: 0;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-                border-bottom: 1px solid var(--color-border);
-            }
-
-            .nav-links.active {
-                max-height: 300px;
-            }
-
-            .nav-links li {
-                border-bottom: 1px solid var(--color-border);
-            }
-
-            .nav-links li:last-child {
-                border-bottom: none;
-            }
-
-            .nav-links a {
-                display: block;
-                padding: 1.2rem 1.5rem;
-                font-size: 1rem;
-            }
-
-            .nav-links a::after {
-                display: none;
-            }
-
-            .hero {
-                padding: 10rem 1.5rem 4rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.15rem;
-            }
-
-            h2 {
-                font-size: 1.8rem;
-            }
-
-            p {
-                font-size: 1.1rem;
-            }
-
-            .container {
-                padding: 0 1.5rem 4rem;
-            }
-
-            .newsletter-form {
-                flex-direction: column;
-            }
-
-            .newsletter-form input {
-                min-width: 100%;
-            }
+            .nav-content { padding: 1rem 1.5rem; }
+            .nav-right { gap: 1rem; }
+            .mobile-menu-toggle { display: flex; }
+            .nav-links { position: fixed; top: 70px; left: 0; right: 0; background: var(--color-bg); flex-direction: column; gap: 0; padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; border-bottom: 1px solid var(--color-border); }
+            .nav-links.active { max-height: 400px; }
+            .nav-links li { border-bottom: 1px solid var(--color-border); }
+            .nav-links li:last-child { border-bottom: none; }
+            .nav-links a { display: block; padding: 1.2rem 1.5rem; font-size: 1rem; }
+            .nav-links a::after { display: none; }
+            .hero { padding: 10rem 1.5rem 4rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.15rem; }
+            h2 { font-size: 1.8rem; }
+            p { font-size: 1.1rem; }
+            .container { padding: 0 1.5rem 4rem; }
+            .newsletter-form { flex-direction: column; }
+            .newsletter-form input { min-width: 100%; }
+            #festival-banner { font-size: 0.85rem; padding: 12px 40px 12px 16px; }
+            .movie-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .movies-header { flex-direction: column; align-items: flex-start; }
+            .movie-filters { flex-wrap: wrap; }
         }
+        @media (max-width: 400px) { .movie-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+
+    <div id="festival-banner" role="banner" aria-live="polite">
+        <div id="fp-container"></div>
+        <div class="banner-inner">
+            <span class="festival-emoji" id="festival-emoji"></span>
+            <span id="festival-message"></span>
+            <span class="festival-emoji" id="festival-emoji2"></span>
+        </div>
+        <button class="close-banner" onclick="closeFestivalBanner()" aria-label="Close banner">&#10005;</button>
+    </div>
+
     <nav>
         <div class="nav-content">
             <a href="#home" class="logo">Yagnik!</a>
@@ -819,587 +306,1401 @@
                 <ul class="nav-links">
                     <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
                     <li><a href="#writing" onclick="closeMobileMenu()">Writing</a></li>
+                    <li><a href="#movies" onclick="closeMobileMenu()">Movies</a></li>
                     <li><a href="#newsletter" onclick="closeMobileMenu()">Newsletter</a></li>
                     <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
                 </ul>
                 <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
                     <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        <line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                     <svg class="moon-icon" style="display: none;" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
                 </button>
                 <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
-        <h1>Welcome. I'm a writer exploring ideas that matter.</h1>
-        <p>I write about productivity, philosophy, and the frameworks that shape how we think and work.</p>
-        <p>Let's join and together read my weekly insights.</p>
+        <h1>Greetings! I’m exploring writing ideas that matter and making them fun.</h1>
+        <p>I write about productivity, philosophy, frameworks, politics, trending news, movies, and the fun side of it all.</p>
+        <p>Let’s join and dive into these insights together.</p>
     </section>
 
-    <!-- Main Content -->
     <div class="container">
-        <!-- About Section -->
         <section id="about">
             <h2>About Me</h2>
-            <p>
-                I'm a writer, thinker, and creator dedicated to exploring the frameworks that help us live better lives. 
-                My work sits at the intersection of philosophy, productivity, and personal growth. Btw, ICT Engineering Student :(
-            </p>
-            <p>
-                In 1789, philosopher Jeremy Bentham mused on the two forces that control our lives: 
-                <span class="highlight">the pursuit of pleasure and the avoidance of pain</span>. This simple idea 
-                became the foundation for understanding human motivation and behavior.
-            </p>
-            <p>
-                I believe that by understanding these fundamental patterns—the mental models, cognitive frameworks, 
-                and timeless principles—we can make better decisions, build better habits, and ultimately lead more 
-                meaningful lives.
-            </p>
-
+            <p>I’m a writer, thinker, and creator exploring the frameworks that help us live better lives. I study ICT Engineering, but I don’t always resonate with the system around it. Too often, education feels like rote learning — outdated methods focused more on memorization than real understanding. The pressure is on marks, placements, and performance metrics rather than curiosity, experimentation, and applied knowledge.</p>
+<p>Many students are guided toward one predictable loop: score well, get placed, enter corporate life, repeat for 30–40 years. But I question that pattern. A job can be a short-term solution to a long-term problem. In many cases, employees spend their prime years building wealth for owners and shareholders while their own leverage stays limited. Your effort contributes more to someone else’s retirement than your own freedom.</p>
+<p>At the same time, social media feels increasingly engineered for distraction. Endless scrolling, shallow trends, attention traps, and rising normalization of nudity and sensational content — all designed to keep people stimulated, not aware. It feels like another loop quietly consuming focus and ambition.
+<p>Maybe I’m wrong. I’m still learning. But I would rather question systems than blindly adapt to them. I’m trying to wake myself up — and maybe others too.</p>
+<p>And yes, if I’m wrong, don’t ignore me. Just tell me straight: “Your flex is wrong. You’re not that smart. You’re being dumb.” I can take it. Growth needs friction. xD</p>
+            <p>In 1789, philosopher Jeremy Bentham mused on the two forces that control our lives: <span class="highlight">the pursuit of pleasure and the avoidance of pain</span>. This simple idea became the foundation for understanding human motivation and behavior.</p>
+            <p>I believe that by understanding these fundamental patterns—the mental models, cognitive frameworks, and timeless principles—we can make better decisions, build better habits, and ultimately lead more meaningful lives.</p>
             <div class="quote-block">
                 <p>"The quality of your life is determined by the quality of the questions you ask yourself."</p>
                 <div class="quote-author">— Ancient wisdom, modern application</div>
             </div>
-
-            <p>
-                My mission is to surface these powerful ideas, distill them into actionable frameworks, and share 
-                them with people who are committed to continuous growth. Every week, I research, synthesize, and 
-                publish insights that you can apply immediately to your work and life.
-            </p>
+            <p>My mission is to surface these powerful ideas, distill them into actionable frameworks, and share them with people who are committed to continuous growth. Every week, I research, synthesize, and publish insights that you can apply immediately to your work and life.</p>
         </section>
 
-        <!-- Writing Section -->
         <section id="writing">
             <h2>Featured Writing</h2>
-            <p>
-                I publish essays, frameworks, and mental models every week. Here are some of my most popular pieces:
-            </p>
-
+            <p>I publish essays, frameworks, and mental models on philosophy, productivity, politics, real-world issues, trendy movies, news, and social media culture, pop-culture.
+Here are some of my personal favorite pieces :</p>
             <div class="article-grid">
-                <!-- Article 1: Procrastination -->
                 <div class="article-card" onclick="toggleArticle(this)">
-                    <div class="article-meta">Frameworks & Tools</div>
+                    <div class="article-meta">Frameworks &amp; Tools</div>
                     <h3>How to Stop Procrastinating</h3>
-                    <p>
-                        A deep dive into Skinner's Law and the pleasure-pain framework that governs human behavior. 
-                        Learn how to hack your motivation when you find yourself avoiding important work.
-                    </p>
-                    
+                    <p>A deep dive into Skinner's Law and the pleasure-pain framework that governs human behavior. Learn how to hack your motivation when you find yourself avoiding important work.</p>
                     <div class="article-full-content">
                         <h4>Understanding Skinner's Law</h4>
-                        <p>
-                            In 1789, philosopher Jeremy Bentham mused on the two forces that control our lives: 
-                            the pursuit of pleasure and the avoidance of pain. This general idea is the basis for 
-                            the most useful productivity framework you've probably never heard of.
-                        </p>
-                        <p>
-                            It's called Skinner's Law. The law is named after behavioral psychologist B.F. Skinner, 
-                            who was a pioneer in the study of how rewards and punishments shape human behavior.
-                        </p>
-                        <p>
-                            Skinner's Law says that to get yourself to do something, you need to either:
-                        </p>
-                        <ul>
-                            <li>Make the pain of not doing it greater than the pain of doing it, or</li>
-                            <li>Make the pleasure of doing it greater than the pleasure of not doing it</li>
-                        </ul>
-                        <p>
-                            It's a very simple way of hacking your motivation when you find yourself 
-                            procrastinating on or avoiding something important.
-                        </p>
-
+                        <p>In 1789, philosopher Jeremy Bentham mused on the two forces that control our lives: the pursuit of pleasure and the avoidance of pain. This general idea is the basis for the most useful productivity framework you've probably never heard of.</p>
+                        <p>It's called Skinner's Law. The law is named after behavioral psychologist B.F. Skinner, who was a pioneer in the study of how rewards and punishments shape human behavior.</p>
+                        <p>Skinner's Law says that to get yourself to do something, you need to either:</p>
+                        <ul><li>Make the pain of not doing it greater than the pain of doing it, or</li><li>Make the pleasure of doing it greater than the pleasure of not doing it</li></ul>
+                        <p>It's a very simple way of hacking your motivation when you find yourself procrastinating on or avoiding something important.</p>
                         <h4>Practical Application</h4>
-                        <p>
-                            When I was writing my book, I kept saying it was my top priority, but weeks would 
-                            pass without meaningful progress. Why? Ultimately, it was because of a pleasure-pain 
-                            mismatch. Given how far out the deadline was, it was much easier (higher pleasure, 
-                            lower pain) to skip writing on any given day than it was to sit down and work.
-                        </p>
-                        <p>
-                            To fix this, I needed to adjust the equation. I made the pain of not writing greater 
-                            by creating public accountability and setting up daily check-ins with a writing partner. 
-                            I made the pleasure of writing greater by rewarding myself after each writing session.
-                        </p>
-                        <p>
-                            The framework is simple, but the impact is profound. Next time you find yourself 
-                            procrastinating, ask: How can I adjust the pleasure-pain equation?
-                        </p>
+                        <p>When I was writing my book, I kept saying it was my top priority, but weeks would pass without meaningful progress. Why? Ultimately, it was because of a pleasure-pain mismatch. Given how far out the deadline was, it was much easier (higher pleasure, lower pain) to skip writing on any given day than it was to sit down and work.</p>
+                        <p>To fix this, I needed to adjust the equation. I made the pain of not writing greater by creating public accountability and setting up daily check-ins with a writing partner. I made the pleasure of writing greater by rewarding myself after each writing session.</p>
+                        <p>The framework is simple, but the impact is profound. Next time you find yourself procrastinating, ask: How can I adjust the pleasure-pain equation?</p>
                     </div>
                 </div>
-
-                <!-- Article 2: Wealth -->
                 <div class="article-card" onclick="toggleArticle(this)">
                     <div class="article-meta">Productivity</div>
                     <h3>The 5 Types of Wealth</h3>
-                    <p>
-                        Money is just one form of wealth. Discover the five types that truly matter and how to 
-                        build a rich life across all dimensions.
-                    </p>
-                    
+                    <p>Money is just one form of wealth. Discover the five types that truly matter and how to build a rich life across all dimensions.</p>
                     <div class="article-full-content">
                         <h4>Redefining Wealth</h4>
-                        <p>
-                            We live in a world that equates wealth with money. But true wealth is measured across 
-                            multiple dimensions, and financial wealth is just one piece of the puzzle.
-                        </p>
-
+                        <p>We live in a world that equates wealth with money. But true wealth is measured across multiple dimensions, and financial wealth is just one piece of the puzzle.</p>
                         <h4>The Five Types of Wealth</h4>
-                        <p>
-                            <strong>1. Social Wealth:</strong> The strength of your relationships and community. 
-                            This includes deep friendships, family bonds, and meaningful connections. No amount 
-                            of money can replace the joy of genuine human connection.
-                        </p>
-                        <p>
-                            <strong>2. Time Wealth:</strong> The freedom to spend your time as you choose. 
-                            It's not about having unlimited time, but having control over how you use it. 
-                            The wealthiest people guard their time fiercely.
-                        </p>
-                        <p>
-                            <strong>3. Physical Wealth:</strong> Your health and vitality. No amount of money 
-                            can compensate for poor health. Energy, strength, and wellness are the foundation 
-                            for everything else in life.
-                        </p>
-                        <p>
-                            <strong>4. Mental Wealth:</strong> Peace of mind, emotional well-being, and mental 
-                            clarity. This is the foundation for everything else. Without mental wealth, no other 
-                            form of wealth truly matters.
-                        </p>
-                        <p>
-                            <strong>5. Financial Wealth:</strong> Yes, money matters. But it's a tool to build 
-                            the other four types of wealth, not an end in itself. Money provides options, security, 
-                            and freedom—but only when used intentionally.
-                        </p>
-
+                        <p><strong>1. Social Wealth:</strong> The strength of your relationships and community. This includes deep friendships, family bonds, and meaningful connections. No amount of money can replace the joy of genuine human connection.</p>
+                        <p><strong>2. Time Wealth:</strong> The freedom to spend your time as you choose. It's not about having unlimited time, but having control over how you use it. The wealthiest people guard their time fiercely.</p>
+                        <p><strong>3. Physical Wealth:</strong> Your health and vitality. No amount of money can compensate for poor health. Energy, strength, and wellness are the foundation for everything else in life.</p>
+                        <p><strong>4. Mental Wealth:</strong> Peace of mind, emotional well-being, and mental clarity. This is the foundation for everything else. Without mental wealth, no other form of wealth truly matters.</p>
+                        <p><strong>5. Financial Wealth:</strong> Yes, money matters. But it's a tool to build the other four types of wealth, not an end in itself. Money provides options, security, and freedom—but only when used intentionally.</p>
                         <h4>Building True Wealth</h4>
-                        <p>
-                            The wealthiest people I know aren't necessarily the richest. They're the ones who 
-                            have achieved balance across all five dimensions. Start tracking your wealth across 
-                            all five types, and make intentional choices to build each one.
-                        </p>
+                        <p>The wealthiest people I know aren't necessarily the richest. They're the ones who have achieved balance across all five dimensions. Start tracking your wealth across all five types, and make intentional choices to build each one.</p>
                     </div>
                 </div>
-
-                <!-- Article 3: First Principles -->
                 <div class="article-card" onclick="toggleArticle(this)">
                     <div class="article-meta">Mental Models</div>
                     <h3>First Principles Thinking</h3>
-                    <p>
-                        Break down complex problems to their fundamental truths. This is how Elon Musk, Aristotle, 
-                        and other great thinkers approach challenges.
-                    </p>
-                    
+                    <p>Break down complex problems to their fundamental truths. This is how Elon Musk, Aristotle, and other great thinkers approach challenges.</p>
                     <div class="article-full-content">
                         <h4>What Is First Principles Thinking?</h4>
-                        <p>
-                            First principles thinking is the practice of breaking down complex problems into 
-                            their most basic, foundational elements—the "first principles"—and rebuilding from there.
-                        </p>
-                        <p>
-                            Instead of reasoning by analogy (doing things because that's how they've always been done), 
-                            first principles thinking asks: What are the fundamental truths? What do we know to be 
-                            absolutely true?
-                        </p>
-
+                        <p>First principles thinking is the practice of breaking down complex problems into their most basic, foundational elements—the "first principles"—and rebuilding from there.</p>
+                        <p>Instead of reasoning by analogy (doing things because that's how they've always been done), first principles thinking asks: What are the fundamental truths? What do we know to be absolutely true?</p>
                         <h4>The Elon Musk Example</h4>
-                        <p>
-                            When Elon Musk wanted to build SpaceX, everyone told him rockets were too expensive. 
-                            The going rate to buy a rocket was $65 million. Instead of accepting this, he asked: 
-                            What are rockets made of? What is the raw material cost?
-                        </p>
-                        <p>
-                            He discovered that the materials cost was only about 2% of the typical rocket price. 
-                            The rest was markup, inefficiency, and legacy costs. By rebuilding from first principles, 
-                            SpaceX was able to reduce costs by 10x.
-                        </p>
-
+                        <p>When Elon Musk wanted to build SpaceX, everyone told him rockets were too expensive. The going rate to buy a rocket was $65 million. Instead of accepting this, he asked: What are rockets made of? What is the raw material cost?</p>
+                        <p>He discovered that the materials cost was only about 2% of the typical rocket price. The rest was markup, inefficiency, and legacy costs. By rebuilding from first principles, SpaceX was able to reduce costs by 10x.</p>
                         <h4>How to Apply It</h4>
-                        <p>
-                            1. Identify and challenge your assumptions<br>
-                            2. Break the problem down to fundamental truths<br>
-                            3. Create new solutions from the ground up
-                        </p>
-                        <p>
-                            This approach works for business problems, personal challenges, and strategic decisions. 
-                            The next time you face a complex problem, resist the urge to reason by analogy. 
-                            Go back to first principles.
-                        </p>
+                        <p>1. Identify and challenge your assumptions<br>2. Break the problem down to fundamental truths<br>3. Create new solutions from the ground up</p>
+                        <p>This approach works for business problems, personal challenges, and strategic decisions. The next time you face a complex problem, resist the urge to reason by analogy. Go back to first principles.</p>
                     </div>
                 </div>
-
-                <!-- Article 4: Stoicism -->
                 <div class="article-card" onclick="toggleArticle(this)">
                     <div class="article-meta">Philosophy</div>
                     <h3>The Stoic Path to Resilience</h3>
-                    <p>
-                        Ancient Stoic wisdom applied to modern challenges. How to build unshakeable mental strength 
-                        in an age of constant change.
-                    </p>
-                    
+                    <p>Ancient Stoic wisdom applied to modern challenges. How to build unshakeable mental strength in an age of constant change.</p>
                     <div class="article-full-content">
                         <h4>The Core of Stoicism</h4>
-                        <p>
-                            Stoicism, developed in ancient Greece and Rome, offers a practical philosophy for 
-                            navigating life's challenges. At its core is a simple but profound insight: 
-                            We cannot control what happens to us, but we can always control how we respond.
-                        </p>
-
+                        <p>Stoicism, developed in ancient Greece and Rome, offers a practical philosophy for navigating life's challenges. At its core is a simple but profound insight: We cannot control what happens to us, but we can always control how we respond.</p>
                         <h4>The Dichotomy of Control</h4>
-                        <p>
-                            The Stoics divided everything into two categories: things we can control and things 
-                            we cannot. We can control our thoughts, actions, and responses. We cannot control 
-                            other people, external events, or outcomes.
-                        </p>
-                        <p>
-                            Most of our suffering comes from trying to control what we cannot control, and 
-                            neglecting what we can. The path to resilience is accepting this dichotomy and 
-                            focusing our energy accordingly.
-                        </p>
-
+                        <p>The Stoics divided everything into two categories: things we can control and things we cannot. We can control our thoughts, actions, and responses. We cannot control other people, external events, or outcomes.</p>
+                        <p>Most of our suffering comes from trying to control what we cannot control, and neglecting what we can. The path to resilience is accepting this dichotomy and focusing our energy accordingly.</p>
                         <h4>Three Stoic Practices for Modern Life</h4>
-                        <p>
-                            <strong>Negative Visualization:</strong> Regularly imagine losing what you have. 
-                            This builds gratitude and prepares you for potential loss. By mentally rehearsing 
-                            loss, you become more resilient when challenges actually arise.
-                        </p>
-                        <p>
-                            <strong>The View from Above:</strong> Zoom out and see your problems from a cosmic 
-                            perspective. Most of what troubles us is small when viewed from this lens. This 
-                            practice helps you maintain perspective and avoid being overwhelmed by minor setbacks.
-                        </p>
-                        <p>
-                            <strong>Voluntary Discomfort:</strong> Deliberately practice discomfort (cold showers, 
-                            fasting, hard workouts) to build resilience and reduce dependence on comfort. By 
-                            choosing discomfort, you train yourself to handle involuntary discomfort better.
-                        </p>
-
+                        <p><strong>Negative Visualization:</strong> Regularly imagine losing what you have. This builds gratitude and prepares you for potential loss. By mentally rehearsing loss, you become more resilient when challenges actually arise.</p>
+                        <p><strong>The View from Above:</strong> Zoom out and see your problems from a cosmic perspective. Most of what troubles us is small when viewed from this lens. This practice helps you maintain perspective and avoid being overwhelmed by minor setbacks.</p>
+                        <p><strong>Voluntary Discomfort:</strong> Deliberately practice discomfort (cold showers, fasting, hard workouts) to build resilience and reduce dependence on comfort. By choosing discomfort, you train yourself to handle involuntary discomfort better.</p>
                         <h4>Building Unshakeable Strength</h4>
-                        <p>
-                            Stoicism isn't about suppressing emotions—it's about not being controlled by them. 
-                            It's about building mental strength that serves you in both good times and bad.
-                        </p>
+                        <p>Stoicism isn't about suppressing emotions—it's about not being controlled by them. It's about building mental strength that serves you in both good times and bad.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-                <!-- My Quotes Diaries Section -->
-<section id="quotes">
-    <h2>My Quotes Diaries!</h2>
-    <p>Thoughts I’ve written during silent nights, hard days, and ambitious mornings.</p>
+        <section id="quotes">
+            <h2>My Quote Journal!</h2>
+            <p>A collection of thoughts I chose to write instead of ignore.</p>
+            <div class="quote-of-day">
+                <h3>Quote of the Day</h3>
+                <p id="daily-quote-text"></p>
+            </div>
+            <div class="quotes-container">
+                <ul class="quotes-list">
+                    <li class="reveal-quote"><span class="quote-text">“We suffer more in imagination than in reality.” — Seneca</span><button class="copy-btn">Copy</button></li>
+                    <li class="reveal-quote"><span class="quote-text">“All is flux, nothing stays still” ― Plato</span><button class="copy-btn">Copy</button></li>
+                    <li class="reveal-quote"><span class="quote-text">"Do it or don't do it, you will regret both." — Søren Kierkegaard</span><button class="copy-btn">Copy</button></li>
+                    <li class="reveal-quote"><span class="quote-text">“No one is more hated than he who speaks the truth.” ― Plato</span><button class="copy-btn">Copy</button></li>
+                    <li class="reveal-quote"><span class="quote-text">"People do not act according to truth. They act according to the truths they can live with." - The Modern Machiavelli</span><button class="copy-btn">Copy</button></li>
+                    <li class="reveal-quote"><span class="quote-text">I love people who post whatever they want on social media. It means they've learned to choose self-expression over other people's opinions. And that's beautiful.</span><button class="copy-btn">Copy</button></li>
+                    <li class="reveal-quote"><span class="quote-text">Mother is waiting for success, but Son cries all night for a girl.</span><button class="copy-btn">Copy</button></li>
+                    <li class="reveal-quote"><span class="quote-text">Be powerful, and people will pretend to love you." – Aline Frisch</span><button class="copy-btn">Copy</button></li>
+                </ul>
+            </div>
+        </section>
 
-    <!-- Random Quote of the Day -->
-    <div class="quote-of-day">
-        <h3>Quote of the Day</h3>
-        <p id="daily-quote-text"></p>
-    </div>
+        <section id="movies">
+            <div class="movies-header">
+                <div>
+                    <h2>Movies I Recommend</h2>
+                    <p>Handpicked films that stayed with me long after the credits rolled. <span style="font-size:0.9rem;color:var(--color-text-light);">(Ratings shown are IMDb ratings)</span></p>
+                </div>
+                <div class="movie-filters">
+                    <button class="mf-btn active" onclick="filterMovies('all', this)">All</button>
+                    <button class="mf-btn" onclick="filterMovies('bollywood', this)">Bollywood</button>
+                    <button class="mf-btn" onclick="filterMovies('south', this)">South</button>
+                    <button class="mf-btn" onclick="filterMovies('hollywood', this)">Hollywood</button>
+                </div>
+            </div>
 
-    <!-- All Quotes -->
-    <div class="quotes-container">
-        <ul class="quotes-list">
-            <li class="reveal-quote">
-                <span class="quote-text">Your comfort zone is renting space in your potential.</span>
-                <button class="copy-btn">Copy</button>
-            </li>
-            <li class="reveal-quote">
-                <span class="quote-text">Discipline is choosing what you want most over what you want now.</span>
-                <button class="copy-btn">Copy</button>
-            </li>
-            <li class="reveal-quote">
-                <span class="quote-text">If you can control your focus, you can control your future.</span>
-                <button class="copy-btn">Copy</button>
-            </li>
-            <li class="reveal-quote">
-                <span class="quote-text">Pain is temporary. Regret is permanent.</span>
-                <button class="copy-btn">Copy</button>
-            </li>
-            <li class="reveal-quote">
-                <span class="quote-text">Small actions done daily beat motivation done occasionally.</span>
-                <button class="copy-btn">Copy</button>
-            </li>
-            <li class="reveal-quote">
-                <span class="quote-text">You don’t lack talent — you lack consistent effort.</span>
-                <button class="copy-btn">Copy</button>
-            </li>
-            <li class="reveal-quote">
-                <span class="quote-text">Be the driver of your life, not the passenger of your habits.</span>
-                <button class="copy-btn">Copy</button>
-            </li>
-            <li class="reveal-quote">
-                <span class="quote-text">Your future is hidden inside your daily routine.</span>
-                <button class="copy-btn">Copy</button>
-            </li>
-        </ul>
-    </div>
-</section>
+            <div class="movie-grid" id="movie-grid">
 
-        <!-- What I Believe -->
-        <section>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:0.00s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Drama · Patriotism</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Swades</span>
+                        <span class="movie-rating-inline">★ 8.2</span>
+                    </div>
+                    <div class="movie-year">2004 · Ashutosh Gowariker</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">What does it mean to truly come home? This film asks that question better than any philosophy book ever could.</p>
+                </div>
+                <div class="movie-card" data-type="south" style="animation-delay:0.06s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Drama · Legal</span>
+                        <span class="movie-type-badge">South</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Jai Bhim</span>
+                        <span class="movie-rating-inline">★ 8.7</span>
+                    </div>
+                    <div class="movie-year">2021 · T. J. Gnanavel</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Justice for the voiceless — powerful, emotional, unforgettable.</p>
+                </div>
+                <div class="movie-card" data-type="hollywood" style="animation-delay:0.12s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Sci-Fi · Drama</span>
+                        <span class="movie-type-badge">Hollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Interstellar</span>
+                        <span class="movie-rating-inline">★ 8.7</span>
+                    </div>
+                    <div class="movie-year">2014 · Christopher Nolan</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Love as a force of nature across spacetime. Watch it when you need reminding how small and how significant you are.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:0.18s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Comedy · Drama</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">3 Idiots</span>
+                        <span class="movie-rating-inline">★ 8.4</span>
+                    </div>
+                    <div class="movie-year">2009 · Rajkumar Hirani</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">A film that makes you laugh and then quietly question every choice you've made in the name of success.</p>
+                </div>
+                <div class="movie-card" data-type="south" style="animation-delay:0.24s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Action · Drama</span>
+                        <span class="movie-type-badge">South</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">K.G.F: Chapter 2</span>
+                        <span class="movie-rating-inline">★ 8.3</span>
+                    </div>
+                    <div class="movie-year">2022 · Prashanth Neel</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Raw power, epic scale — Yash commands every frame.</p>
+                </div>
+                <div class="movie-card" data-type="hollywood" style="animation-delay:0.30s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Biography · Drama</span>
+                        <span class="movie-type-badge">Hollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">The Pursuit of Happyness</span>
+                        <span class="movie-rating-inline">★ 8.0</span>
+                    </div>
+                    <div class="movie-year">2006 · Gabriele Muccino</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Don't let anyone tell you that you can't do something. Watch this on your hardest days — guaranteed to reset you.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:0.36s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Epic · Sports</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Lagaan</span>
+                        <span class="movie-rating-inline">★ 8.1</span>
+                    </div>
+                    <div class="movie-year">2001 · Ashutosh Gowariker</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">The greatest underdog story ever told. Every frame screams that ordinary people can do extraordinary things.</p>
+                </div>
+                <div class="movie-card" data-type="south" style="animation-delay:0.42s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Action · Drama</span>
+                        <span class="movie-type-badge">South</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">RRR</span>
+                        <span class="movie-rating-inline">★ 7.8</span>
+                    </div>
+                    <div class="movie-year">2022 · S. S. Rajamouli</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Pure cinematic spectacle — friendship and rebellion collide.</p>
+                </div>
+                <div class="movie-card" data-type="hollywood" style="animation-delay:0.48s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Action · Thriller</span>
+                        <span class="movie-type-badge">Hollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">The Dark Knight</span>
+                        <span class="movie-rating-inline">★ 9.0</span>
+                    </div>
+                    <div class="movie-year">2008 · Christopher Nolan</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Not a superhero film — a study in chaos, order, and what happens when a man with no rules meets a man with too many.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:0.54s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Coming-of-Age · Friendship</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Dil Chahta Hai</span>
+                        <span class="movie-rating-inline">★ 8.1</span>
+                    </div>
+                    <div class="movie-year">2001 · Farhan Akhtar</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Friendship, freedom, and figuring out adulthood — it captures something most films can't even name.</p>
+                </div>
+                <div class="movie-card" data-type="south" style="animation-delay:0.60s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Action · Drama</span>
+                        <span class="movie-type-badge">South</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Baahubali 2</span>
+                        <span class="movie-rating-inline">★ 8.0</span>
+                    </div>
+                    <div class="movie-year">2017 · S. S. Rajamouli</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Why did Kattappa kill Baahubali? The answer broke records.</p>
+                </div>
+                <div class="movie-card" data-type="hollywood" style="animation-delay:0.66s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Drama · Psychology</span>
+                        <span class="movie-type-badge">Hollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Good Will Hunting</span>
+                        <span class="movie-rating-inline">★ 8.3</span>
+                    </div>
+                    <div class="movie-year">1997 · Gus Van Sant</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">It's not your fault. Three words that carry the weight of an entire philosophy. This film lives rent-free in my head.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:0.72s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Music · Romance · Drama</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Rockstar</span>
+                        <span class="movie-rating-inline">★ 7.9</span>
+                    </div>
+                    <div class="movie-year">2011 · Imtiaz Ali</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Pain as the price of greatness. Ranbir Kapoor became a legend in this film. The music alone changes something in you.</p>
+                </div>
+                <div class="movie-card" data-type="south" style="animation-delay:0.78s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Action · Thriller</span>
+                        <span class="movie-type-badge">South</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Kantara</span>
+                        <span class="movie-rating-inline">★ 8.2</span>
+                    </div>
+                    <div class="movie-year">2022 · Rishab Shetty</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Folklore meets ferocity — primal, visceral storytelling.</p>
+                </div>
+                <div class="movie-card" data-type="hollywood" style="animation-delay:0.84s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Biography · Sport</span>
+                        <span class="movie-type-badge">Hollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">F1 (Rush)</span>
+                        <span class="movie-rating-inline">★ 8.1</span>
+                    </div>
+                    <div class="movie-year">2013 · Ron Howard</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Rivalry at 200mph — adrenaline meets human drama.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:0.90s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Action · Drama</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Animal</span>
+                        <span class="movie-rating-inline">★ 7.1</span>
+                    </div>
+                    <div class="movie-year">2023 · Sandeep Reddy Vanga</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Raw, intense, and polarizing — a film that stays under your skin.</p>
+                </div>
+                <div class="movie-card" data-type="south" style="animation-delay:0.96s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Action · Thriller</span>
+                        <span class="movie-type-badge">South</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Vikram</span>
+                        <span class="movie-rating-inline">★ 8.2</span>
+                    </div>
+                    <div class="movie-year">2022 · Lokesh Kanagaraj</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Kamal Haasan returns with vengeance and style.</p>
+                </div>
+                <div class="movie-card" data-type="hollywood" style="animation-delay:1.02s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Biography · Sport</span>
+                        <span class="movie-type-badge">Hollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Ford v Ferrari</span>
+                        <span class="movie-rating-inline">★ 8.1</span>
+                    </div>
+                    <div class="movie-year">2019 · James Mangold</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Engineering passion meets racing glory — absolutely thrilling.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:1.08s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Romance · Comedy</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Barfi!</span>
+                        <span class="movie-rating-inline">★ 8.1</span>
+                    </div>
+                    <div class="movie-year">2012 · Anurag Basu</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">A wordless love story told with pure heart and infectious joy.</p>
+                </div>
+                <div class="movie-card" data-type="south" style="animation-delay:1.14s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Romance · Comedy</span>
+                        <span class="movie-type-badge">South</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Bheeshma</span>
+                        <span class="movie-rating-inline">★ 6.6</span>
+                    </div>
+                    <div class="movie-year">2020 · Venkat Akkineni</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Nithiin's easy charm in a breezy, feel-good entertainer.</p>
+                </div>
+                <div class="movie-card" data-type="hollywood" style="animation-delay:1.20s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Animation · Adventure</span>
+                        <span class="movie-type-badge">Hollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Puss in Boots</span>
+                        <span class="movie-rating-inline">★ 6.6</span>
+                    </div>
+                    <div class="movie-year">2011 · Chris Miller</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Swashbuckling cat with charm — DreamWorks at its playful best.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:1.26s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Comedy · Drama</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">OMG</span>
+                        <span class="movie-rating-inline">★ 8.1</span>
+                    </div>
+                    <div class="movie-year">2012 · Umesh Shukla</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">A brave film that questions blind faith with humor and wisdom.</p>
+                </div>
+                <div class="movie-card" data-type="south" style="animation-delay:1.32s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Action · Thriller</span>
+                        <span class="movie-type-badge">South</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Master</span>
+                        <span class="movie-rating-inline">★ 7.7</span>
+                    </div>
+                    <div class="movie-year">2021 · Lokesh Kanagaraj</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Thalapathy Vijay vs Vijay Sethupathi — a clash for the ages.</p>
+                </div>
+                <div class="movie-card" data-type="hollywood" style="animation-delay:1.38s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Action · Thriller</span>
+                        <span class="movie-type-badge">Hollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Fast & Furious</span>
+                        <span class="movie-rating-inline">★ 6.5</span>
+                    </div>
+                    <div class="movie-year">2009 · Justin Lin</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Family. Cars. Heists. The franchise that refuses to brake.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:1.44s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Drama · Social</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">OMG 2</span>
+                        <span class="movie-rating-inline">★ 7.5</span>
+                    </div>
+                    <div class="movie-year">2023 · Amit Rai</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Tackles taboo with grace — bold storytelling that sparks conversation.</p>
+                </div>
+                <div class="movie-card" data-type="south" style="animation-delay:1.50s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Romance · Drama</span>
+                        <span class="movie-type-badge">South</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Ala Vaikunthapurramuloo</span>
+                        <span class="movie-rating-inline">★ 7.2</span>
+                    </div>
+                    <div class="movie-year">2020 · Trivikram Srinivas</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Allu Arjun at full power — high energy, big emotions, great music.</p>
+                </div>
+                <div class="movie-card" data-type="hollywood" style="animation-delay:1.56s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Animation · Drama</span>
+                        <span class="movie-type-badge">Hollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">The Lion King</span>
+                        <span class="movie-rating-inline">★ 8.5</span>
+                    </div>
+                    <div class="movie-year">1994 · Roger Allers</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Circle of life — timeless story, unforgettable music.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:1.62s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Romance · Drama</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Cocktail</span>
+                        <span class="movie-rating-inline">★ 6.2</span>
+                    </div>
+                    <div class="movie-year">2012 · Homi Adajania</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Modern love triangle done right — messy, raw, and relatable.</p>
+                </div>
+                <div class="movie-card" data-type="south" style="animation-delay:1.68s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Action · Drama</span>
+                        <span class="movie-type-badge">South</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Sivaji</span>
+                        <span class="movie-rating-inline">★ 7.6</span>
+                    </div>
+                    <div class="movie-year">2007 · S. Shankar</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Rajinikanth vs corruption — stylish, loud, and unforgettable.</p>
+                </div>
+                <div class="movie-card" data-type="hollywood" style="animation-delay:1.74s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Sci-Fi · Action</span>
+                        <span class="movie-type-badge">Hollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">The Matrix</span>
+                        <span class="movie-rating-inline">★ 8.7</span>
+                    </div>
+                    <div class="movie-year">1999 · Wachowskis</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Red pill or blue pill? Reality will never be the same.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:1.80s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Comedy</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Good Newwz</span>
+                        <span class="movie-rating-inline">★ 7.0</span>
+                    </div>
+                    <div class="movie-year">2019 · Raj Mehta</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Laugh-out-loud funny with surprising emotional depth.</p>
+                </div>
+                <div class="movie-card" data-type="south" style="animation-delay:1.86s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Drama · Adventure</span>
+                        <span class="movie-type-badge">South</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">777 Charlie</span>
+                        <span class="movie-rating-inline">★ 8.7</span>
+                    </div>
+                    <div class="movie-year">2022 · Kiranraj K</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">A man and his dog redefine what it means to truly live. Keep tissues close.</p>
+                </div>
+                <div class="movie-card" data-type="hollywood" style="animation-delay:1.92s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Sci-Fi · Thriller</span>
+                        <span class="movie-type-badge">Hollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Inception</span>
+                        <span class="movie-rating-inline">★ 8.8</span>
+                    </div>
+                    <div class="movie-year">2010 · Christopher Nolan</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Dream within a dream within... Nolan's masterpiece.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:1.98s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Biography · Drama</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Pad Man</span>
+                        <span class="movie-rating-inline">★ 7.9</span>
+                    </div>
+                    <div class="movie-year">2018 · R. Balki</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Breaking stigma with simplicity — Akshay Kumar at his finest.</p>
+                </div>
+                <div class="movie-card" data-type="south" style="animation-delay:2.04s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Sports · Drama</span>
+                        <span class="movie-type-badge">South</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Jersey</span>
+                        <span class="movie-rating-inline">★ 8.6</span>
+                    </div>
+                    <div class="movie-year">2019 · Gowtam Tinnanuri</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">A father's redemption on the cricket field — raw, emotional, beautiful.</p>
+                </div>
+                
+                <div class="movie-card" data-type="hollywood" style="animation-delay:2.10s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Horror · Thriller</span>
+                        <span class="movie-type-badge">Hollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Final Destination</span>
+                        <span class="movie-rating-inline">★ 6.7</span>
+                    </div>
+                    <div class="movie-year">2000 · James Wong</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Death is inevitable — the kills are unforgettable.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:2.16s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Comedy · Drama</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Badhaai Ho</span>
+                        <span class="movie-rating-inline">★ 7.9</span>
+                    </div>
+                    <div class="movie-year">2018 · Amit Sharma</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Awkward, hilarious, and heartwarming — a story about family.</p>
+                </div>
+                <div class="movie-card" data-type="hollywood" style="animation-delay:2.22s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Animation · Family</span>
+                        <span class="movie-type-badge">Hollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Coco</span>
+                        <span class="movie-rating-inline">★ 8.4</span>
+                    </div>
+                    <div class="movie-year">2017 · Lee Unkrich</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Day of the Dead, celebration of memory — pure emotion.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:2.28s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Action · Comedy</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Happy New Year</span>
+                        <span class="movie-rating-inline">★ 5.0</span>
+                    </div>
+                    <div class="movie-year">2014 · Farah Khan</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Pure masala fun — don't think, just enjoy the ride.</p>
+                </div>
+                <div class="movie-card" data-type="hollywood" style="animation-delay:2.34s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Animation · Musical</span>
+                        <span class="movie-type-badge">Hollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Encanto</span>
+                        <span class="movie-rating-inline">★ 7.2</span>
+                    </div>
+                    <div class="movie-year">2021 · Jared Bush</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">We don't talk about Bruno — but we sing about everything else.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:2.40s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Action · Thriller</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Jawan</span>
+                        <span class="movie-rating-inline">★ 7.1</span>
+                    </div>
+                    <div class="movie-year">2023 · Atlee</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">SRK unleashed — high-octane spectacle with a social message.</p>
+                </div>
+                <div class="movie-card" data-type="hollywood" style="animation-delay:2.46s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Animation · Adventure</span>
+                        <span class="movie-type-badge">Hollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Abominable</span>
+                        <span class="movie-rating-inline">★ 7.0</span>
+                    </div>
+                    <div class="movie-year">2019 · Jill Culton</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">A Yeti journey home — heartwarming and visually stunning.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:2.52s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">War · Biography</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Shershaah</span>
+                        <span class="movie-rating-inline">★ 8.4</span>
+                    </div>
+                    <div class="movie-year">2021 · Vishnuvardhan</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">A soldier's love and sacrifice told with respect and emotion.</p>
+                </div>
+                <div class="movie-card" data-type="hollywood" style="animation-delay:2.58s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Animation · Comedy</span>
+                        <span class="movie-type-badge">Hollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Ice Age</span>
+                        <span class="movie-rating-inline">★ 7.5</span>
+                    </div>
+                    <div class="movie-year">2002 · Chris Wedge</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Scrat's acorn quest is eternal — friendship warms the ice.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:2.64s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Biography · Drama</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Srikanth</span>
+                        <span class="movie-rating-inline">★ 7.4</span>
+                    </div>
+                    <div class="movie-year">2024 · Tushar Hiranandani</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Against all odds — a story of vision beyond sight.</p>
+                </div>
+                <div class="movie-card" data-type="hollywood" style="animation-delay:2.70s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Animation · Comedy</span>
+                        <span class="movie-type-badge">Hollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Ratatouille</span>
+                        <span class="movie-rating-inline">★ 8.1</span>
+                    </div>
+                    <div class="movie-year">2007 · Brad Bird</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Anyone can cook — Pixar's love letter to passion.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:2.76s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Mystery · Thriller</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Badla</span>
+                        <span class="movie-rating-inline">★ 7.8</span>
+                    </div>
+                    <div class="movie-year">2019 · Sujoy Ghosh</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Twists upon twists — keeps you guessing until the end.</p>
+                </div>
+                <div class="movie-card" data-type="hollywood" style="animation-delay:2.82s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Animation · Sport</span>
+                        <span class="movie-type-badge">Hollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Cars</span>
+                        <span class="movie-rating-inline">★ 7.2</span>
+                    </div>
+                    <div class="movie-year">2006 · John Lasseter</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Life in the slow lane — surprisingly deep for a car movie.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:2.88s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Horror · Fantasy</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Tumbbad</span>
+                        <span class="movie-rating-inline">★ 8.2</span>
+                    </div>
+                    <div class="movie-year">2018 · Rahi Anil Barve</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Stunning visuals, slow-burn horror — Indian cinema at its boldest.</p>
+                </div>
+                <div class="movie-card" data-type="hollywood" style="animation-delay:2.94s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Animation · Coming-of-Age</span>
+                        <span class="movie-type-badge">Hollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Turning Red</span>
+                        <span class="movie-rating-inline">★ 7.0</span>
+                    </div>
+                    <div class="movie-year">2022 · Domee Shi</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Puberty as a giant red panda — bold, colorful, relatable.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:3.00s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Action · Thriller</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Jigra</span>
+                        <span class="movie-rating-inline">★ 6.7</span>
+                    </div>
+                    <div class="movie-year">2024 · Vasan Bala</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Sister on a mission — gritty, raw, and fiercely loyal.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:3.06s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Thriller · Drama</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Runway 34</span>
+                        <span class="movie-rating-inline">★ 7.2</span>
+                    </div>
+                    <div class="movie-year">2022 · Ajay Devgn</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Edge-of-your-seat aviation thriller with Ajay Devgn's intensity.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:3.12s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Biography · Drama</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Gunjan Saxena</span>
+                        <span class="movie-rating-inline">★ 7.1</span>
+                    </div>
+                    <div class="movie-year">2020 · Sharan Sharma</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Breaking barriers in the sky — courage over comfort.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:3.18s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">War · History</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Panipat</span>
+                        <span class="movie-rating-inline">★ 5.4</span>
+                    </div>
+                    <div class="movie-year">2019 · Ashutosh Gowariker</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Epic scale, ambitious vision — history brought to screen.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:3.24s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Romance · Comedy</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Jab We Met</span>
+                        <span class="movie-rating-inline">★ 7.9</span>
+                    </div>
+                    <div class="movie-year">2007 · Imtiaz Ali</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Spontaneous, chaotic, unforgettable — peak Imtiaz Ali magic.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:3.30s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Romance · Drama</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Tamasha</span>
+                        <span class="movie-rating-inline">★ 7.3</span>
+                    </div>
+                    <div class="movie-year">2015 · Imtiaz Ali</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Finding yourself through losing yourself — beautifully layered.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:3.36s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Romance · Comedy</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Rab Ne Bana Di Jodi</span>
+                        <span class="movie-rating-inline">★ 7.2</span>
+                    </div>
+                    <div class="movie-year">2008 · Aditya Chopra</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">SRK's quiet charm in a story about rediscovering love.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:3.42s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Romance · Drama</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Ae Dil Hai Mushkil</span>
+                        <span class="movie-rating-inline">★ 5.8</span>
+                    </div>
+                    <div class="movie-year">2016 · Karan Johar</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Heartbreak as poetry — beautifully shot, deeply felt.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:3.48s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Romance · Comedy</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Ajab Prem Ki Ghazab Kahani</span>
+                        <span class="movie-rating-inline">★ 6.4</span>
+                    </div>
+                    <div class="movie-year">2009 · Rajkumar Santoshi</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Ranbir's innocence meets quirky comedy — pure fun.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:3.54s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Action · Comedy</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Dabangg 3</span>
+                        <span class="movie-rating-inline">★ 4.3</span>
+                    </div>
+                    <div class="movie-year">2019 · Prabhu Deva</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Salman Khan doing Salman Khan things — no apologies.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:3.60s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Action · Romance</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Bodyguard</span>
+                        <span class="movie-rating-inline">★ 4.9</span>
+                    </div>
+                    <div class="movie-year">2011 · Siddique</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Salman's charm powers through a simple love story.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:3.66s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Romance · Drama</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Kuch Kuch Hota Hai</span>
+                        <span class="movie-rating-inline">★ 7.5</span>
+                    </div>
+                    <div class="movie-year">1998 · Karan Johar</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">The OG love triangle — nostalgia packed in every frame.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:3.72s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Romance · Comedy</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Pyaar Kiya To Darna Kya</span>
+                        <span class="movie-rating-inline">★ 6.6</span>
+                    </div>
+                    <div class="movie-year">1998 · Sohail Khan</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Salman romancing with full energy — 90s romance at its peak.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:3.78s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Romance · Comedy</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Tu Jhoothi Main Makkaar</span>
+                        <span class="movie-rating-inline">★ 6.5</span>
+                    </div>
+                    <div class="movie-year">2023 · Luv Ranjan</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Modern dating done Bollywood style — witty and relatable.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:3.84s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Fantasy · Adventure</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Brahmastra</span>
+                        <span class="movie-rating-inline">★ 5.5</span>
+                    </div>
+                    <div class="movie-year">2022 · Ayan Mukerji</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Ambitious VFX spectacle — Marvel meets Indian mythology.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:3.90s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Comedy · Drama</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">PK</span>
+                        <span class="movie-rating-inline">★ 8.1</span>
+                    </div>
+                    <div class="movie-year">2014 · Rajkumar Hirani</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Alien asks hard questions — Aamir Khan at his curious best.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:3.96s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Coming-of-Age · Romance</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Wake Up Sid</span>
+                        <span class="movie-rating-inline">★ 7.6</span>
+                    </div>
+                    <div class="movie-year">2009 · Ayan Mukerji</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Growing up, falling in love, finding yourself — gently told.</p>
+                </div>
+                <!-- See More button and overflow grid inserted by JS -->
+            </div>
+        </section>
+
+        <section id="beliefs">
             <h2>What I Believe</h2>
-            <p>
-                Over years of research and writing, I've developed a set of core principles that guide my work:
-            </p>
-
+            <p>Through exploration and self-discovery, I’ve shaped these core values:</p>
             <h3>Simple beats complex</h3>
-            <p>
-                The most powerful ideas are often the simplest. My goal is to take complex concepts and distill 
-                them into frameworks you can remember and apply. If you can't explain it simply, you don't 
-                understand it well enough.
-            </p>
-
+            <p>The most powerful ideas are often the simplest. My goal is to take complex concepts and distill them into frameworks you can remember and apply. If you can't explain it simply, you don't understand it well enough.</p>
             <h3>Action beats theory</h3>
-            <p>
-                Knowledge without application is just trivia. Every framework I share comes with concrete steps 
-                you can take today. The gap between knowing and doing is where most people get stuck—I help you 
-                bridge that gap.
-            </p>
-
+            <p>Knowledge without application is just trivia. Every framework I share comes with concrete steps you can take today. The gap between knowing and doing is where most people get stuck—I help you bridge that gap.</p>
             <h3>Timeless beats trendy</h3>
-            <p>
-                I'm more interested in principles that have worked for centuries than tactics that might work 
-                this quarter. Stoic philosophy, cognitive psychology, behavioral economics—these fields offer 
-                insights that remain relevant regardless of technological change.
-            </p>
-
+            <p>I'm more interested in principles that have worked for centuries than tactics that might work this quarter. Stoic philosophy, cognitive psychology, behavioral economics—these fields offer insights that remain relevant regardless of technological change.</p>
             <h3>Questions beat answers</h3>
-            <p>
-                The right question is more valuable than the right answer. I try to equip you with better 
-                questions to ask yourself, your team, and your work. Questions open doors; answers close them.
-            </p>
+            <p>The right question is more valuable than the right answer. I try to equip you with better questions to ask yourself, your team, and your work. Questions open doors; answers close them.</p>
         </section>
     </div>
 
-              <div class="content-disclaimer">
-    <p>
-        <strong>Note:</strong> Some ideas, frameworks, and quotations shared on this website are inspired by and derived from various books, research papers, articles, and online platforms including X (formerly Twitter). 
-        Wherever possible, I aim to provide proper attribution to the original creators.
-    </p>
-    <p>
-        If you believe any content has been shared without appropriate credit, please feel free to reach out. 
-        I will gladly review and resolve the matter promptly.
-    </p>
-              </div>
+    <div class="content-disclaimer">
+        <p><strong>Note:</strong> Some ideas, frameworks, and quotations shared on this website are inspired by and derived from various books, research papers, articles, and online platforms including X (formerly Twitter). Wherever possible, I aim to provide proper attribution to the original creators.</p>
+        <p>If you believe any content has been shared without appropriate credit, please feel free to reach out. I will gladly review and resolve the matter promptly.</p>
+    </div>
 
-
-    <!-- Newsletter Section -->
     <section id="newsletter" class="newsletter">
         <h2>Join the Movement</h2>
-        <p>
-            Join and receive high-signal, curiosity-inducing content every single week.
-        </p>
+        <p>High-signal ideas designed to challenge your thinking.</p>
         <form class="newsletter-form" onsubmit="handleSubscribe(event)">
             <input type="email" placeholder="Enter your email" required>
             <button type="submit">Subscribe</button>
         </form>
     </section>
 
-    <!-- Footer -->
     <footer id="contact">
         <div class="social-links">
             <a href="https://x.com/theiYags" aria-label="X (Formerly Twitter)">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
             <a href="https://www.linkedin.com/in/yagnik-n-patel" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </a>
-           <a href="mailto:yagnikpatel@zohomail.in" aria-label="Email">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/>
-    </svg>
-</a>
+            <a href="mailto:yagnikpatel@zohomail.in" aria-label="Email">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg>
+            </a>
             <a href="#" aria-label="YouTube">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                </svg>
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
         </div>
-        <p>© 2026 Yagnik N. All rights reserved.</p>
+        <p>&copy; 2026 Yagnik N. All rights reserved.</p>
     </footer>
 
     <script>
-        // Theme toggle
-        function toggleTheme() {
-            const html = document.documentElement;
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            
-            // Toggle icons
-            const sunIcon = document.querySelector('.sun-icon');
-            const moonIcon = document.querySelector('.moon-icon');
-            
-            if (newTheme === 'dark') {
-                sunIcon.style.display = 'none';
-                moonIcon.style.display = 'block';
-            } else {
-                sunIcon.style.display = 'block';
-                moonIcon.style.display = 'none';
+    (function() {
+        const FESTIVALS = [
+            { name:"Diwali", month:10, day:20, theme:"diwali", emoji:"&#127774;", msg:"Happy Diwali! May your life always be lit with knowledge and love." },
+            { name:"Holi", month:3, day:14, theme:"holi", emoji:"&#127912;", msg:"Happy Holi! May your life be as colourful as today!" },
+            { name:"Navratri", month:10, day:3, theme:"navratri", emoji:"&#128131;", msg:"Happy Navratri! Nine nights of divine energy — dance, celebrate, shine!" },
+            { name:"Ganesh Chaturthi", month:9, day:2, theme:"ganesh", emoji:"&#128024;", msg:"Ganpati Bappa Morya! May Ganesha remove every obstacle in your path." },
+            { name:"Janmashtami", month:8, day:16, theme:"janmashtami", emoji:"&#129438;", msg:"Happy Janmashtami! May Lord Krishna's wisdom guide you always." },
+            { name:"Raksha Bandhan", month:8, day:19, theme:"raksha", emoji:"&#127872;", msg:"Happy Raksha Bandhan! Celebrate the beautiful bond of siblings." },
+            { name:"Independence Day", month:8, day:15, theme:"independence", emoji:"&#127988;", msg:"Happy Independence Day! Freedom is precious — use it wisely. Jai Hind!" },
+            { name:"Republic Day", month:1, day:26, theme:"republic", emoji:"&#127988;", msg:"Happy Republic Day! Proud to be Indian. Jai Hind!" },
+            { name:"Lohri", month:1, day:13, theme:"lohri", emoji:"&#128293;", msg:"Lohri Mubarak! Wishing you warmth, joy, and a bonfire of good vibes!" },
+            { name:"Makar Sankranti", month:1, day:14, theme:"pongal", emoji:"&#129361;", msg:"Happy Makar Sankranti! May this harvest season fill your life with sweetness." },
+            { name:"Eid al-Fitr", month:3, day:31, theme:"eid", emoji:"&#127773;", msg:"Eid Mubarak! Wishing you peace, joy, and countless blessings!" },
+            { name:"Christmas", month:12, day:25, theme:"christmas", emoji:"&#127876;", msg:"Merry Christmas! May the season fill your home with warmth and wonder." },
+            { name:"New Year", month:1, day:1, theme:"newyear", emoji:"&#127881;", msg:"Happy New Year! A blank page — make it a masterpiece." },
+            { name:"New Year's Eve", month:12, day:31, theme:"newyear", emoji:"&#129346;", msg:"Happy New Year's Eve! Reflect, reset, and get ready to rise." },
+            { name:"Valentine's Day", month:2, day:14, theme:"valentines", emoji:"&#128140;", msg:"Happy Valentine's Day! Spread love, always." },
+            { name:"Halloween", month:10, day:31, theme:"halloween", emoji:"&#127875;", msg:"Happy Halloween! Be spooky, be curious, be you!" },
+            { name:"Thanksgiving", month:11, day:28, theme:"thanksgiving", emoji:"&#129411;", msg:"Happy Thanksgiving! Gratitude is the highest form of thought." },
+            { name:"Easter", month:4, day:20, theme:"easter", emoji:"&#128035;", msg:"Happy Easter! May this season bring renewal and new beginnings!" },
+        ];
+        const PARTICLES = {
+            diwali:["#f97316","#fbbf24","#fef08a","#fff","#fb923c"], holi:["#f472b6","#818cf8","#34d399","#f97316","#60a5fa"],
+            christmas:["#bbf7d0","#fca5a5","#fff","#fbbf24"], newyear:["#a5b4fc","#fbbf24","#fff","#f9a8d4"],
+            eid:["#6ee7b7","#fbbf24","#fff"], navratri:["#f472b6","#fb923c","#c084fc","#fbbf24"],
+            independence:["#fb923c","#86efac","#fff"], halloween:["#fb923c","#fde68a","#a8a29e"],
+            valentines:["#fda4af","#fff","#fecdd3"], thanksgiving:["#fcd34d","#fdba74","#fff"],
+            easter:["#d8b4fe","#fbcfe8","#fde68a"], janmashtami:["#fbbf24","#93c5fd","#fff"],
+            ganesh:["#fb923c","#fde68a","#fff"], pongal:["#86efac","#fde68a","#fff"],
+            lohri:["#fb923c","#fbbf24","#fde68a"], guru:["#fbbf24","#93c5fd","#fff"],
+            republic:["#fb923c","#86efac","#fff"], raksha:["#fda4af","#fbcfe8","#fff"], default:["#a5b4fc","#fbbf24","#fff"],
+        };
+        function spawnParticles(theme) {
+            const container = document.getElementById("fp-container"); container.innerHTML = "";
+            const colors = PARTICLES[theme] || PARTICLES.default;
+            for (let i = 0; i < 18; i++) {
+                const el = document.createElement("div"); el.className = "fp";
+                const color = colors[i % colors.length], left = Math.random() * 93, top = 15 + Math.random() * 65;
+                const delay = Math.random() * 3.5, dur = 2.2 + Math.random() * 2.5, size = 4 + Math.random() * 5.5;
+                const shape = Math.random() > 0.5 ? "50%" : "2px";
+                el.style.cssText = `left:${left}%;top:${top}%;width:${size}px;height:${size}px;background:${color};border-radius:${shape};animation-duration:${dur}s;animation-delay:${delay}s;`;
+                container.appendChild(el);
             }
         }
-
-        // Load saved theme on page load
-        (function() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            
-            if (savedTheme === 'dark') {
-                document.querySelector('.sun-icon').style.display = 'none';
-                document.querySelector('.moon-icon').style.display = 'block';
-            }
-        })();
-
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            const toggle = document.querySelector('.mobile-menu-toggle');
-            navLinks.classList.toggle('active');
-            toggle.classList.toggle('active');
+        function getActiveFestival() {
+            const now = new Date(), m = now.getMonth() + 1, d = now.getDate();
+            for (const f of FESTIVALS) { const diff = (m - f.month) * 30 + (d - f.day); if (diff >= -1 && diff <= 1) return f; }
+            return null;
         }
-
-        function closeMobileMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            const toggle = document.querySelector('.mobile-menu-toggle');
-            navLinks.classList.remove('active');
-            toggle.classList.remove('active');
-        }
-
-        // Toggle article expansion
-        function toggleArticle(card) {
-            // Close all other articles
-            document.querySelectorAll('.article-card').forEach(c => {
-                if (c !== card) {
-                    c.classList.remove('expanded');
-                }
+        function showBanner(fest) {
+            const key = "fb_dismissed_" + fest.name.replace(/\s/g, "_");
+            if (sessionStorage.getItem(key)) return;
+            const banner = document.getElementById("festival-banner");
+            document.getElementById("festival-emoji").innerHTML = fest.emoji;
+            document.getElementById("festival-emoji2").innerHTML = fest.emoji;
+            document.getElementById("festival-message").textContent = fest.msg;
+            banner.className = "theme-" + fest.theme;
+            banner.style.display = "block";
+            spawnParticles(fest.theme);
+            requestAnimationFrame(() => {
+                const h = banner.offsetHeight;
+                document.querySelector("nav").style.top = h + "px";
+                const navH = document.querySelector("nav").offsetHeight;
+                document.querySelector(".hero").style.paddingTop = (h + navH + 48) + "px";
             });
-            
-            // Toggle current article
-            card.classList.toggle('expanded');
-            
-            // Smooth scroll to article if expanding
-            if (card.classList.contains('expanded')) {
-                setTimeout(() => {
-                    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 100);
-            }
         }
-
-        // Newsletter form handling
-        function handleSubscribe(event) {
-            event.preventDefault();
-            const email = event.target.querySelector('input').value;
-            alert(`Thank you for subscribing with ${email}! You'll receive your first email soon.`);
-            event.target.reset();
-        }
-
-        // Add smooth scrolling for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+        window.closeFestivalBanner = function() {
+            const banner = document.getElementById("festival-banner");
+            banner.style.transition = "transform 0.35s ease, opacity 0.35s ease";
+            banner.style.transform = "translateY(-100%)"; banner.style.opacity = "0";
+            setTimeout(() => { banner.style.display = "none"; document.querySelector("nav").style.top = "0"; document.querySelector(".hero").style.paddingTop = ""; }, 360);
+            const f = getActiveFestival();
+            if (f) sessionStorage.setItem("fb_dismissed_" + f.name.replace(/\s/g, "_"), "1");
+        };
+        window.addEventListener("scroll", function() {
+            const banner = document.getElementById("festival-banner");
+            if (banner.style.display === "none") return;
+            const h = banner.offsetHeight, nav = document.querySelector("nav");
+            nav.style.top = window.scrollY >= h ? "0" : (h - window.scrollY) + "px";
+        }, { passive: true });
+        const fest = getActiveFestival();
+        if (fest) showBanner(fest);
+    })();
     </script>
 
     <script>
-const quoteElements = document.querySelectorAll('.reveal-quote');
-
-const revealQuotesOnScroll = () => {
-    const windowHeight = window.innerHeight;
-
-    quoteElements.forEach((el, index) => {
-        const elementTop = el.getBoundingClientRect().top;
-
-        if (elementTop < windowHeight - 60) {
-            setTimeout(() => {
-                el.classList.add('active');
-            }, index * 120); // stagger animation
-        }
+    function toggleTheme() {
+        const html = document.documentElement;
+        const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        const sunIcon = document.querySelector('.sun-icon'), moonIcon = document.querySelector('.moon-icon');
+        if (newTheme === 'dark') { sunIcon.style.display = 'none'; moonIcon.style.display = 'block'; }
+        else { sunIcon.style.display = 'block'; moonIcon.style.display = 'none'; }
+    }
+    (function() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        if (savedTheme === 'dark') { document.querySelector('.sun-icon').style.display = 'none'; document.querySelector('.moon-icon').style.display = 'block'; }
+    })();
+    function toggleMobileMenu() { document.querySelector('.nav-links').classList.toggle('active'); document.querySelector('.mobile-menu-toggle').classList.toggle('active'); }
+    function closeMobileMenu() { document.querySelector('.nav-links').classList.remove('active'); document.querySelector('.mobile-menu-toggle').classList.remove('active'); }
+    function toggleArticle(card) {
+        document.querySelectorAll('.article-card').forEach(c => { if (c !== card) c.classList.remove('expanded'); });
+        card.classList.toggle('expanded');
+        if (card.classList.contains('expanded')) { setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100); }
+    }
+    function handleSubscribe(event) {
+        event.preventDefault();
+        const email = event.target.querySelector('input').value;
+        alert('Thank you for subscribing with ' + email + '! You\'ll receive your first email soon.');
+        event.target.reset();
+    }
+    function filterMovies(type, btn) {
+        document.querySelectorAll('.mf-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        let visible = 0;
+        document.querySelectorAll('.movie-card').forEach((card) => {
+            const match = type === 'all' || card.dataset.type === type;
+            card.classList.toggle('hide', !match);
+            if (match) { card.style.animationDelay = (visible * 0.07) + 's'; card.style.animation = 'none'; requestAnimationFrame(() => { card.style.animation = ''; }); visible++; }
+        });
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
     });
-};
-
-window.addEventListener('scroll', revealQuotesOnScroll);
-revealQuotesOnScroll();
-</script>
+    </script>
 
     <script>
-// ==============================
-// 🎲 Random Quote of the Day
-// ==============================
+    const quoteElements = document.querySelectorAll('.reveal-quote');
+    const revealQuotesOnScroll = () => {
+        const wh = window.innerHeight;
+        quoteElements.forEach((el, i) => { if (el.getBoundingClientRect().top < wh - 60) { setTimeout(() => el.classList.add('active'), i * 120); } });
+    };
+    window.addEventListener('scroll', revealQuotesOnScroll);
+    revealQuotesOnScroll();
+    </script>
 
-const quotes = [
-"Your comfort zone is renting space in your potential.",
-"Discipline is choosing what you want most over what you want now.",
-"If you can control your focus, you can control your future.",
-"Pain is temporary. Regret is permanent.",
-"Small actions done daily beat motivation done occasionally.",
-"You don’t lack talent — you lack consistent effort.",
-"Be the driver of your life, not the passenger of your habits.",
-"Your future is hidden inside your daily routine."
-];
-
-function getDailyQuote() {
-    const today = new Date().getDate();
-    const index = today % quotes.length;
-
-    const quoteEl = document.getElementById("daily-quote-text");
-
-    quoteEl.style.opacity = 0;
-
-    setTimeout(() => {
-        quoteEl.textContent = quotes[index];
-        quoteEl.style.transition = "opacity 0.5s ease";
-        quoteEl.style.opacity = 1;
-    }, 200);
-}
-
-getDailyQuote();
-
-// ==============================
-// 📋 Copy to Clipboard
-// ==============================
-
-document.querySelectorAll(".copy-btn").forEach(button => {
-    button.addEventListener("click", function() {
-        const quote = this.parentElement.querySelector(".quote-text").textContent;
-        navigator.clipboard.writeText(quote);
-
-        this.textContent = "Copied!";
-        setTimeout(() => {
-            this.textContent = "Copy";
-        }, 1500);
+    <script>
+    document.querySelectorAll(".copy-btn").forEach(button => {
+        button.addEventListener("click", function() {
+            const quoteEl = this.closest("li").querySelector(".quote-text");
+            const text = quoteEl ? quoteEl.textContent.trim() : "";
+            if (!text) return;
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => showCopied(this)).catch(() => fallbackCopy(text, this));
+            } else { fallbackCopy(text, this); }
+        });
     });
-});
-</script>
+    function showCopied(btn) {
+        const orig = btn.textContent; btn.textContent = "Copied!";
+        btn.style.background = "var(--color-accent)"; btn.style.color = "#fff"; btn.style.borderColor = "var(--color-accent)";
+        setTimeout(() => { btn.textContent = orig; btn.style.background = ""; btn.style.color = ""; btn.style.borderColor = ""; }, 1600);
+    }
+    function fallbackCopy(text, btn) {
+        const ta = document.createElement("textarea"); ta.value = text;
+        ta.style.cssText = "position:fixed;top:-9999px;left:-9999px;opacity:0";
+        document.body.appendChild(ta); ta.focus(); ta.select();
+        try { document.execCommand("copy"); showCopied(btn); } catch(e) { btn.textContent = "Failed"; setTimeout(() => { btn.textContent = "Copy"; }, 1600); }
+        document.body.removeChild(ta);
+    }
+    function getDailyQuote() {
+        const quoteEl = document.getElementById("daily-quote-text");
+        if (!quoteEl) return;
+        const quotes = ["Your comfort zone is renting space in your potential.","Discipline is choosing what you want most over what you want now.","If you can control your focus, you can control your future.","Pain is temporary. Regret is permanent.","Small actions done daily beat motivation done occasionally.","You don't lack talent — you lack consistent effort.","Be the driver of your life, not the passenger of your habits.","Your future is hidden inside your daily routine."];
+        const index = new Date().getDate() % quotes.length;
+        quoteEl.style.opacity = "0";
+        setTimeout(() => { quoteEl.textContent = quotes[index]; quoteEl.style.transition = "opacity 0.6s ease"; quoteEl.style.opacity = "1"; }, 150);
+    }
+    if (document.readyState === "loading") { document.addEventListener("DOMContentLoaded", getDailyQuote); } else { getDailyQuote(); }
+    </script>
+
+    <script>
+    // ============================================================
+    // SEE MORE / SEE LESS — Movies Section
+    // ============================================================
+    (function() {
+        function initMovieSeeMore() {
+            const grid = document.getElementById('movie-grid');
+            if (!grid) return;
+
+            const cards = Array.from(grid.querySelectorAll('.movie-card'));
+            const SHOW_COUNT = 12;
+            if (cards.length <= SHOW_COUNT) return;
+
+            const hiddenCards = cards.slice(SHOW_COUNT);
+            const hiddenCount = hiddenCards.length;
+
+            const hiddenGrid = document.createElement('div');
+            hiddenGrid.className = 'movie-grid movie-overflow collapsed';
+            hiddenGrid.id = 'movie-grid-overflow';
+            hiddenGrid.style.marginTop = '1.25rem';
+            hiddenGrid.style.maxHeight = '0px';
+            hiddenCards.forEach(card => { grid.removeChild(card); hiddenGrid.appendChild(card); });
+            grid.parentNode.insertBefore(hiddenGrid, grid.nextSibling);
+
+            const wrap = document.createElement('div');
+            wrap.className = 'see-more-wrap';
+            wrap.id = 'movie-see-more-wrap';
+            wrap.innerHTML = '<button class="see-more-btn" id="movie-see-more-btn" onclick="toggleMovieOverflow()">'
+                + 'See More'
+                + '<span class="movie-count-badge">+' + hiddenCount + '</span>'
+                + '<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>'
+                + '</button>';
+            hiddenGrid.parentNode.insertBefore(wrap, hiddenGrid.nextSibling);
+        }
+
+        window.toggleMovieOverflow = function() {
+            const grid = document.getElementById('movie-grid-overflow');
+            const btn  = document.getElementById('movie-see-more-btn');
+            if (!grid || !btn) return;
+
+            const isCollapsed = grid.classList.contains('collapsed');
+            const chevron = '<svg viewBox="0 0 24 24" style="stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;width:16px;height:16px;"><polyline points="6 9 12 15 18 9"/></svg>';
+
+            if (isCollapsed) {
+                grid.classList.remove('collapsed');
+                grid.style.maxHeight = grid.scrollHeight + 'px';
+                setTimeout(() => { if (!grid.classList.contains('collapsed')) grid.style.maxHeight = 'none'; }, 700);
+                btn.classList.add('open');
+                btn.innerHTML = 'See Less ' + chevron;
+            } else {
+                grid.style.maxHeight = grid.scrollHeight + 'px';
+                requestAnimationFrame(() => requestAnimationFrame(() => {
+                    grid.style.maxHeight = '0px';
+                    grid.classList.add('collapsed');
+                }));
+                btn.classList.remove('open');
+                const count = grid.querySelectorAll('.movie-card:not(.hide)').length;
+                btn.innerHTML = 'See More <span class="movie-count-badge">+' + count + '</span>' + chevron;
+                setTimeout(() => { document.getElementById('movies').scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+            }
+        };
+
+        // Smart filter — always shows first 12 matching cards, rest go into overflow
+        const _origFilter = window.filterMovies;
+        window.filterMovies = function(type, btn) {
+            // Update active button
+            document.querySelectorAll('.mf-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const mainGrid     = document.getElementById('movie-grid');
+            const overflowGrid = document.getElementById('movie-grid-overflow');
+            const wrap         = document.getElementById('movie-see-more-wrap');
+            const seeMoreBtn   = document.getElementById('movie-see-more-btn');
+            if (!mainGrid || !overflowGrid) return;
+
+            // Collapse overflow first
+            overflowGrid.style.maxHeight = '0px';
+            overflowGrid.classList.add('collapsed');
+            if (seeMoreBtn) seeMoreBtn.classList.remove('open');
+
+            // Gather ALL cards from both grids
+            const allCards = [
+                ...Array.from(mainGrid.querySelectorAll('.movie-card')),
+                ...Array.from(overflowGrid.querySelectorAll('.movie-card'))
+            ];
+
+            // Separate matching vs non-matching
+            const matching    = allCards.filter(c => type === 'all' || c.dataset.type === type);
+            const nonMatching = allCards.filter(c => type !== 'all' && c.dataset.type !== type);
+
+            const SHOW_COUNT = 12;
+            const visibleCards = matching.slice(0, SHOW_COUNT);
+            const hiddenCards  = matching.slice(SHOW_COUNT);
+
+            // Move first 12 matching into main grid
+            visibleCards.forEach((card, i) => {
+                card.classList.remove('hide');
+                card.style.animationDelay = (i * 0.07) + 's';
+                card.style.animation = 'none';
+                requestAnimationFrame(() => { card.style.animation = ''; });
+                mainGrid.appendChild(card);
+            });
+
+            // Move rest of matching into overflow grid
+            hiddenCards.forEach((card, i) => {
+                card.classList.remove('hide');
+                card.style.animationDelay = ((visibleCards.length + i) * 0.07) + 's';
+                overflowGrid.appendChild(card);
+            });
+
+            // Move non-matching into overflow grid (hidden)
+            nonMatching.forEach(card => {
+                card.classList.add('hide');
+                overflowGrid.appendChild(card);
+            });
+
+            // Show/hide See More button
+            if (wrap) {
+                if (hiddenCards.length > 0) {
+                    wrap.style.display = 'block';
+                    const chevron = '<svg viewBox="0 0 24 24" style="stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;width:16px;height:16px;"><polyline points="6 9 12 15 18 9"/></svg>';
+                    if (seeMoreBtn) {
+                        seeMoreBtn.innerHTML = 'See More <span class="movie-count-badge">+' + hiddenCards.length + '</span>' + chevron;
+                    }
+                } else {
+                    wrap.style.display = 'none';
+                }
+            }
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initMovieSeeMore);
+        } else {
+            initMovieSeeMore();
+        }
+    })();
+    </script>
+
 </body>
 </html>
-
-
