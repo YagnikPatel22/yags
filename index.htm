@@ -173,67 +173,15 @@
         .movie-divider { height: 1px; background: var(--color-border); margin: 0.2rem 0; }
         .movie-take { font-family: var(--font-serif); font-size: 1rem; line-height: 1.65; color: var(--color-text-light); font-style: italic; margin: 0; flex: 1; }
 
-        /* ================================
-           SEE MORE / SEE LESS — Movies
-        ================================ */
-        .movie-overflow {
-            overflow: hidden;
-            transition: max-height 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-        }
+        /* SEE MORE / SEE LESS */
+        .movie-overflow { overflow: hidden; transition: max-height 0.65s cubic-bezier(0.22, 1, 0.36, 1); }
         .movie-overflow.collapsed { max-height: 0 !important; }
-        .see-more-wrap {
-            text-align: center;
-            margin-top: 1.75rem;
-            position: relative;
-        }
-        .see-more-btn {
-            position: relative;
-            z-index: 1;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-family: var(--font-sans);
-            font-size: 0.9rem;
-            font-weight: 600;
-            padding: 12px 28px;
-            border-radius: 50px;
-            border: 1.5px solid var(--color-border);
-            background: var(--color-card-bg);
-            color: var(--color-text);
-            cursor: pointer;
-            transition: all 0.25s ease;
-            letter-spacing: 0.02em;
-        }
-        .see-more-btn:hover {
-            border-color: var(--color-accent);
-            color: var(--color-accent);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.13);
-        }
-        .see-more-btn svg {
-            width: 16px; height: 16px;
-            transition: transform 0.3s ease;
-            stroke: currentColor;
-            fill: none;
-            stroke-width: 2.5;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
+        .see-more-wrap { text-align: center; margin-top: 1.75rem; position: relative; }
+        .see-more-btn { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-sans); font-size: 0.9rem; font-weight: 600; padding: 12px 28px; border-radius: 50px; border: 1.5px solid var(--color-border); background: var(--color-card-bg); color: var(--color-text); cursor: pointer; transition: all 0.25s ease; letter-spacing: 0.02em; }
+        .see-more-btn:hover { border-color: var(--color-accent); color: var(--color-accent); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37, 99, 235, 0.13); }
+        .see-more-btn svg { width: 16px; height: 16px; transition: transform 0.3s ease; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
         .see-more-btn.open svg { transform: rotate(180deg); }
-        .movie-count-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-sans);
-            font-size: 0.72rem;
-            font-weight: 700;
-            padding: 2px 9px;
-            border-radius: 20px;
-            background: var(--color-accent);
-            color: #fff;
-            letter-spacing: 0.04em;
-            margin-left: 2px;
-        }
+        .movie-count-badge { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-sans); font-size: 0.72rem; font-weight: 700; padding: 2px 9px; border-radius: 20px; background: var(--color-accent); color: #fff; letter-spacing: 0.04em; margin-left: 2px; }
 
         /* NEWSLETTER */
         .newsletter { background: var(--color-text); color: var(--color-bg); padding: 4rem 2rem; text-align: center; margin: 6rem 0; }
@@ -330,19 +278,19 @@
     </nav>
 
     <section id="home" class="hero">
-        <h1>Greetings! I’m exploring writing ideas that matter and making them fun.</h1>
+        <h1>Greetings! I'm exploring writing ideas that matter and making them fun.</h1>
         <p>I write about productivity, philosophy, frameworks, politics, trending news, movies, and the fun side of it all.</p>
-        <p>Let’s join and dive into these insights together.</p>
+        <p>Let's join and dive into these insights together.</p>
     </section>
 
     <div class="container">
         <section id="about">
             <h2>About Me</h2>
-            <p>I’m a writer, thinker, and creator exploring the frameworks that help us live better lives. I study ICT Engineering, but I don’t always resonate with the system around it. Too often, education feels like rote learning — outdated methods focused more on memorization than real understanding. The pressure is on marks, placements, and performance metrics rather than curiosity, experimentation, and applied knowledge.</p>
-<p>Many students are guided toward one predictable loop: score well, get placed, enter corporate life, repeat for 30–40 years. But I question that pattern. A job can be a short-term solution to a long-term problem. In many cases, employees spend their prime years building wealth for owners and shareholders while their own leverage stays limited. Your effort contributes more to someone else’s retirement than your own freedom.</p>
+            <p>I'm a writer, thinker, and creator exploring the frameworks that help us live better lives. I study ICT Engineering, but I don't always resonate with the system around it. Too often, education feels like rote learning — outdated methods focused more on memorization than real understanding. The pressure is on marks, placements, and performance metrics rather than curiosity, experimentation, and applied knowledge.</p>
+<p>Many students are guided toward one predictable loop: score well, get placed, enter corporate life, repeat for 30–40 years. But I question that pattern. A job can be a short-term solution to a long-term problem. In many cases, employees spend their prime years building wealth for owners and shareholders while their own leverage stays limited. Your effort contributes more to someone else's retirement than your own freedom.</p>
 <p>At the same time, social media feels increasingly engineered for distraction. Endless scrolling, shallow trends, attention traps, and rising normalization of nudity and sensational content — all designed to keep people stimulated, not aware. It feels like another loop quietly consuming focus and ambition.
-<p>Maybe I’m wrong. I’m still learning. But I would rather question systems than blindly adapt to them. I’m trying to wake myself up — and maybe others too.</p>
-<p>And yes, if I’m wrong, don’t ignore me. Just tell me straight: “Your flex is wrong. You’re not that smart. You’re being dumb.” I can take it. Growth needs friction. xD</p>
+<p>Maybe I'm wrong. I'm still learning. But I would rather question systems than blindly adapt to them. I'm trying to wake myself up — and maybe others too.</p>
+<p>And yes, if I'm wrong, don't ignore me. Just tell me straight: "Your flex is wrong. You're not that smart. You're being dumb." I can take it. Growth needs friction. xD</p>
             <p>In 1789, philosopher Jeremy Bentham mused on the two forces that control our lives: <span class="highlight">the pursuit of pleasure and the avoidance of pain</span>. This simple idea became the foundation for understanding human motivation and behavior.</p>
             <p>I believe that by understanding these fundamental patterns—the mental models, cognitive frameworks, and timeless principles—we can make better decisions, build better habits, and ultimately lead more meaningful lives.</p>
             <div class="quote-block">
@@ -465,10 +413,10 @@ Here are some of my personal favorite pieces :</p>
             </div>
             <div class="quotes-container">
                 <ul class="quotes-list">
-                    <li class="reveal-quote"><span class="quote-text">“We suffer more in imagination than in reality.” — Seneca</span><button class="copy-btn">Copy</button></li>
-                    <li class="reveal-quote"><span class="quote-text">“All is flux, nothing stays still” ― Plato</span><button class="copy-btn">Copy</button></li>
+                    <li class="reveal-quote"><span class="quote-text">"We suffer more in imagination than in reality." — Seneca</span><button class="copy-btn">Copy</button></li>
+                    <li class="reveal-quote"><span class="quote-text">"All is flux, nothing stays still" ― Plato</span><button class="copy-btn">Copy</button></li>
                     <li class="reveal-quote"><span class="quote-text">"Do it or don't do it, you will regret both." — Søren Kierkegaard</span><button class="copy-btn">Copy</button></li>
-                    <li class="reveal-quote"><span class="quote-text">“No one is more hated than he who speaks the truth.” ― Plato</span><button class="copy-btn">Copy</button></li>
+                    <li class="reveal-quote"><span class="quote-text">"No one is more hated than he who speaks the truth." ― Plato</span><button class="copy-btn">Copy</button></li>
                     <li class="reveal-quote"><span class="quote-text">"People do not act according to truth. They act according to the truths they can live with." - The Modern Machiavelli</span><button class="copy-btn">Copy</button></li>
                     <li class="reveal-quote"><span class="quote-text">I love people who post whatever they want on social media. It means they've learned to choose self-expression over other people's opinions. And that's beautiful.</span><button class="copy-btn">Copy</button></li>
                     <li class="reveal-quote"><span class="quote-text">Mother is waiting for success, but Son cries all night for a girl.</span><button class="copy-btn">Copy</button></li>
@@ -492,886 +440,481 @@ Here are some of my personal favorite pieces :</p>
             </div>
 
             <div class="movie-grid" id="movie-grid">
-
                 <div class="movie-card" data-type="bollywood" style="animation-delay:0.00s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Drama · Patriotism</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Swades</span>
-                        <span class="movie-rating-inline">★ 8.2</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Drama · Patriotism</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Swades</span><span class="movie-rating-inline">★ 8.2</span></div>
                     <div class="movie-year">2004 · Ashutosh Gowariker</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">What does it mean to truly come home? This film asks that question better than any philosophy book ever could.</p>
                 </div>
                 <div class="movie-card" data-type="south" style="animation-delay:0.06s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Drama · Legal</span>
-                        <span class="movie-type-badge">South</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Jai Bhim</span>
-                        <span class="movie-rating-inline">★ 8.7</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Drama · Legal</span><span class="movie-type-badge">South</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Jai Bhim</span><span class="movie-rating-inline">★ 8.7</span></div>
                     <div class="movie-year">2021 · T. J. Gnanavel</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Justice for the voiceless — powerful, emotional, unforgettable.</p>
                 </div>
                 <div class="movie-card" data-type="hollywood" style="animation-delay:0.12s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Sci-Fi · Drama</span>
-                        <span class="movie-type-badge">Hollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Interstellar</span>
-                        <span class="movie-rating-inline">★ 8.7</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Sci-Fi · Drama</span><span class="movie-type-badge">Hollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Interstellar</span><span class="movie-rating-inline">★ 8.7</span></div>
                     <div class="movie-year">2014 · Christopher Nolan</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Love as a force of nature across spacetime. Watch it when you need reminding how small and how significant you are.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:0.18s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Comedy · Drama</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">3 Idiots</span>
-                        <span class="movie-rating-inline">★ 8.4</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Comedy · Drama</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">3 Idiots</span><span class="movie-rating-inline">★ 8.4</span></div>
                     <div class="movie-year">2009 · Rajkumar Hirani</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">A film that makes you laugh and then quietly question every choice you've made in the name of success.</p>
                 </div>
                 <div class="movie-card" data-type="south" style="animation-delay:0.24s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Action · Drama</span>
-                        <span class="movie-type-badge">South</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">K.G.F: Chapter 2</span>
-                        <span class="movie-rating-inline">★ 8.3</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Action · Drama</span><span class="movie-type-badge">South</span></div>
+                    <div class="movie-title-row"><span class="movie-title">K.G.F: Chapter 2</span><span class="movie-rating-inline">★ 8.3</span></div>
                     <div class="movie-year">2022 · Prashanth Neel</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Raw power, epic scale — Yash commands every frame.</p>
                 </div>
                 <div class="movie-card" data-type="hollywood" style="animation-delay:0.30s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Biography · Drama</span>
-                        <span class="movie-type-badge">Hollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">The Pursuit of Happyness</span>
-                        <span class="movie-rating-inline">★ 8.0</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Biography · Drama</span><span class="movie-type-badge">Hollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">The Pursuit of Happyness</span><span class="movie-rating-inline">★ 8.0</span></div>
                     <div class="movie-year">2006 · Gabriele Muccino</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Don't let anyone tell you that you can't do something. Watch this on your hardest days — guaranteed to reset you.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:0.36s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Epic · Sports</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Lagaan</span>
-                        <span class="movie-rating-inline">★ 8.1</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Epic · Sports</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Lagaan</span><span class="movie-rating-inline">★ 8.1</span></div>
                     <div class="movie-year">2001 · Ashutosh Gowariker</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">The greatest underdog story ever told. Every frame screams that ordinary people can do extraordinary things.</p>
                 </div>
                 <div class="movie-card" data-type="south" style="animation-delay:0.42s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Action · Drama</span>
-                        <span class="movie-type-badge">South</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">RRR</span>
-                        <span class="movie-rating-inline">★ 7.8</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Action · Drama</span><span class="movie-type-badge">South</span></div>
+                    <div class="movie-title-row"><span class="movie-title">RRR</span><span class="movie-rating-inline">★ 7.8</span></div>
                     <div class="movie-year">2022 · S. S. Rajamouli</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Pure cinematic spectacle — friendship and rebellion collide.</p>
                 </div>
                 <div class="movie-card" data-type="hollywood" style="animation-delay:0.48s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Action · Thriller</span>
-                        <span class="movie-type-badge">Hollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">The Dark Knight</span>
-                        <span class="movie-rating-inline">★ 9.0</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Action · Thriller</span><span class="movie-type-badge">Hollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">The Dark Knight</span><span class="movie-rating-inline">★ 9.0</span></div>
                     <div class="movie-year">2008 · Christopher Nolan</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Not a superhero film — a study in chaos, order, and what happens when a man with no rules meets a man with too many.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:0.54s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Coming-of-Age · Friendship</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Dil Chahta Hai</span>
-                        <span class="movie-rating-inline">★ 8.1</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Coming-of-Age · Friendship</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Dil Chahta Hai</span><span class="movie-rating-inline">★ 8.1</span></div>
                     <div class="movie-year">2001 · Farhan Akhtar</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Friendship, freedom, and figuring out adulthood — it captures something most films can't even name.</p>
                 </div>
                 <div class="movie-card" data-type="south" style="animation-delay:0.60s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Action · Drama</span>
-                        <span class="movie-type-badge">South</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Baahubali 2</span>
-                        <span class="movie-rating-inline">★ 8.0</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Action · Drama</span><span class="movie-type-badge">South</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Baahubali 2</span><span class="movie-rating-inline">★ 8.0</span></div>
                     <div class="movie-year">2017 · S. S. Rajamouli</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Why did Kattappa kill Baahubali? The answer broke records.</p>
                 </div>
                 <div class="movie-card" data-type="hollywood" style="animation-delay:0.66s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Drama · Psychology</span>
-                        <span class="movie-type-badge">Hollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Good Will Hunting</span>
-                        <span class="movie-rating-inline">★ 8.3</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Drama · Psychology</span><span class="movie-type-badge">Hollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Good Will Hunting</span><span class="movie-rating-inline">★ 8.3</span></div>
                     <div class="movie-year">1997 · Gus Van Sant</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">It's not your fault. Three words that carry the weight of an entire philosophy. This film lives rent-free in my head.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:0.72s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Music · Romance · Drama</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Rockstar</span>
-                        <span class="movie-rating-inline">★ 7.9</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Music · Romance · Drama</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Rockstar</span><span class="movie-rating-inline">★ 7.9</span></div>
                     <div class="movie-year">2011 · Imtiaz Ali</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Pain as the price of greatness. Ranbir Kapoor became a legend in this film. The music alone changes something in you.</p>
                 </div>
                 <div class="movie-card" data-type="south" style="animation-delay:0.78s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Action · Thriller</span>
-                        <span class="movie-type-badge">South</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Kantara</span>
-                        <span class="movie-rating-inline">★ 8.2</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Action · Thriller</span><span class="movie-type-badge">South</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Kantara</span><span class="movie-rating-inline">★ 8.2</span></div>
                     <div class="movie-year">2022 · Rishab Shetty</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Folklore meets ferocity — primal, visceral storytelling.</p>
                 </div>
                 <div class="movie-card" data-type="hollywood" style="animation-delay:0.84s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Biography · Sport</span>
-                        <span class="movie-type-badge">Hollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">F1 (Rush)</span>
-                        <span class="movie-rating-inline">★ 8.1</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Biography · Sport</span><span class="movie-type-badge">Hollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">F1 (Rush)</span><span class="movie-rating-inline">★ 8.1</span></div>
                     <div class="movie-year">2013 · Ron Howard</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Rivalry at 200mph — adrenaline meets human drama.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:0.90s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Action · Drama</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Animal</span>
-                        <span class="movie-rating-inline">★ 7.1</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Action · Drama</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Animal</span><span class="movie-rating-inline">★ 7.1</span></div>
                     <div class="movie-year">2023 · Sandeep Reddy Vanga</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Raw, intense, and polarizing — a film that stays under your skin.</p>
                 </div>
                 <div class="movie-card" data-type="south" style="animation-delay:0.96s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Action · Thriller</span>
-                        <span class="movie-type-badge">South</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Vikram</span>
-                        <span class="movie-rating-inline">★ 8.2</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Action · Thriller</span><span class="movie-type-badge">South</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Vikram</span><span class="movie-rating-inline">★ 8.2</span></div>
                     <div class="movie-year">2022 · Lokesh Kanagaraj</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Kamal Haasan returns with vengeance and style.</p>
                 </div>
                 <div class="movie-card" data-type="hollywood" style="animation-delay:1.02s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Biography · Sport</span>
-                        <span class="movie-type-badge">Hollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Ford v Ferrari</span>
-                        <span class="movie-rating-inline">★ 8.1</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Biography · Sport</span><span class="movie-type-badge">Hollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Ford v Ferrari</span><span class="movie-rating-inline">★ 8.1</span></div>
                     <div class="movie-year">2019 · James Mangold</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Engineering passion meets racing glory — absolutely thrilling.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:1.08s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Romance · Comedy</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Barfi!</span>
-                        <span class="movie-rating-inline">★ 8.1</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Romance · Comedy</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Barfi!</span><span class="movie-rating-inline">★ 8.1</span></div>
                     <div class="movie-year">2012 · Anurag Basu</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">A wordless love story told with pure heart and infectious joy.</p>
                 </div>
                 <div class="movie-card" data-type="south" style="animation-delay:1.14s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Romance · Comedy</span>
-                        <span class="movie-type-badge">South</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Bheeshma</span>
-                        <span class="movie-rating-inline">★ 6.6</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Romance · Comedy</span><span class="movie-type-badge">South</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Bheeshma</span><span class="movie-rating-inline">★ 6.6</span></div>
                     <div class="movie-year">2020 · Venkat Akkineni</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Nithiin's easy charm in a breezy, feel-good entertainer.</p>
                 </div>
                 <div class="movie-card" data-type="hollywood" style="animation-delay:1.20s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Animation · Adventure</span>
-                        <span class="movie-type-badge">Hollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Puss in Boots</span>
-                        <span class="movie-rating-inline">★ 6.6</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Animation · Adventure</span><span class="movie-type-badge">Hollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Puss in Boots</span><span class="movie-rating-inline">★ 6.6</span></div>
                     <div class="movie-year">2011 · Chris Miller</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Swashbuckling cat with charm — DreamWorks at its playful best.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:1.26s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Comedy · Drama</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">OMG</span>
-                        <span class="movie-rating-inline">★ 8.1</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Comedy · Drama</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">OMG</span><span class="movie-rating-inline">★ 8.1</span></div>
                     <div class="movie-year">2012 · Umesh Shukla</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">A brave film that questions blind faith with humor and wisdom.</p>
                 </div>
                 <div class="movie-card" data-type="south" style="animation-delay:1.32s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Action · Thriller</span>
-                        <span class="movie-type-badge">South</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Master</span>
-                        <span class="movie-rating-inline">★ 7.7</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Action · Thriller</span><span class="movie-type-badge">South</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Master</span><span class="movie-rating-inline">★ 7.7</span></div>
                     <div class="movie-year">2021 · Lokesh Kanagaraj</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Thalapathy Vijay vs Vijay Sethupathi — a clash for the ages.</p>
                 </div>
                 <div class="movie-card" data-type="hollywood" style="animation-delay:1.38s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Action · Thriller</span>
-                        <span class="movie-type-badge">Hollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Fast & Furious</span>
-                        <span class="movie-rating-inline">★ 6.5</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Action · Thriller</span><span class="movie-type-badge">Hollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Fast & Furious</span><span class="movie-rating-inline">★ 6.5</span></div>
                     <div class="movie-year">2009 · Justin Lin</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Family. Cars. Heists. The franchise that refuses to brake.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:1.44s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Drama · Social</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">OMG 2</span>
-                        <span class="movie-rating-inline">★ 7.5</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Drama · Social</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">OMG 2</span><span class="movie-rating-inline">★ 7.5</span></div>
                     <div class="movie-year">2023 · Amit Rai</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Tackles taboo with grace — bold storytelling that sparks conversation.</p>
                 </div>
                 <div class="movie-card" data-type="south" style="animation-delay:1.50s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Romance · Drama</span>
-                        <span class="movie-type-badge">South</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Ala Vaikunthapurramuloo</span>
-                        <span class="movie-rating-inline">★ 7.2</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Romance · Drama</span><span class="movie-type-badge">South</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Ala Vaikunthapurramuloo</span><span class="movie-rating-inline">★ 7.2</span></div>
                     <div class="movie-year">2020 · Trivikram Srinivas</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Allu Arjun at full power — high energy, big emotions, great music.</p>
                 </div>
                 <div class="movie-card" data-type="hollywood" style="animation-delay:1.56s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Animation · Drama</span>
-                        <span class="movie-type-badge">Hollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">The Lion King</span>
-                        <span class="movie-rating-inline">★ 8.5</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Animation · Drama</span><span class="movie-type-badge">Hollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">The Lion King</span><span class="movie-rating-inline">★ 8.5</span></div>
                     <div class="movie-year">1994 · Roger Allers</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Circle of life — timeless story, unforgettable music.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:1.62s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Romance · Drama</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Cocktail</span>
-                        <span class="movie-rating-inline">★ 6.2</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Romance · Drama</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Cocktail</span><span class="movie-rating-inline">★ 6.2</span></div>
                     <div class="movie-year">2012 · Homi Adajania</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Modern love triangle done right — messy, raw, and relatable.</p>
                 </div>
                 <div class="movie-card" data-type="south" style="animation-delay:1.68s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Action · Drama</span>
-                        <span class="movie-type-badge">South</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Sivaji</span>
-                        <span class="movie-rating-inline">★ 7.6</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Action · Drama</span><span class="movie-type-badge">South</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Sivaji</span><span class="movie-rating-inline">★ 7.6</span></div>
                     <div class="movie-year">2007 · S. Shankar</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Rajinikanth vs corruption — stylish, loud, and unforgettable.</p>
                 </div>
                 <div class="movie-card" data-type="hollywood" style="animation-delay:1.74s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Sci-Fi · Action</span>
-                        <span class="movie-type-badge">Hollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">The Matrix</span>
-                        <span class="movie-rating-inline">★ 8.7</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Sci-Fi · Action</span><span class="movie-type-badge">Hollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">The Matrix</span><span class="movie-rating-inline">★ 8.7</span></div>
                     <div class="movie-year">1999 · Wachowskis</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Red pill or blue pill? Reality will never be the same.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:1.80s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Comedy</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Good Newwz</span>
-                        <span class="movie-rating-inline">★ 7.0</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Comedy</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Good Newwz</span><span class="movie-rating-inline">★ 7.0</span></div>
                     <div class="movie-year">2019 · Raj Mehta</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Laugh-out-loud funny with surprising emotional depth.</p>
                 </div>
                 <div class="movie-card" data-type="south" style="animation-delay:1.86s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Drama · Adventure</span>
-                        <span class="movie-type-badge">South</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">777 Charlie</span>
-                        <span class="movie-rating-inline">★ 8.7</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Drama · Adventure</span><span class="movie-type-badge">South</span></div>
+                    <div class="movie-title-row"><span class="movie-title">777 Charlie</span><span class="movie-rating-inline">★ 8.7</span></div>
                     <div class="movie-year">2022 · Kiranraj K</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">A man and his dog redefine what it means to truly live. Keep tissues close.</p>
                 </div>
                 <div class="movie-card" data-type="hollywood" style="animation-delay:1.92s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Sci-Fi · Thriller</span>
-                        <span class="movie-type-badge">Hollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Inception</span>
-                        <span class="movie-rating-inline">★ 8.8</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Sci-Fi · Thriller</span><span class="movie-type-badge">Hollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Inception</span><span class="movie-rating-inline">★ 8.8</span></div>
                     <div class="movie-year">2010 · Christopher Nolan</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Dream within a dream within... Nolan's masterpiece.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:1.98s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Biography · Drama</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Pad Man</span>
-                        <span class="movie-rating-inline">★ 7.9</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Biography · Drama</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Pad Man</span><span class="movie-rating-inline">★ 7.9</span></div>
                     <div class="movie-year">2018 · R. Balki</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Breaking stigma with simplicity — Akshay Kumar at his finest.</p>
                 </div>
                 <div class="movie-card" data-type="south" style="animation-delay:2.04s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Sports · Drama</span>
-                        <span class="movie-type-badge">South</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Jersey</span>
-                        <span class="movie-rating-inline">★ 8.6</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Sports · Drama</span><span class="movie-type-badge">South</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Jersey</span><span class="movie-rating-inline">★ 8.6</span></div>
                     <div class="movie-year">2019 · Gowtam Tinnanuri</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">A father's redemption on the cricket field — raw, emotional, beautiful.</p>
                 </div>
-                
                 <div class="movie-card" data-type="hollywood" style="animation-delay:2.10s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Horror · Thriller</span>
-                        <span class="movie-type-badge">Hollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Final Destination</span>
-                        <span class="movie-rating-inline">★ 6.7</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Horror · Thriller</span><span class="movie-type-badge">Hollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Final Destination</span><span class="movie-rating-inline">★ 6.7</span></div>
                     <div class="movie-year">2000 · James Wong</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Death is inevitable — the kills are unforgettable.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:2.16s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Comedy · Drama</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Badhaai Ho</span>
-                        <span class="movie-rating-inline">★ 7.9</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Comedy · Drama</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Badhaai Ho</span><span class="movie-rating-inline">★ 7.9</span></div>
                     <div class="movie-year">2018 · Amit Sharma</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Awkward, hilarious, and heartwarming — a story about family.</p>
                 </div>
                 <div class="movie-card" data-type="hollywood" style="animation-delay:2.22s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Animation · Family</span>
-                        <span class="movie-type-badge">Hollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Coco</span>
-                        <span class="movie-rating-inline">★ 8.4</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Animation · Family</span><span class="movie-type-badge">Hollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Coco</span><span class="movie-rating-inline">★ 8.4</span></div>
                     <div class="movie-year">2017 · Lee Unkrich</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Day of the Dead, celebration of memory — pure emotion.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:2.28s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Action · Comedy</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Happy New Year</span>
-                        <span class="movie-rating-inline">★ 5.0</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Action · Comedy</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Happy New Year</span><span class="movie-rating-inline">★ 5.0</span></div>
                     <div class="movie-year">2014 · Farah Khan</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Pure masala fun — don't think, just enjoy the ride.</p>
                 </div>
                 <div class="movie-card" data-type="hollywood" style="animation-delay:2.34s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Animation · Musical</span>
-                        <span class="movie-type-badge">Hollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Encanto</span>
-                        <span class="movie-rating-inline">★ 7.2</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Animation · Musical</span><span class="movie-type-badge">Hollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Encanto</span><span class="movie-rating-inline">★ 7.2</span></div>
                     <div class="movie-year">2021 · Jared Bush</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">We don't talk about Bruno — but we sing about everything else.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:2.40s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Action · Thriller</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Jawan</span>
-                        <span class="movie-rating-inline">★ 7.1</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Action · Thriller</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Jawan</span><span class="movie-rating-inline">★ 7.1</span></div>
                     <div class="movie-year">2023 · Atlee</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">SRK unleashed — high-octane spectacle with a social message.</p>
                 </div>
                 <div class="movie-card" data-type="hollywood" style="animation-delay:2.46s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Animation · Adventure</span>
-                        <span class="movie-type-badge">Hollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Abominable</span>
-                        <span class="movie-rating-inline">★ 7.0</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Animation · Adventure</span><span class="movie-type-badge">Hollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Abominable</span><span class="movie-rating-inline">★ 7.0</span></div>
                     <div class="movie-year">2019 · Jill Culton</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">A Yeti journey home — heartwarming and visually stunning.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:2.52s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">War · Biography</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Shershaah</span>
-                        <span class="movie-rating-inline">★ 8.4</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">War · Biography</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Shershaah</span><span class="movie-rating-inline">★ 8.4</span></div>
                     <div class="movie-year">2021 · Vishnuvardhan</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">A soldier's love and sacrifice told with respect and emotion.</p>
                 </div>
                 <div class="movie-card" data-type="hollywood" style="animation-delay:2.58s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Animation · Comedy</span>
-                        <span class="movie-type-badge">Hollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Ice Age</span>
-                        <span class="movie-rating-inline">★ 7.5</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Animation · Comedy</span><span class="movie-type-badge">Hollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Ice Age</span><span class="movie-rating-inline">★ 7.5</span></div>
                     <div class="movie-year">2002 · Chris Wedge</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Scrat's acorn quest is eternal — friendship warms the ice.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:2.64s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Biography · Drama</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Srikanth</span>
-                        <span class="movie-rating-inline">★ 7.4</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Biography · Drama</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Srikanth</span><span class="movie-rating-inline">★ 7.4</span></div>
                     <div class="movie-year">2024 · Tushar Hiranandani</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Against all odds — a story of vision beyond sight.</p>
                 </div>
                 <div class="movie-card" data-type="hollywood" style="animation-delay:2.70s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Animation · Comedy</span>
-                        <span class="movie-type-badge">Hollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Ratatouille</span>
-                        <span class="movie-rating-inline">★ 8.1</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Animation · Comedy</span><span class="movie-type-badge">Hollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Ratatouille</span><span class="movie-rating-inline">★ 8.1</span></div>
                     <div class="movie-year">2007 · Brad Bird</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Anyone can cook — Pixar's love letter to passion.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:2.76s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Mystery · Thriller</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Badla</span>
-                        <span class="movie-rating-inline">★ 7.8</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Mystery · Thriller</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Badla</span><span class="movie-rating-inline">★ 7.8</span></div>
                     <div class="movie-year">2019 · Sujoy Ghosh</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Twists upon twists — keeps you guessing until the end.</p>
                 </div>
                 <div class="movie-card" data-type="hollywood" style="animation-delay:2.82s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Animation · Sport</span>
-                        <span class="movie-type-badge">Hollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Cars</span>
-                        <span class="movie-rating-inline">★ 7.2</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Animation · Sport</span><span class="movie-type-badge">Hollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Cars</span><span class="movie-rating-inline">★ 7.2</span></div>
                     <div class="movie-year">2006 · John Lasseter</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Life in the slow lane — surprisingly deep for a car movie.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:2.88s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Horror · Fantasy</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Tumbbad</span>
-                        <span class="movie-rating-inline">★ 8.2</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Horror · Fantasy</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Tumbbad</span><span class="movie-rating-inline">★ 8.2</span></div>
                     <div class="movie-year">2018 · Rahi Anil Barve</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Stunning visuals, slow-burn horror — Indian cinema at its boldest.</p>
                 </div>
                 <div class="movie-card" data-type="hollywood" style="animation-delay:2.94s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Animation · Coming-of-Age</span>
-                        <span class="movie-type-badge">Hollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Turning Red</span>
-                        <span class="movie-rating-inline">★ 7.0</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Animation · Coming-of-Age</span><span class="movie-type-badge">Hollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Turning Red</span><span class="movie-rating-inline">★ 7.0</span></div>
                     <div class="movie-year">2022 · Domee Shi</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Puberty as a giant red panda — bold, colorful, relatable.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:3.00s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Action · Thriller</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Jigra</span>
-                        <span class="movie-rating-inline">★ 6.7</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Action · Thriller</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Jigra</span><span class="movie-rating-inline">★ 6.7</span></div>
                     <div class="movie-year">2024 · Vasan Bala</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Sister on a mission — gritty, raw, and fiercely loyal.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:3.06s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Thriller · Drama</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Runway 34</span>
-                        <span class="movie-rating-inline">★ 7.2</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Thriller · Drama</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Runway 34</span><span class="movie-rating-inline">★ 7.2</span></div>
                     <div class="movie-year">2022 · Ajay Devgn</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Edge-of-your-seat aviation thriller with Ajay Devgn's intensity.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:3.12s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Biography · Drama</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Gunjan Saxena</span>
-                        <span class="movie-rating-inline">★ 7.1</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Biography · Drama</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Gunjan Saxena</span><span class="movie-rating-inline">★ 7.1</span></div>
                     <div class="movie-year">2020 · Sharan Sharma</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Breaking barriers in the sky — courage over comfort.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:3.18s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">War · History</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Panipat</span>
-                        <span class="movie-rating-inline">★ 5.4</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">War · History</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Panipat</span><span class="movie-rating-inline">★ 5.4</span></div>
                     <div class="movie-year">2019 · Ashutosh Gowariker</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Epic scale, ambitious vision — history brought to screen.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:3.24s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Romance · Comedy</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Jab We Met</span>
-                        <span class="movie-rating-inline">★ 7.9</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Romance · Comedy</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Jab We Met</span><span class="movie-rating-inline">★ 7.9</span></div>
                     <div class="movie-year">2007 · Imtiaz Ali</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Spontaneous, chaotic, unforgettable — peak Imtiaz Ali magic.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:3.30s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Romance · Drama</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Tamasha</span>
-                        <span class="movie-rating-inline">★ 7.3</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Romance · Drama</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Tamasha</span><span class="movie-rating-inline">★ 7.3</span></div>
                     <div class="movie-year">2015 · Imtiaz Ali</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Finding yourself through losing yourself — beautifully layered.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:3.36s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Romance · Comedy</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Rab Ne Bana Di Jodi</span>
-                        <span class="movie-rating-inline">★ 7.2</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Romance · Comedy</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Rab Ne Bana Di Jodi</span><span class="movie-rating-inline">★ 7.2</span></div>
                     <div class="movie-year">2008 · Aditya Chopra</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">SRK's quiet charm in a story about rediscovering love.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:3.42s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Romance · Drama</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Ae Dil Hai Mushkil</span>
-                        <span class="movie-rating-inline">★ 5.8</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Romance · Drama</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Ae Dil Hai Mushkil</span><span class="movie-rating-inline">★ 5.8</span></div>
                     <div class="movie-year">2016 · Karan Johar</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Heartbreak as poetry — beautifully shot, deeply felt.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:3.48s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Romance · Comedy</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Ajab Prem Ki Ghazab Kahani</span>
-                        <span class="movie-rating-inline">★ 6.4</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Romance · Comedy</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Ajab Prem Ki Ghazab Kahani</span><span class="movie-rating-inline">★ 6.4</span></div>
                     <div class="movie-year">2009 · Rajkumar Santoshi</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Ranbir's innocence meets quirky comedy — pure fun.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:3.54s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Action · Comedy</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Dabangg 3</span>
-                        <span class="movie-rating-inline">★ 4.3</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Action · Comedy</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Dabangg 3</span><span class="movie-rating-inline">★ 4.3</span></div>
                     <div class="movie-year">2019 · Prabhu Deva</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Salman Khan doing Salman Khan things — no apologies.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:3.60s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Action · Romance</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Bodyguard</span>
-                        <span class="movie-rating-inline">★ 4.9</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Action · Romance</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Bodyguard</span><span class="movie-rating-inline">★ 4.9</span></div>
                     <div class="movie-year">2011 · Siddique</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Salman's charm powers through a simple love story.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:3.66s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Romance · Drama</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Kuch Kuch Hota Hai</span>
-                        <span class="movie-rating-inline">★ 7.5</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Romance · Drama</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Kuch Kuch Hota Hai</span><span class="movie-rating-inline">★ 7.5</span></div>
                     <div class="movie-year">1998 · Karan Johar</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">The OG love triangle — nostalgia packed in every frame.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:3.72s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Romance · Comedy</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Pyaar Kiya To Darna Kya</span>
-                        <span class="movie-rating-inline">★ 6.6</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Romance · Comedy</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Pyaar Kiya To Darna Kya</span><span class="movie-rating-inline">★ 6.6</span></div>
                     <div class="movie-year">1998 · Sohail Khan</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Salman romancing with full energy — 90s romance at its peak.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:3.78s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Romance · Comedy</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Tu Jhoothi Main Makkaar</span>
-                        <span class="movie-rating-inline">★ 6.5</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Romance · Comedy</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Tu Jhoothi Main Makkaar</span><span class="movie-rating-inline">★ 6.5</span></div>
                     <div class="movie-year">2023 · Luv Ranjan</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Modern dating done Bollywood style — witty and relatable.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:3.84s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Fantasy · Adventure</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Brahmastra</span>
-                        <span class="movie-rating-inline">★ 5.5</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Fantasy · Adventure</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Brahmastra</span><span class="movie-rating-inline">★ 5.5</span></div>
                     <div class="movie-year">2022 · Ayan Mukerji</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Ambitious VFX spectacle — Marvel meets Indian mythology.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:3.90s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Comedy · Drama</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">PK</span>
-                        <span class="movie-rating-inline">★ 8.1</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Comedy · Drama</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">PK</span><span class="movie-rating-inline">★ 8.1</span></div>
                     <div class="movie-year">2014 · Rajkumar Hirani</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Alien asks hard questions — Aamir Khan at his curious best.</p>
                 </div>
                 <div class="movie-card" data-type="bollywood" style="animation-delay:3.96s">
-                    <div class="movie-top-row">
-                        <span class="movie-genre">Coming-of-Age · Romance</span>
-                        <span class="movie-type-badge">Bollywood</span>
-                    </div>
-                    <div class="movie-title-row">
-                        <span class="movie-title">Wake Up Sid</span>
-                        <span class="movie-rating-inline">★ 7.6</span>
-                    </div>
+                    <div class="movie-top-row"><span class="movie-genre">Coming-of-Age · Romance</span><span class="movie-type-badge">Bollywood</span></div>
+                    <div class="movie-title-row"><span class="movie-title">Wake Up Sid</span><span class="movie-rating-inline">★ 7.6</span></div>
                     <div class="movie-year">2009 · Ayan Mukerji</div>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Growing up, falling in love, finding yourself — gently told.</p>
                 </div>
-                <!-- See More button and overflow grid inserted by JS -->
             </div>
         </section>
 
         <section id="beliefs">
             <h2>What I Believe</h2>
-            <p>Through exploration and self-discovery, I’ve shaped these core values:</p>
+            <p>Through exploration and self-discovery, I've shaped these core values:</p>
             <h3>Simple beats complex</h3>
             <p>The most powerful ideas are often the simplest. My goal is to take complex concepts and distill them into frameworks you can remember and apply. If you can't explain it simply, you don't understand it well enough.</p>
             <h3>Action beats theory</h3>
@@ -1415,28 +958,69 @@ Here are some of my personal favorite pieces :</p>
         <p>&copy; 2026 Yagnik N. All rights reserved.</p>
     </footer>
 
+    <!-- =====================================================
+         FESTIVAL BANNER SCRIPT — FIXED (year-aware dates)
+         ===================================================== -->
     <script>
     (function() {
-        const FESTIVALS = [
-            { name:"Diwali", month:10, day:20, theme:"diwali", emoji:"&#127774;", msg:"Happy Diwali! May your life always be lit with knowledge and love." },
-            { name:"Holi", month:3, day:14, theme:"holi", emoji:"&#127912;", msg:"Happy Holi! May your life be as colourful as today!" },
-            { name:"Navratri", month:10, day:3, theme:"navratri", emoji:"&#128131;", msg:"Happy Navratri! Nine nights of divine energy — dance, celebrate, shine!" },
-            { name:"Ganesh Chaturthi", month:9, day:2, theme:"ganesh", emoji:"&#128024;", msg:"Ganpati Bappa Morya! May Ganesha remove every obstacle in your path." },
-            { name:"Janmashtami", month:8, day:16, theme:"janmashtami", emoji:"&#129438;", msg:"Happy Janmashtami! May Lord Krishna's wisdom guide you always." },
-            { name:"Raksha Bandhan", month:8, day:19, theme:"raksha", emoji:"&#127872;", msg:"Happy Raksha Bandhan! Celebrate the beautiful bond of siblings." },
-            { name:"Independence Day", month:8, day:15, theme:"independence", emoji:"&#127988;", msg:"Happy Independence Day! Freedom is precious — use it wisely. Jai Hind!" },
-            { name:"Republic Day", month:1, day:26, theme:"republic", emoji:"&#127988;", msg:"Happy Republic Day! Proud to be Indian. Jai Hind!" },
-            { name:"Lohri", month:1, day:13, theme:"lohri", emoji:"&#128293;", msg:"Lohri Mubarak! Wishing you warmth, joy, and a bonfire of good vibes!" },
-            { name:"Makar Sankranti", month:1, day:14, theme:"pongal", emoji:"&#129361;", msg:"Happy Makar Sankranti! May this harvest season fill your life with sweetness." },
-            { name:"Eid al-Fitr", month:3, day:31, theme:"eid", emoji:"&#127773;", msg:"Eid Mubarak! Wishing you peace, joy, and countless blessings!" },
-            { name:"Christmas", month:12, day:25, theme:"christmas", emoji:"&#127876;", msg:"Merry Christmas! May the season fill your home with warmth and wonder." },
-            { name:"New Year", month:1, day:1, theme:"newyear", emoji:"&#127881;", msg:"Happy New Year! A blank page — make it a masterpiece." },
-            { name:"New Year's Eve", month:12, day:31, theme:"newyear", emoji:"&#129346;", msg:"Happy New Year's Eve! Reflect, reset, and get ready to rise." },
-            { name:"Valentine's Day", month:2, day:14, theme:"valentines", emoji:"&#128140;", msg:"Happy Valentine's Day! Spread love, always." },
-            { name:"Halloween", month:10, day:31, theme:"halloween", emoji:"&#127875;", msg:"Happy Halloween! Be spooky, be curious, be you!" },
-            { name:"Thanksgiving", month:11, day:28, theme:"thanksgiving", emoji:"&#129411;", msg:"Happy Thanksgiving! Gratitude is the highest form of thought." },
-            { name:"Easter", month:4, day:20, theme:"easter", emoji:"&#128035;", msg:"Happy Easter! May this season bring renewal and new beginnings!" },
-        ];
+        // Year-aware festival dates.
+        // Lunar/religious festivals shift each year and are listed per year.
+        // Fixed civil holidays are stable and listed once at the bottom.
+        function getFestivals(year) {
+            const moveable = {
+                2024: {
+                    diwali:      [11, 1],  holi:        [3, 25], navratri:    [10, 3],
+                    ganesh:      [9, 7],   janmashtami: [8, 26], raksha:      [8, 19],
+                    eid:         [4, 10],  easter:      [3, 31],
+                },
+                2025: {
+                    diwali:      [10, 20], holi:        [3, 14], navratri:    [9, 22],
+                    ganesh:      [8, 27],  janmashtami: [8, 16], raksha:      [8, 9],
+                    eid:         [3, 30],  easter:      [4, 20],
+                },
+                2026: {
+                    diwali:      [10, 19], holi:        [3, 3],  navratri:    [10, 13],
+                    ganesh:      [8, 25],  janmashtami: [8, 21], raksha:      [8, 29],
+                    eid:         [3, 20],  easter:      [4, 5],
+                },
+                2027: {
+                    diwali:      [11, 8],  holi:        [3, 22], navratri:    [10, 2],
+                    ganesh:      [9, 2],   janmashtami: [9, 4],  raksha:      [8, 19],
+                    eid:         [3, 10],  easter:      [3, 28],
+                },
+                2028: {
+                    diwali:      [10, 27], holi:        [3, 11], navratri:    [10, 22],
+                    ganesh:      [9, 12],  janmashtami: [8, 22], raksha:      [8, 7],
+                    eid:         [2, 27],  easter:      [4, 16],
+                },
+            };
+            // Fallback for unlisted years: use 2026 offsets (better than nothing)
+            const m = moveable[year] || moveable[2026];
+
+            return [
+                // — Lunar / moveable —
+                { name:"Diwali",           month:m.diwali[0],      day:m.diwali[1],      theme:"diwali",      emoji:"&#127774;", msg:"Happy Diwali! May your life always be lit with knowledge and love." },
+                { name:"Holi",             month:m.holi[0],        day:m.holi[1],        theme:"holi",        emoji:"&#127912;", msg:"Happy Holi! May your life be as colourful as today!" },
+                { name:"Navratri",         month:m.navratri[0],    day:m.navratri[1],    theme:"navratri",    emoji:"&#128131;", msg:"Happy Navratri! Nine nights of divine energy — dance, celebrate, shine!" },
+                { name:"Ganesh Chaturthi", month:m.ganesh[0],      day:m.ganesh[1],      theme:"ganesh",      emoji:"&#128024;", msg:"Ganpati Bappa Morya! May Ganesha remove every obstacle in your path." },
+                { name:"Janmashtami",      month:m.janmashtami[0], day:m.janmashtami[1], theme:"janmashtami", emoji:"&#129438;", msg:"Happy Janmashtami! May Lord Krishna's wisdom guide you always." },
+                { name:"Raksha Bandhan",   month:m.raksha[0],      day:m.raksha[1],      theme:"raksha",      emoji:"&#127872;", msg:"Happy Raksha Bandhan! Celebrate the beautiful bond of siblings." },
+                { name:"Eid al-Fitr",      month:m.eid[0],         day:m.eid[1],         theme:"eid",         emoji:"&#127773;", msg:"Eid Mubarak! Wishing you peace, joy, and countless blessings!" },
+                { name:"Easter",           month:m.easter[0],      day:m.easter[1],      theme:"easter",      emoji:"&#128035;", msg:"Happy Easter! May this season bring renewal and new beginnings!" },
+                // — Fixed-date holidays (same every year) —
+                { name:"Independence Day", month:8,  day:15, theme:"independence", emoji:"&#127988;", msg:"Happy Independence Day! Freedom is precious — use it wisely. Jai Hind!" },
+                { name:"Republic Day",     month:1,  day:26, theme:"republic",     emoji:"&#127988;", msg:"Happy Republic Day! Proud to be Indian. Jai Hind!" },
+                { name:"Lohri",            month:1,  day:13, theme:"lohri",        emoji:"&#128293;", msg:"Lohri Mubarak! Wishing you warmth, joy, and a bonfire of good vibes!" },
+                { name:"Makar Sankranti",  month:1,  day:14, theme:"pongal",       emoji:"&#129361;", msg:"Happy Makar Sankranti! May this harvest season fill your life with sweetness." },
+                { name:"Christmas",        month:12, day:25, theme:"christmas",    emoji:"&#127876;", msg:"Merry Christmas! May the season fill your home with warmth and wonder." },
+                { name:"New Year",         month:1,  day:1,  theme:"newyear",      emoji:"&#127881;", msg:"Happy New Year! A blank page — make it a masterpiece." },
+                { name:"New Year's Eve",   month:12, day:31, theme:"newyear",      emoji:"&#129346;", msg:"Happy New Year's Eve! Reflect, reset, and get ready to rise." },
+                { name:"Valentine's Day",  month:2,  day:14, theme:"valentines",   emoji:"&#128140;", msg:"Happy Valentine's Day! Spread love, always." },
+                { name:"Halloween",        month:10, day:31, theme:"halloween",    emoji:"&#127875;", msg:"Happy Halloween! Be spooky, be curious, be you!" },
+                { name:"Thanksgiving",     month:11, day:28, theme:"thanksgiving", emoji:"&#129411;", msg:"Happy Thanksgiving! Gratitude is the highest form of thought." },
+            ];
+        }
+
         const PARTICLES = {
             diwali:["#f97316","#fbbf24","#fef08a","#fff","#fb923c"], holi:["#f472b6","#818cf8","#34d399","#f97316","#60a5fa"],
             christmas:["#bbf7d0","#fca5a5","#fff","#fbbf24"], newyear:["#a5b4fc","#fbbf24","#fff","#f9a8d4"],
@@ -1445,9 +1029,10 @@ Here are some of my personal favorite pieces :</p>
             valentines:["#fda4af","#fff","#fecdd3"], thanksgiving:["#fcd34d","#fdba74","#fff"],
             easter:["#d8b4fe","#fbcfe8","#fde68a"], janmashtami:["#fbbf24","#93c5fd","#fff"],
             ganesh:["#fb923c","#fde68a","#fff"], pongal:["#86efac","#fde68a","#fff"],
-            lohri:["#fb923c","#fbbf24","#fde68a"], guru:["#fbbf24","#93c5fd","#fff"],
-            republic:["#fb923c","#86efac","#fff"], raksha:["#fda4af","#fbcfe8","#fff"], default:["#a5b4fc","#fbbf24","#fff"],
+            lohri:["#fb923c","#fbbf24","#fde68a"], republic:["#fb923c","#86efac","#fff"],
+            raksha:["#fda4af","#fbcfe8","#fff"], default:["#a5b4fc","#fbbf24","#fff"],
         };
+
         function spawnParticles(theme) {
             const container = document.getElementById("fp-container"); container.innerHTML = "";
             const colors = PARTICLES[theme] || PARTICLES.default;
@@ -1460,16 +1045,26 @@ Here are some of my personal favorite pieces :</p>
                 container.appendChild(el);
             }
         }
+
         function getActiveFestival() {
-            const now = new Date(), m = now.getMonth() + 1, d = now.getDate();
-            for (const f of FESTIVALS) { const diff = (m - f.month) * 30 + (d - f.day); if (diff >= -1 && diff <= 1) return f; }
+            const now = new Date();
+            const y = now.getFullYear(), m = now.getMonth() + 1, d = now.getDate();
+            const FESTIVALS = getFestivals(y);
+            for (const f of FESTIVALS) {
+                // Use real Date subtraction to avoid month-boundary arithmetic bugs
+                const festDate  = new Date(y, f.month - 1, f.day);
+                const today     = new Date(y, m - 1, d);
+                const diffDays  = Math.round((today - festDate) / 86400000);
+                if (diffDays >= -1 && diffDays <= 1) return f;
+            }
             return null;
         }
+
         function showBanner(fest) {
             const key = "fb_dismissed_" + fest.name.replace(/\s/g, "_");
             if (sessionStorage.getItem(key)) return;
             const banner = document.getElementById("festival-banner");
-            document.getElementById("festival-emoji").innerHTML = fest.emoji;
+            document.getElementById("festival-emoji").innerHTML  = fest.emoji;
             document.getElementById("festival-emoji2").innerHTML = fest.emoji;
             document.getElementById("festival-message").textContent = fest.msg;
             banner.className = "theme-" + fest.theme;
@@ -1482,20 +1077,27 @@ Here are some of my personal favorite pieces :</p>
                 document.querySelector(".hero").style.paddingTop = (h + navH + 48) + "px";
             });
         }
+
         window.closeFestivalBanner = function() {
             const banner = document.getElementById("festival-banner");
             banner.style.transition = "transform 0.35s ease, opacity 0.35s ease";
             banner.style.transform = "translateY(-100%)"; banner.style.opacity = "0";
-            setTimeout(() => { banner.style.display = "none"; document.querySelector("nav").style.top = "0"; document.querySelector(".hero").style.paddingTop = ""; }, 360);
+            setTimeout(() => {
+                banner.style.display = "none";
+                document.querySelector("nav").style.top = "0";
+                document.querySelector(".hero").style.paddingTop = "";
+            }, 360);
             const f = getActiveFestival();
             if (f) sessionStorage.setItem("fb_dismissed_" + f.name.replace(/\s/g, "_"), "1");
         };
+
         window.addEventListener("scroll", function() {
             const banner = document.getElementById("festival-banner");
             if (banner.style.display === "none") return;
             const h = banner.offsetHeight, nav = document.querySelector("nav");
             nav.style.top = window.scrollY >= h ? "0" : (h - window.scrollY) + "px";
         }, { passive: true });
+
         const fest = getActiveFestival();
         if (fest) showBanner(fest);
     })();
@@ -1600,14 +1202,11 @@ Here are some of my personal favorite pieces :</p>
         function initMovieSeeMore() {
             const grid = document.getElementById('movie-grid');
             if (!grid) return;
-
             const cards = Array.from(grid.querySelectorAll('.movie-card'));
             const SHOW_COUNT = 12;
             if (cards.length <= SHOW_COUNT) return;
-
             const hiddenCards = cards.slice(SHOW_COUNT);
             const hiddenCount = hiddenCards.length;
-
             const hiddenGrid = document.createElement('div');
             hiddenGrid.className = 'movie-grid movie-overflow collapsed';
             hiddenGrid.id = 'movie-grid-overflow';
@@ -1615,7 +1214,6 @@ Here are some of my personal favorite pieces :</p>
             hiddenGrid.style.maxHeight = '0px';
             hiddenCards.forEach(card => { grid.removeChild(card); hiddenGrid.appendChild(card); });
             grid.parentNode.insertBefore(hiddenGrid, grid.nextSibling);
-
             const wrap = document.createElement('div');
             wrap.className = 'see-more-wrap';
             wrap.id = 'movie-see-more-wrap';
@@ -1631,10 +1229,8 @@ Here are some of my personal favorite pieces :</p>
             const grid = document.getElementById('movie-grid-overflow');
             const btn  = document.getElementById('movie-see-more-btn');
             if (!grid || !btn) return;
-
             const isCollapsed = grid.classList.contains('collapsed');
             const chevron = '<svg viewBox="0 0 24 24" style="stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;width:16px;height:16px;"><polyline points="6 9 12 15 18 9"/></svg>';
-
             if (isCollapsed) {
                 grid.classList.remove('collapsed');
                 grid.style.maxHeight = grid.scrollHeight + 'px';
@@ -1654,39 +1250,27 @@ Here are some of my personal favorite pieces :</p>
             }
         };
 
-        // Smart filter — always shows first 12 matching cards, rest go into overflow
         const _origFilter = window.filterMovies;
         window.filterMovies = function(type, btn) {
-            // Update active button
             document.querySelectorAll('.mf-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-
             const mainGrid     = document.getElementById('movie-grid');
             const overflowGrid = document.getElementById('movie-grid-overflow');
             const wrap         = document.getElementById('movie-see-more-wrap');
             const seeMoreBtn   = document.getElementById('movie-see-more-btn');
             if (!mainGrid || !overflowGrid) return;
-
-            // Collapse overflow first
             overflowGrid.style.maxHeight = '0px';
             overflowGrid.classList.add('collapsed');
             if (seeMoreBtn) seeMoreBtn.classList.remove('open');
-
-            // Gather ALL cards from both grids
             const allCards = [
                 ...Array.from(mainGrid.querySelectorAll('.movie-card')),
                 ...Array.from(overflowGrid.querySelectorAll('.movie-card'))
             ];
-
-            // Separate matching vs non-matching
             const matching    = allCards.filter(c => type === 'all' || c.dataset.type === type);
             const nonMatching = allCards.filter(c => type !== 'all' && c.dataset.type !== type);
-
             const SHOW_COUNT = 12;
             const visibleCards = matching.slice(0, SHOW_COUNT);
             const hiddenCards  = matching.slice(SHOW_COUNT);
-
-            // Move first 12 matching into main grid
             visibleCards.forEach((card, i) => {
                 card.classList.remove('hide');
                 card.style.animationDelay = (i * 0.07) + 's';
@@ -1694,21 +1278,15 @@ Here are some of my personal favorite pieces :</p>
                 requestAnimationFrame(() => { card.style.animation = ''; });
                 mainGrid.appendChild(card);
             });
-
-            // Move rest of matching into overflow grid
             hiddenCards.forEach((card, i) => {
                 card.classList.remove('hide');
                 card.style.animationDelay = ((visibleCards.length + i) * 0.07) + 's';
                 overflowGrid.appendChild(card);
             });
-
-            // Move non-matching into overflow grid (hidden)
             nonMatching.forEach(card => {
                 card.classList.add('hide');
                 overflowGrid.appendChild(card);
             });
-
-            // Show/hide See More button
             if (wrap) {
                 if (hiddenCards.length > 0) {
                     wrap.style.display = 'block';
