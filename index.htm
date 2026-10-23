@@ -293,6 +293,12 @@
         }
         @media (max-width: 400px) { .movie-grid { grid-template-columns: 1fr; } }
     </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+             emailjs.init('DDeUqRaPC_HpLGR66'); // ← paste your public key here
+    </script>
+
 </head>
 <body>
 
@@ -1791,11 +1797,35 @@ Here are some of my personal favorite pieces :</p>
         card.classList.toggle('expanded');
         if (card.classList.contains('expanded')) { setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100); }
     }
+
     function handleSubscribe(event) {
-        event.preventDefault();
-        const email = event.target.querySelector('input').value;
-        alert('Thank you for subscribing with ' + email + '! You\'ll receive your first email soon.');
+    event.preventDefault();
+    const btn = event.target.querySelector('button');
+    const email = event.target.querySelector('input').value;
+    const originalText = btn.textContent;
+
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+        user_email: email,
+         time: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+    })
+    .then(() => {
+        btn.textContent = '✓ Subscribed!';
         event.target.reset();
+        setTimeout(() => {
+            btn.textContent = originalText;
+            btn.disabled = false;
+        }, 3000);
+    })
+    .catch((err) => {
+        console.error('EmailJS error:', err);
+        btn.textContent = 'Failed — try again';
+        btn.disabled = false;
+        setTimeout(() => { btn.textContent = originalText; }, 2000);
+    });
+}
     }
     function filterMovies(type, btn) {
         document.querySelectorAll('.mf-btn').forEach(b => b.classList.remove('active'));
