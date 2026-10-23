@@ -33,8 +33,15 @@
             --color-border: #2a2a2e;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: var(--font-serif); background-color: var(--color-bg); color: var(--color-text); line-height: 1.6; overflow-x: hidden; }
+        body { font-family: var(--font-serif); background-color: var(--color-bg); color: var(--color-text); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
         html { scroll-behavior: smooth; }
+
+        /* SCROLL PROGRESS BAR */
+        #scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--color-accent), #818cf8); z-index: 2000; width: 0%; transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
+
+        /* FADE-IN-UP for sections via Intersection Observer */
+        .fade-section { opacity: 0; transform: translateY(28px); transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
+        .fade-section.visible { opacity: 1; transform: translateY(0); }
 
         /* FESTIVAL BANNER */
         #festival-banner { display: none; position: fixed; top: 0; left: 0; right: 0; min-height: 62px; padding: 16px 52px; text-align: center; z-index: 1001; overflow: hidden; animation: bannerSlideIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) both; }
@@ -108,14 +115,14 @@
 
         /* ARTICLE CARDS */
         .article-grid { display: grid; gap: 2rem; margin-top: 3rem; }
-        .article-card { border: 1px solid var(--color-border); border-radius: 18px; padding: 2rem; background: var(--color-card-bg); transition: all 0.3s ease; cursor: pointer; }
-        .article-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08); border-color: var(--color-accent); }
+        .article-card { border: 1px solid var(--color-border); border-radius: 18px; padding: 2rem; background: var(--color-card-bg); transition: transform 0.3s cubic-bezier(0.34,1.28,0.64,1), box-shadow 0.3s ease, border-color 0.3s ease; cursor: pointer; will-change: transform; }
+        .article-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(0, 0, 0, 0.09); border-color: var(--color-accent); }
         [data-theme="dark"] .article-card:hover { box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15); }
         .article-meta { font-family: var(--font-sans); font-size: 0.85rem; color: var(--color-text-light); margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
         .article-card h3 { margin-top: 0; font-size: 1.6rem; }
         .article-card > p { font-size: 1.1rem; color: var(--color-text-light); margin-bottom: 0; }
-        .article-full-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, margin-top 0.3s ease, opacity 0.3s ease; opacity: 0; }
-        .article-card.expanded .article-full-content { max-height: 5000px; margin-top: 2rem; opacity: 1; }
+        .article-full-content { max-height: 0; overflow: hidden; transition: max-height 0.6s cubic-bezier(0.22,1,0.36,1), margin-top 0.35s ease, opacity 0.4s ease; opacity: 0; }
+        .article-card.expanded .article-full-content { max-height: 6000px; margin-top: 2rem; opacity: 1; }
         .article-full-content h4 { margin-top: 2rem; }
         .article-full-content h4:first-child { margin-top: 0; }
         .article-full-content ul { margin-left: 2rem; margin-bottom: 1.5rem; }
@@ -289,6 +296,7 @@
 </head>
 <body>
 
+    <div id="scroll-progress"></div>
     <div id="festival-banner" role="banner" aria-live="polite">
         <div id="fp-container"></div>
         <div class="banner-inner">
@@ -336,7 +344,7 @@
     </section>
 
     <div class="container">
-        <section id="about">
+        <section id="about" class="fade-section">
             <h2>About Me</h2>
             <p>I’m a writer, thinker, and creator exploring the frameworks that help us live better lives. I study ICT Engineering, but I don’t always resonate with the system around it. Too often, education feels like rote learning — outdated methods focused more on memorization than real understanding. The pressure is on marks, placements, and performance metrics rather than curiosity, experimentation, and applied knowledge.</p>
 <p>Many students are guided toward one predictable loop: score well, get placed, enter corporate life, repeat for 30–40 years. But I question that pattern. A job can be a short-term solution to a long-term problem. In many cases, employees spend their prime years building wealth for owners and shareholders while their own leverage stays limited. Your effort contributes more to someone else’s retirement than your own freedom.</p>
@@ -352,7 +360,7 @@
             <p>My mission is to surface these powerful ideas, distill them into actionable frameworks, and share them with people who are committed to continuous growth. Every week, I research, synthesize, and publish insights that you can apply immediately to your work and life.</p>
         </section>
 
-        <section id="writing">
+        <section id="writing" class="fade-section">
             <h2>Featured Writing</h2>
             <p>I publish essays, frameworks, and mental models on philosophy, productivity, politics, real-world issues, trendy movies, news, and social media culture, pop-culture.
 Here are some of my personal favorite pieces :</p>
@@ -382,32 +390,65 @@ Here are some of my personal favorite pieces :</p>
     </div>
 </div>
                 <div class="article-card" onclick="toggleArticle(this)">
-    <div class="article-meta">Current Affairs · Opinion</div>
-    <h3>Same Week, Five Headlines — And Not One of Them Is Good News</h3>
-    <p>A comedian fined by the Supreme Court. A vlogger forced into a U-turn. A man starving himself on Day 17. A temple guard with a rubber-banded bundle of cash. A sailor who didn't come home from the Strait of Hormuz. Different stories, same week, same country — and I don't think that's a coincidence.</p>
+    <div class="article-meta">Indian Politics · Opinion</div>
+    <h3>Gen Z Just Made a Minister Quit. That Has Never Happened Before.</h3>
+    <p>Five weeks of protests, a selfie video from the PM, and a resignation nobody expected. Here's what actually happened — and why it matters more than the news cycle suggests.</p>
     <div class="article-full-content">
-        <h4>A Court Losing Patience With a Comedian</h4>
-        <p>The Supreme Court fined Samay Raina three lakh rupees this week, telling him plainly that he'd taken the court for a ride. The case goes back to insensitive remarks about people with disabilities on India's Got Latent — Raina had promised the court he'd run fundraiser shows and actually involve the community, and instead showed up with an affidavit that, in the court's words, didn't exist on record. The bench had floated ten lakh before settling on three, with a warning that it could become thirty next time.</p>
-        <p>What gets me isn't the fine. It's the pattern underneath it — a public apology issued back in October, genuine-sounding at the time, followed by nine months of doing the minimum to look compliant rather than actually showing up. Money can rebuild a mistake. It can't stand in for the thing you were actually asked to do, which was to sit with the people you'd hurt.</p>
-        <h4>A Vlogger Learns What Millions of Followers Actually Costs</h4>
-        <p>Sourav Joshi told his followers his Mercedes' mileage had collapsed from seventeen kilometers a liter to five after switching to E20 fuel, and that he was scared to fill his tank. It went viral instantly — this is India's biggest vlogger, after all. Within two days, Mercedes clarified the car was fully compatible with E20, a service center found the real issue was an engine fault, and Joshi apologized on X, saying he never meant to spread incorrect information.</p>
-        <p>I don't think he was lying. I think he was careless with a platform that size, and that's almost worse. When you have that many people watching, "I assumed" isn't a small thing anymore — it moves markets, it triggers government rebuttals, it becomes a talking point in a debate about biofuel policy that has nothing to do with your actual car. The apology was necessary. It also arrived two days too late for the people who'd already believed him.</p>
-        <h4>A Man Starving Himself for a Question Nobody Will Answer</h4>
-        <p>Sonam Wangchuk is on Day 17 of an indefinite hunger strike at Jantar Mantar, protesting repeated exam paper leaks and demanding the Education Minister's resignation. He's lost close to nine kilograms. His blood pressure and blood sugar are unstable. Doctors are warning his body is entering a dangerous phase. Opposition leaders across party lines — Kejriwal, Akhilesh Yadav, Uddhav Thackeray — have all publicly asked him to stop, worried he won't survive it.</p>
-        <p>He's refused. When people beg him to eat, he tells them to ask the government why it won't even sit down and talk. I keep thinking about how much has to have already failed — every normal channel, every petition, every committee — before a person decides that starving himself in public is the only lever left to pull. That's not stubbornness. That's what it looks like when you've run out of other options.</p>
-        <h4>A Rubber Band Around a Stolen Bundle</h4>
-        <p>Old CCTV footage resurfaced this week from Gujarat's Ambaji Temple, showing an outsourced worker hiding a bundle of cash under his foot during donation counting — over a lakh in notes, fastened with a rubber band, clearly planned rather than impulsive. Three employees were eventually arrested and sacked, and the temple has since introduced a new counting procedure.</p>
-        <p>On its own, this is a small, sordid story about three people and one lakh rupees. What makes it land differently is the company it's keeping — this surfaced right alongside a much bigger, still-unresolved probe into donation irregularities at the Ram Temple in Ayodhya, and a parallel one at Badrinath. When theft at three of the country's most trusted religious institutions becomes a pattern instead of an incident, the conversation stops being about three bad employees and starts being about how little anyone was actually watching.</p>
-        <h4>Thirty Indians on a Tanker, One Who Didn't Come Home</h4>
-        <p>Two commercial tankers were struck in the Strait of Hormuz this week, allegedly by Iran, as part of a wider escalation involving the US and regional actors. Forty-six crew members were aboard the two vessels, thirty of them Indian. One of our own didn't survive it. India summoned Iran's deputy chief of mission to lodge a formal protest. That's the extent of what happens when a country's citizens die in someone else's war — a strongly worded meeting, a press statement, and then the news cycle moves on to whatever's next.</p>
-        <p>I don't have a clever line for this one. A man went to work on a ship and didn't come back, because two countries decided a shipping lane was worth turning into a battlefield. That's it. That's the whole tragedy, and it deserves more than a paragraph buried under four other headlines — which is exactly why I refused to bury it under four other headlines here.</p>
-        <h4>What Actually Connects These Five Stories</h4>
-        <p>I didn't go looking for a common thread — these are five unrelated events that happened to land in the same seven days. But sit with them together and a shape does emerge: institutions responding only after they've been caught (the temple, the court), individuals paying a price disproportionate to their power to actually fix anything (the sailor, the hunger striker), and a public conversation that has maybe three days of attention span before the next headline replaces the last one.</p>
-        <p>None of these stories are connected by cause. They're connected by what they reveal about accountability in this country right now — how slow it is when institutions are the ones being asked to account, and how fast and final it is when it's an ordinary person paying the cost. That's the pattern I keep noticing, and it's the reason a week like this one doesn't feel like five separate bad days. It feels like one long one.</p>
-        <p style="font-style: italic; color: var(--color-text-light); font-size: 1.05rem; border-top: 1px solid var(--color-border); padding-top: 1.5rem; margin-top: 1rem;">— This is my personal opinion, based on public reporting on each of these stories as of mid-July 2026. Several of these situations are still developing — the Wangchuk hunger strike, the temple donation probes, and the Hormuz escalation in particular — and facts on the ground may have moved since I wrote this. Read the primary reporting and form your own view.</p>
+        <h4>The Sequence That Rewrote the Playbook</h4>
+        <p>In late July 2026, something unusual happened in Indian politics. Five weeks after the Cockroach Janta Party began its protest demanding the resignation of the Education Minister over the NEET exam paper leak, Prime Minister Modi posted a rare selfie video from his phone saying he was pained by the students' suffering. Two days later, the minister stepped down. A youth-led movement — built on memes, Instagram reels, and cockroach masks — had just forced a cabinet resignation in a government not exactly known for backing down.</p>
+        <p>That hasn't happened in India at this scale before. Farmers protested for nearly a year before Modi repealed contentious farm laws in 2021. Students got a result in five weeks.</p>
+        <h4>What Actually Drove the Protest</h4>
+        <p>The trigger was a leaked medical entrance exam — NEET — which is the gateway to every government medical college in the country. When the leak was confirmed, it wasn't just a scandal. It was proof of something an entire generation had been quietly suspecting: that the system they were studying eighteen hours a day to pass was rigged at the gate itself.</p>
+        <p>But the underlying fuel was broader. Youth unemployment in India has stayed stubbornly high for over a decade. And now there's a new fear on top of it: that the IT back-office jobs India built its economic reputation on — the jobs that were supposed to be the safe destination for engineering and science graduates — are exactly the jobs AI is coming for first. A Reuters analysis published the same week noted that anxiety about AI replacing white-collar entry-level work was one of the strongest secondary drivers pushing young people into the streets.</p>
+        <h4>Why This Particular Protest Cut Through</h4>
+        <p>One detail keeps appearing in the analysis: a large number of people at the CJP protests were likely BJP supporters. That's a different beast entirely from opposition-led street movements, which the government can and usually does dismiss as politically motivated. You can't easily dismiss your own voters marching against you. A SOAS anthropology professor who studies Indian civil society put it plainly in Reuters reporting: this cross-over is what made the protest structurally different from anything in recent memory.</p>
+        <p>The opposition tried to capitalise, as oppositions always do. But the story wasn't about them. It was about a generation that had been handed a word ugly enough to describe how it felt — "cockroaches" — and decided to wear it like armour.</p>
+        <h4>What Comes Next, Honestly</h4>
+        <p>The next tests of this anger are state elections in Uttar Pradesh, Punjab, and Modi's own home state of Gujarat. Tamil Nadu already handed a template: an actor running on his own platform, propelled by an Instagram-first Gen Z fanbase, recently won the chief ministership. The 2029 national election is further out, but analysts who cover South Asia are now openly discussing what happens if CJP decides to contest seats.</p>
+        <p>I don't know if the movement survives long enough to matter at that scale. Movements have a way of getting absorbed, co-opted, or simply exhausted. What I do think is that this resignation proved something that a generation of activists had started to doubt: the system can still be moved. Not easily, and not by asking politely. But it can be moved.</p>
+        <p style="font-style: italic; color: var(--color-text-light); font-size: 1.05rem; border-top: 1px solid var(--color-border); padding-top: 1.5rem; margin-top: 1rem;">— This is my personal opinion, based on Reuters reporting from July 25–26, 2026, and public coverage of the CJP movement. The government's stated position is that the ministerial change reflects its genuine commitment to students' welfare. Read the primary sources and form your own view.</p>
     </div>
 </div>
-                
+                <div class="article-card" onclick="toggleArticle(this)">
+    <div class="article-meta">Media &amp; Democracy · Opinion</div>
+    <h3>India's Youth Protests Revealed Something Worse Than Exam Leaks: The Media Won't Cover Them</h3>
+    <p>When students marched in cockroach masks demanding accountability, most of India's biggest channels were busy with something else entirely. Here's what that tells you about whose side the press is actually on.</p>
+    <div class="article-full-content">
+        <h4>The Blackout That Wasn't Accidental</h4>
+        <p>When the Cockroach Janta Party protests were drawing thousands to Jantar Mantar, a consistent pattern emerged: several of India's largest Hindi news channels — the ones with the most reach, the ones that shape what most of India thinks about most things — gave the protests minimal coverage or framed them as opposition mischief. Meanwhile, the BBC, Reuters, Al Jazeera, TIME magazine, and CNN International were all running full analytical pieces on what they were calling one of the most significant youth political movements India had seen in a generation.</p>
+        <p>The gap between how domestic and international press covered the same event wasn't subtle. It was the story inside the story.</p>
+        <h4>What "Lapdog Media" Actually Means</h4>
+        <p>The phrase appeared in international coverage — a BBC analysis headline explicitly used the term "lapdog media" in the context of Indian youth protests highlighting their distrust of mainstream outlets. That's not a fringe characterisation anymore. It's the phrase that young Indians themselves were using in their protest signs, and that foreign correspondents were now putting in headlines.</p>
+        <p>The structural explanation isn't complicated. Two large conglomerates own a significant portion of India's most-watched television news. Both have documented financial relationships — through advertising, through access, through a shared interest in regulatory goodwill — with the current government. That doesn't mean every editorial decision is a phone call from Delhi. It doesn't need to be. Institutional self-interest produces editorial caution without anyone needing to pick up a phone. The result is the same: stories that embarrass the government get shorter, later, softer. Stories that don't, don't.</p>
+        <h4>Why Young Indians Already Knew This</h4>
+        <p>The protests revealed something that pollsters and media critics had been documenting for years but that hadn't quite broken into public consciousness: a significant portion of Gen Z in India does not trust television news. They get their information from YouTube journalists, independent podcasts, international outlets accessible through VPN, and each other. The CJP itself was built entirely on Instagram and X. It didn't need a single minute of primetime television to cross 20 million followers.</p>
+        <p>That's new. Ten years ago, if the dominant TV channels didn't cover a protest, the protest didn't exist for most of the country. Now there's a generation that has built entirely parallel information infrastructure — and they're using it to organise against the very institutions that control the channels.</p>
+        <h4>The Question I Keep Coming Back To</h4>
+        <p>If India's mainstream press had covered the NEET leak and the student anger with the same urgency it gave to, say, celebrity divorce proceedings or IPL controversies, would the minister have resigned faster? Would the system have fixed the exam integrity problem sooner? Would fewer students have felt so cornered that they took their own lives after results they believed were manipulated?</p>
+        <p>I don't know. But I think it's worth asking. A free press doesn't just report on power — it applies pressure on it. When it stops doing the second part, the gap doesn't stay empty. Cockroach masks fill it instead.</p>
+        <p style="font-style: italic; color: var(--color-text-light); font-size: 1.05rem; border-top: 1px solid var(--color-border); padding-top: 1.5rem; margin-top: 1rem;">— This is my personal opinion based on public coverage of India's 2026 youth protests and media analysis. Indian news organisations and their ownership groups have consistently denied editorially compromising their coverage, and the government denies exerting pressure on the press. Read from multiple sources and judge for yourself.</p>
+    </div>
+</div>
+                <div class="article-card" onclick="toggleArticle(this)">
+    <div class="article-meta">Technology &amp; Policy · Opinion</div>
+    <h3>India Just Passed AI Labelling Rules. They're Smart. They're Also Dangerous.</h3>
+    <p>Mandatory labels on deepfakes, three-hour takedowns, platforms losing safe harbour if they don't comply. The new IT Amendment Rules 2026 are India's boldest tech regulation yet. Here's why I'm genuinely split on them.</p>
+    <div class="article-full-content">
+        <h4>What the Rules Actually Say</h4>
+        <p>Effective 20 February 2026, India's amended IT Rules introduced mandatory labelling for all AI-generated or AI-altered content. That means deepfake videos, cloned audio, manipulated images, and synthetic text all need clear labels — covering at least 10 percent of the visual surface area, or the first 10 percent of an audio clip's duration. Platforms must embed non-removable metadata and unique identifiers in files so origin can be traced across platforms.</p>
+        <p>The takedown timelines are aggressive: illegal AI content must be removed within three hours of a government order. Non-consensual deepfake imagery — the kind used to harass and destroy reputations — must come down within two hours of a complaint. Platforms that fail to comply lose safe harbour protection and face criminal prosecution. If a platform knowingly allows unlabelled deepfakes, it can be held directly liable for the content.</p>
+        <h4>The Genuinely Good Part</h4>
+        <p>Let's start where it deserves credit. The deepfake problem in India is real and it's getting worse fast. Fabricated celebrity videos circulated during the 2024 elections. Non-consensual intimate images generated using AI have destroyed careers and lives. The UNICEF has been sounding alarms about AI-driven tools being used to produce imagery targeting children. A government that waited longer to act on this would have been negligent.</p>
+        <p>The mandatory labelling requirement is particularly sensible. India has almost one billion internet users, spread across dozens of languages, varying levels of media literacy, and highly fractured information ecosystems. In that environment, the assumption that people can detect AI-generated content on their own is wrong. Labels help. Metadata trails help. Making platforms financially liable for knowingly ignoring this helps.</p>
+        <h4>The Part That Should Make You Uncomfortable</h4>
+        <p>The three-hour government takedown window is where the regulation gets complicated. The same government that moved its regulatory machinery so quickly against a YouTube comedy show — India's Got Latent — now has a legally backed mechanism to order the removal of AI-labelled content in less time than it takes to review whether the order is valid. Three hours is not enough time for a platform's legal team to assess whether a takedown request is legitimate. It's designed to be complied with first and challenged later, if at all.</p>
+        <p>Platforms that push back lose safe harbour. In practice, that creates an overwhelming incentive to over-comply — to take things down whenever the government asks, regardless of whether the content actually violates any provision. Add to that the vagueness in how "harmful" and "synthetic" content is defined, and you have rules that can be applied narrowly against genuine deepfake abuse, or broadly against political satire, opposition messaging, or journalism that uses AI tools to process data.</p>
+        <h4>Where I Actually Land</h4>
+        <p>I think the labelling provisions are genuinely good policy. The consent and victim-protection clauses are overdue. Holding platforms liable for knowingly hosting non-consensual imagery is correct. But the government takedown timeline, combined with safe harbour removal as the penalty, gives the state a regulatory lever that goes well beyond protecting victims from deepfakes. It creates a mechanism for fast content removal that doesn't distinguish between a fabricated harassment video and a satirical meme of a politician. Those are not the same thing, and the rules don't treat them differently enough.</p>
+        <p>Good regulation protects people from technology's worst uses without handing a government the same tools in the process. These rules do the first thing reasonably well. They don't do the second thing at all.</p>
+        <p style="font-style: italic; color: var(--color-text-light); font-size: 1.05rem; border-top: 1px solid var(--color-border); padding-top: 1.5rem; margin-top: 1rem;">— This is my personal opinion based on India's IT Amendment Rules 2026 and public analysis of them. The government's stated purpose for the rules is protecting citizens from deepfake abuse and misinformation, not expanding content control. Read the rules themselves at meity.gov.in and form your own view.</p>
+    </div>
+</div>
                 <div class="article-card" onclick="toggleArticle(this)">
     <div class="article-meta">Free Speech &amp; Censorship · Opinion</div>
     <h3>India's Got Latent: A Joke Got Deleted. The Crackdown Didn't.</h3>
@@ -549,7 +590,7 @@ Here are some of my personal favorite pieces :</p>
             </div>
         </section>
 
-        <section id="quotes">
+        <section id="quotes" class="fade-section">
             <h2>My Quote Journal!</h2>
             <p>A collection of thoughts I chose to write instead of ignore.</p>
             <div class="quote-of-day">
@@ -1553,11 +1594,50 @@ Here are some of my personal favorite pieces :</p>
                     <div class="movie-divider"></div>
                     <p class="movie-take">Sridevi's comeback, and a quiet lesson in dignity — learning a language was never really the point.</p>
                 </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:4.44s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Epic · Mythology</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Ramayana Part 1</span>
+                        <span class="movie-rating-inline">★ TBA</span>
+                    </div>
+                    <div class="movie-year">2026 · Nitesh Tiwari</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">India's most ambitious cinematic bet — the scale alone is historic. Whether it earns its mythology is what everyone will be debating after the credits.</p>
+                </div>
+                <div class="movie-card" data-type="bollywood" style="animation-delay:4.50s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Romance · Comedy</span>
+                        <span class="movie-type-badge">Bollywood</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Cocktail 2</span>
+                        <span class="movie-rating-inline">★ TBA</span>
+                    </div>
+                    <div class="movie-year">2026 · Homi Adajania</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Shahid, Rashmika, Kriti — the original was messy and real. The sequel has a tough act to follow, but this cast could pull it off.</p>
+                </div>
+                <div class="movie-card" data-type="south" style="animation-delay:4.56s">
+                    <div class="movie-top-row">
+                        <span class="movie-genre">Thriller · Crime</span>
+                        <span class="movie-type-badge">South</span>
+                    </div>
+                    <div class="movie-title-row">
+                        <span class="movie-title">Drishyam 3</span>
+                        <span class="movie-rating-inline">★ TBA</span>
+                    </div>
+                    <div class="movie-year">2026 · Jeethu Joseph</div>
+                    <div class="movie-divider"></div>
+                    <p class="movie-take">Mohanlal back as Georgekutty — the franchise that made us all question what we'd do to protect our family. Every chapter raises the stakes.</p>
+                </div>
                 <!-- See More button and overflow grid inserted by JS -->
             </div>
         </section>
 
-        <section id="beliefs">
+        <section id="beliefs" class="fade-section">
             <h2>What I Believe</h2>
             <p>Through exploration and self-discovery, I’ve shaped these core values:</p>
             <h3>Simple beats complex</h3>
@@ -1737,13 +1817,37 @@ Here are some of my personal favorite pieces :</p>
     </script>
 
     <script>
-    const quoteElements = document.querySelectorAll('.reveal-quote');
-    const revealQuotesOnScroll = () => {
-        const wh = window.innerHeight;
-        quoteElements.forEach((el, i) => { if (el.getBoundingClientRect().top < wh - 60) { setTimeout(() => el.classList.add('active'), i * 120); } });
-    };
-    window.addEventListener('scroll', revealQuotesOnScroll);
-    revealQuotesOnScroll();
+    // SCROLL PROGRESS BAR
+    const progressBar = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+    }, { passive: true });
+
+    // INTERSECTION OBSERVER — quotes + fade-sections
+    const ioOptions = { threshold: 0.12 };
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                fadeObserver.unobserve(entry.target);
+            }
+        });
+    }, ioOptions);
+    document.querySelectorAll('.fade-section').forEach(el => fadeObserver.observe(el));
+
+    const quoteObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const items = entry.target.querySelectorAll('.reveal-quote');
+                items.forEach((el, i) => setTimeout(() => el.classList.add('active'), i * 100));
+                quoteObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.05 });
+    const quoteContainer = document.querySelector('.quotes-container');
+    if (quoteContainer) quoteObserver.observe(quoteContainer);
     </script>
 
     <script>
