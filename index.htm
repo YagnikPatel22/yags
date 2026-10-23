@@ -1804,36 +1804,46 @@ Here are some of my personal favorite pieces :</p>
         card.classList.toggle('expanded');
         if (card.classList.contains('expanded')) { setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100); }
     }
-
-    function handleSubscribe(event) {
+async function handleSubscribe(event) {
     event.preventDefault();
     const btn = event.target.querySelector('button');
-    const email = event.target.querySelector('input').value;
+    const email = event.target.querySelector('input').value.trim().toLowerCase();
     const originalText = btn.textContent;
+
+    if (!email) return;
 
     btn.textContent = 'Sending...';
     btn.disabled = true;
 
-    emailjs.send('service_al69lsy', 'template_knsleoq', {
-        user_email: email,
-         time: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
-    })
-    .then(() => {
+    try {
+        // 1. Save to Supabase
+        const { error } = await supabase
+            .from('subscribers')
+            .insert([{ email }]);
+
+        if (error) {
+            // Ignore duplicate (already subscribed)
+            if (error.code !== '23505') throw error;
+        }
+
+        // 2. Notify you via EmailJS
+        await emailjs.send('YOUR_REAL_SERVICE_ID', 'YOUR_REAL_TEMPLATE_ID', {
+            user_email: email,
+            time: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+        });
+
         btn.textContent = '✓ Subscribed!';
         event.target.reset();
+    } catch (err) {
+        console.error(err);
+        btn.textContent = 'Failed — try again';
+    } finally {
         setTimeout(() => {
             btn.textContent = originalText;
             btn.disabled = false;
         }, 3000);
-    })
-    .catch((err) => {
-        console.error('EmailJS error:', err);
-        btn.textContent = 'Failed — try again';
-        btn.disabled = false;
-        setTimeout(() => { btn.textContent = originalText; }, 2000);
-    });
-        
     }
+}
     function filterMovies(type, btn) {
         document.querySelectorAll('.mf-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
