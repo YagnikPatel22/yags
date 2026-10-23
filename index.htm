@@ -299,16 +299,16 @@
              emailjs.init('DDeUqRaPC_HpLGR66'); // ← paste your public key here
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-  // Replace these two lines with your real values from Supabase → Project Settings → API
-  const SUPABASE_URL = 'https://zrzbjrmjzgateojadmco.supabase.co';
-  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpyemJqcm1qemdhdGVvamFkbWNvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3NTA1MTAsImV4cCI6MjEwODMyNjUxMH0.WIwiLBIM9MgikoWyiu-KzX-ZG6PWROd9PfwicXb3yuY';
+  // Make them global so handleSubscribe can see them
+  window.SUPABASE_URL = 'https://zrzbjrmjzgateojadmco.supabase.co';
+  window.SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpyemJqcm1qemdhdGVvamFkbWNvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3NTA1MTAsImV4cCI6MjEwODMyNjUxMH0.WIwiLBIM9MgikoWyiu-KzX-ZG6PWROd9PfwicXb3yuY';
 
-  let supabase = null;
-  if (SUPABASE_URL && !SUPABASE_URL.includes('YOUR_PROJECT') &&
-      SUPABASE_ANON_KEY && !SUPABASE_ANON_KEY.includes('YOUR_ANON')) {
-    supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  window.supabaseClient = null;
+  if (window.SUPABASE_URL && !window.SUPABASE_URL.includes('YOUR_PROJECT') &&
+      window.SUPABASE_ANON_KEY && !window.SUPABASE_ANON_KEY.includes('YOUR_ANON')) {
+    window.supabaseClient = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
   }
 </script>
 
@@ -1822,22 +1822,19 @@ async function handleSubscribe(event) {
     btn.disabled = true;
 
     try {
-        // ---------- 1. Optional: Save to Supabase (only if configured) ----------
-        const isSupabaseReady = SUPABASE_URL && !SUPABASE_URL.includes('YOUR_PROJECT') 
-                             && SUPABASE_ANON_KEY && !SUPABASE_ANON_KEY.includes('YOUR_ANON');
-
-        if (isSupabaseReady) {
-            const { error } = await supabase
+        // 1. Save to Supabase (only if the client was created)
+        if (window.supabaseClient) {
+            const { error } = await window.supabaseClient
                 .from('subscribers')
                 .insert([{ email }]);
 
             // Ignore “already subscribed” error
             if (error && error.code !== '23505') {
-                console.warn('Supabase error (continuing anyway):', error);
+                console.warn('Supabase warning (continuing):', error.message);
             }
         }
 
-        // ---------- 2. Always notify you via EmailJS ----------
+        // 2. Always notify you via EmailJS
         await emailjs.send('service_al69lsy', 'template_knsleoq', {
             user_email: email,
             time: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
