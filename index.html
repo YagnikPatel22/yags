@@ -70,9 +70,10 @@ nav{position:sticky;top:0;z-index:1000;background:color-mix(in srgb,var(--bg) 88
 .nav-links a{font-family:var(--sans);font-weight:600;font-size:.92rem;text-decoration:none;color:var(--muted);transition:color .2s}
 .nav-links a:hover{color:var(--ink)}
 .nav-right{display:flex;align-items:center;gap:14px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--sans);font-weight:700;font-size:.92rem;padding:12px 24px;border-radius:999px;border:0;background:var(--accent-deep);color:#fff;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--sans);font-weight:700;font-size:.92rem;padding:12px 24px;border-radius:999px;border:0;background:var(--accent-deep);color:#fff;text-decoration:none;transition:background .45s cubic-bezier(.22,1,.36,1),box-shadow .45s cubic-bezier(.22,1,.36,1),filter .45s cubic-bezier(.22,1,.36,1),transform .45s cubic-bezier(.22,1,.36,1)}
 [data-theme="dark"] .btn{color:#14101f;background:var(--accent)}
-.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(106,73,216,.28)}
+.btn:hover{transform:none;background:#5b3cc4;box-shadow:0 8px 28px rgba(91,60,196,.28);filter:brightness(1.06)}
+.btn:active{transform:scale(.985);box-shadow:0 2px 8px rgba(91,60,196,.2);filter:brightness(.98)}
 .btn.sm{padding:9px 18px;font-size:.85rem}
 .icon-btn{background:none;border:1px solid var(--line);width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--ink)}
 .icon-btn svg{width:18px;height:18px}
@@ -218,30 +219,45 @@ footer p{opacity:.88;font-size:1.05rem}
 .fade.visible{opacity:1;transform:none}
 
 @media(max-width:860px){
-  .hero-grid{grid-template-columns:1fr;padding:40px 0 56px;gap:0}
+  header.hero .hero-grid{grid-template-columns:1fr;padding:32px 24px 56px;gap:0}
   .phone-wrap{display:none}
-  .hero h1{font-size:2.15rem;margin-bottom:14px}
-  .hero p.lead{font-size:1.05rem;color:var(--ink);opacity:.78;margin-bottom:8px}
+  header.hero .eyebrow{display:block;width:fit-content;margin:8px 0 22px}
+  .hero h1{font-size:2.2rem;line-height:1.12;margin:0 0 16px;letter-spacing:-.03em}
+  .hero p.lead{font-size:1.08rem;line-height:1.65;color:var(--ink);opacity:.8;margin:0 0 10px;max-width:36rem}
   .signup{
+    display:flex;
     flex-direction:column;
     align-items:stretch;
-    gap:10px;
-    margin-top:22px;
-    padding:14px;
-    border-radius:22px;
-    background:var(--surface);
-    border:1px solid var(--line);
-    box-shadow:0 12px 32px rgba(30,21,53,.08);
+    gap:12px;
+    margin-top:26px;
+    max-width:none;
+    padding:0;
+    border:0;
+    border-radius:0;
+    background:transparent;
+    box-shadow:none;
   }
   .signup input{
-    height:50px;
-    border-radius:14px;
-    background:var(--bg);
-    border:1px solid var(--line);
-    padding:0 16px;
+    flex:none;
+    width:100%;
+    height:56px;
+    min-height:56px;
+    border-radius:16px;
+    background:#ffffff;
+    color:#1e1535;
+    border:0;
+    font-size:16px;
+    line-height:1.2;
+    padding:0 18px;
+    box-shadow:0 10px 24px rgba(30,21,53,.12);
   }
-  .signup .btn{width:100%;height:50px;border-radius:14px}
-  .fine{margin-top:10px}
+  .signup input::placeholder{color:#6a5f85;opacity:1}
+  .signup .btn{flex:none;width:100%;height:56px;min-height:56px;border-radius:16px;font-size:16px}
+  .fine{margin-top:14px}
+  .cta{padding:40px 20px;border-radius:24px}
+  .cta .signup{margin-top:0}
+  .cta .signup .btn{background:#1e1535;color:#fff}
+  [data-theme="dark"] .cta .signup .btn{background:#fff;color:#1e1535}
   .foot-grid,.belief-grid{grid-template-columns:1fr}
   .quote-grid{columns:1}
   .burger{display:grid}
@@ -254,7 +270,6 @@ footer p{opacity:.88;font-size:1.05rem}
   .post-body{padding:24px 22px 12px}
   .post-sum{padding-right:0}
   .today{padding:28px 22px}
-  .cta{padding:48px 18px;border-radius:22px}
   #festival-banner{padding:12px 44px 12px 16px;font-size:.82rem}
   .promo{font-size:.78rem;line-height:1.45;padding:10px 14px}
 }
