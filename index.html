@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yagnik N. Patel - Creative Thinker</title>
+<meta name="description" content="Essays, frameworks and fun takes on productivity, philosophy, politics, movies and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f1ff; --bg-soft:#ece3ff; --surface:#ffffff; --ink:#1e1535; --muted:#6a5f85;
+  --line:#ded3f5; --accent:#8b6cf0; --accent-deep:#6a49d8; --accent-soft:#d9ccff; --band:#cdbcff;
+  --footer:#6f50dc; --footer-ink:#ffffff;
+  --sans:'Plus Jakarta Sans',system-ui,sans-serif; --serif:'Source Serif 4',Georgia,serif;
+  --radius:18px;
+}
+[data-theme="dark"]{
+  --bg:#14101f; --bg-soft:#1d1730; --surface:#1b1629; --ink:#f1ebff; --muted:#a99fc4;
+  --line:#2f2747; --accent:#a78bfa; --accent-deep:#b9a2ff; --accent-soft:#2b2250; --band:#2a2152;
+  --footer:#241b44; --footer-ink:#f1ebff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:var(--serif);background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.narrow{max-width:760px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4,.sans{font-family:var(--sans)}
+button{font-family:var(--sans);cursor:pointer}
+
+#scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--accent),#c4b0ff);z-index:3000}
+
+/* festival banner */
+#festival-banner{display:none;position:relative;padding:14px 56px;text-align:center;overflow:hidden;font-family:var(--sans);font-weight:700;font-size:.9rem;z-index:20}
+#festival-banner .banner-inner{position:relative;z-index:2;display:inline-flex;gap:10px;align-items:center}
+#festival-banner .fp{position:absolute;pointer-events:none;opacity:0;animation:fpDrift linear infinite}
+@keyframes fpDrift{0%{transform:translateY(0) rotate(0);opacity:0}12%{opacity:.65}100%{transform:translateY(-60px) rotate(270deg) scale(.2);opacity:0}}
+.close-banner{position:absolute;right:14px;top:50%;transform:translateY(-50%);z-index:3;width:26px;height:26px;border-radius:50%;border:0;background:rgba(0,0,0,.2);color:inherit;font-size:11px}
+.theme-diwali{background:linear-gradient(118deg,#78200a,#c2410c,#f59e0b);color:#fff}
+.theme-holi{background:linear-gradient(118deg,#5b0f6b,#9d174d,#1e40af);color:#fff}
+.theme-christmas{background:linear-gradient(118deg,#14532d,#16a34a,#991b1b);color:#fff}
+.theme-newyear{background:linear-gradient(118deg,#020617,#1e1b4b,#4f46e5);color:#fff}
+.theme-eid{background:linear-gradient(118deg,#022c22,#065f46,#059669);color:#fff}
+.theme-navratri{background:linear-gradient(118deg,#4a044e,#be185d,#ea580c);color:#fff}
+.theme-independence,.theme-republic{background:linear-gradient(118deg,#c2410c,#f97316,#fef9c3);color:#431407}
+.theme-halloween{background:linear-gradient(118deg,#0c0a09,#78350f,#ea580c);color:#fed7aa}
+.theme-valentines{background:linear-gradient(118deg,#4c0519,#e11d48,#fb7185);color:#fff}
+.theme-thanksgiving{background:linear-gradient(118deg,#431407,#b45309,#fbbf24);color:#fff}
+.theme-easter{background:linear-gradient(118deg,#2e1065,#a21caf,#f0abfc);color:#fff}
+.theme-janmashtami{background:linear-gradient(118deg,#0c1445,#2563eb,#f59e0b);color:#fff}
+.theme-ganesh{background:linear-gradient(118deg,#451a03,#d97706,#fef08a);color:#1a0800}
+.theme-pongal{background:linear-gradient(118deg,#052e16,#16a34a,#a3e635);color:#fff}
+.theme-lohri{background:linear-gradient(118deg,#431407,#ea580c,#fbbf24);color:#fff}
+.theme-raksha{background:linear-gradient(118deg,#500724,#db2777,#fbcfe8);color:#fff}
+
+/* promo bar */
+.promo{background:var(--accent-deep);color:#fff;font-family:var(--sans);font-size:.85rem;font-weight:600;text-align:center;padding:9px 16px}
+[data-theme="dark"] .promo{background:#3b2a78;color:#f1ebff}
+.promo a{margin-left:8px;text-decoration:underline;text-underline-offset:3px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:1000;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:var(--sans);font-weight:800;font-size:1.25rem;letter-spacing:-.03em;text-decoration:none;display:flex;align-items:center;gap:10px}
+
+
+.nav-links{display:flex;gap:30px;list-style:none;align-items:center}
+.nav-links a{font-family:var(--sans);font-weight:600;font-size:.92rem;text-decoration:none;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--sans);font-weight:700;font-size:.92rem;padding:12px 24px;border-radius:999px;border:0;background:var(--accent-deep);color:#fff;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s}
+[data-theme="dark"] .btn{color:#14101f;background:var(--accent)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(106,73,216,.28)}
+.btn.sm{padding:9px 18px;font-size:.85rem}
+.icon-btn{background:none;border:1px solid var(--line);width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--ink)}
+.icon-btn svg{width:18px;height:18px}
+.burger{display:none}
+.moon{display:none}
+[data-theme="dark"] .moon{display:block}[data-theme="dark"] .sun{display:none}
+
+/* hero */
+.hero{background:linear-gradient(180deg,var(--band) 0%,var(--bg-soft) 70%,var(--bg) 100%);position:relative;overflow:hidden}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;pointer-events:none}
+.hero::before{width:380px;height:380px;background:#b79cff;top:-120px;right:-60px}
+.hero::after{width:300px;height:300px;background:#e9defe;bottom:-120px;left:-80px}
+[data-theme="dark"] .hero::before,[data-theme="dark"] .hero::after{opacity:.25}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;padding:84px 0 96px;position:relative;z-index:2}
+.eyebrow{display:inline-block;font-family:var(--sans);font-weight:800;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);background:rgba(255,255,255,.65);padding:7px 14px;border-radius:999px;margin-bottom:22px}
+[data-theme="dark"] .eyebrow{background:rgba(255,255,255,.07)}
+.hero h1{font-size:clamp(2.3rem,5vw,3.9rem);line-height:1.08;font-weight:800;letter-spacing:-.035em;margin-bottom:22px}
+.hero p.lead{font-size:1.25rem;color:var(--muted);max-width:560px;margin-bottom:12px}
+.signup{display:flex;gap:10px;margin-top:30px;max-width:520px;background:var(--surface);padding:7px;border-radius:999px;box-shadow:0 14px 40px rgba(106,73,216,.18)}
+.signup input{flex:1;min-width:0;border:0;outline:0;background:transparent;color:var(--ink);font-family:var(--sans);font-size:.98rem;padding:0 18px}
+.fine{font-family:var(--sans);font-size:.78rem;color:var(--muted);margin-top:12px}
+
+/* phone */
+.phone-wrap{display:flex;justify-content:center;perspective:1200px}
+.phone{width:290px;border-radius:38px;background:#1e1535;padding:12px;box-shadow:0 40px 80px rgba(80,50,180,.35);transform:rotateY(-10deg) rotateX(4deg) rotateZ(2deg);transition:transform .5s}
+.phone:hover{transform:rotateY(0) rotateX(0) rotateZ(0)}
+.screen{background:var(--bg);border-radius:28px;padding:30px 22px 26px;min-height:420px}
+.screen .pill{width:70px;height:6px;border-radius:9px;background:var(--line);margin:-14px auto 22px}
+.screen small{font-family:var(--sans);font-weight:800;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep)}
+.screen blockquote{font-family:var(--serif);font-style:italic;font-size:1.3rem;line-height:1.45;margin:14px 0 22px}
+.screen .mini{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-top:10px;font-family:var(--sans);font-size:.78rem;font-weight:600;color:var(--muted)}
+.screen .mini b{color:var(--ink);display:block;font-size:.84rem}
+
+/* sections */
+section{padding:84px 0}
+.kicker{font-family:var(--sans);font-weight:800;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:12px}
+h2.title{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:22px}
+.prose p{font-size:1.18rem;margin-bottom:1.3rem}
+.highlight{font-style:italic;background:linear-gradient(transparent 55%,var(--accent-soft) 55%);padding:0 3px}
+.pull{border-left:4px solid var(--accent);background:var(--surface);border-radius:0 var(--radius) var(--radius) 0;padding:26px 30px;margin:34px 0;box-shadow:0 8px 28px rgba(106,73,216,.08)}
+.pull p{font-style:italic;font-size:1.3rem;margin:0 0 6px}
+.pull cite{font-family:var(--sans);font-style:normal;font-size:.88rem;color:var(--muted)}
+.alt{background:var(--bg-soft)}
+
+/* archive */
+.archive-tools{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;margin:30px 0 8px}
+.search{flex:1;min-width:240px;max-width:420px;display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:0 18px;height:46px}
+.search input{border:0;outline:0;background:transparent;flex:1;font-family:var(--sans);font-size:.95rem;color:var(--ink)}
+.search svg{width:17px;height:17px;stroke:var(--muted);fill:none;stroke-width:2}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--sans);font-weight:700;font-size:.8rem;padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--muted);transition:all .2s}
+.chip:hover{color:var(--ink);border-color:var(--accent)}
+.chip.active{background:var(--accent-deep);border-color:var(--accent-deep);color:#fff}
+[data-theme="dark"] .chip.active{color:#14101f;background:var(--accent);border-color:var(--accent)}
+.post{border-bottom:1px solid var(--line)}
+.post-head{width:100%;text-align:left;background:none;border:0;color:inherit;padding:28px 0 8px;display:grid;grid-template-columns:1fr 38px;gap:4px 20px;align-items:start}
+.post-cat{font-family:var(--sans);font-size:.74rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);grid-column:1}
+.post-title{font-family:var(--sans);font-size:clamp(1.3rem,2.4vw,1.75rem);font-weight:800;letter-spacing:-.025em;line-height:1.25;grid-column:1;transition:color .2s}
+.post:hover .post-title{color:var(--accent-deep)}
+.chev{grid-column:2;grid-row:1/3;width:38px;height:38px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;transition:all .3s}
+.chev svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s}
+.post.open .chev{background:var(--accent-deep);border-color:var(--accent-deep);color:#fff}
+.post.open .chev svg{transform:rotate(180deg)}
+.post-sum{font-size:1.08rem;color:var(--muted);padding:0 58px 26px 0;cursor:pointer}
+.post-body{display:none;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:34px 36px 20px;margin-bottom:30px;animation:rise .45s ease both}
+.post.open .post-body{display:block}
+.post.open .post-sum{padding-bottom:22px}
+.post-body h4{font-size:1.2rem;font-weight:800;letter-spacing:-.01em;margin:26px 0 10px}
+.post-body h4:first-child{margin-top:0}
+.post-body p{font-size:1.15rem;margin-bottom:1.15rem}
+.post-body ul{margin:0 0 1.2rem 1.6rem;font-size:1.15rem}
+.post-body li{margin-bottom:.4rem}
+.note{font-style:italic;color:var(--muted);font-size:1rem!important;border-top:1px solid var(--line);padding-top:18px;margin-top:10px}
+.empty{display:none;text-align:center;padding:40px;font-family:var(--sans);color:var(--muted)}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* quotes */
+.today{background:var(--footer);color:var(--footer-ink);border-radius:26px;padding:42px 44px;margin:30px 0;position:relative;overflow:hidden}
+.today::after{content:"\201C";position:absolute;right:26px;top:-34px;font-family:var(--serif);font-size:13rem;opacity:.14;line-height:1}
+.today small{font-family:var(--sans);font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+#daily-quote-text{font-size:clamp(1.4rem,2.8vw,2rem);font-style:italic;line-height:1.4;margin-top:12px;max-width:760px}
+.quote-grid{columns:2;column-gap:20px}
+.qcard{break-inside:avoid;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;margin-bottom:20px;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s,border-color .25s,box-shadow .25s}
+.qcard.active{opacity:1;transform:none}
+.qcard:hover{border-color:var(--accent);box-shadow:0 12px 30px rgba(106,73,216,.12)}
+.qcard p{font-style:italic;font-size:1.1rem;margin-bottom:14px}
+.copy-btn{font-size:.78rem;font-weight:700;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);transition:all .2s}
+.copy-btn:hover{background:var(--accent-deep);color:#fff;border-color:var(--accent-deep)}
+
+/* movies */
+.movies-head{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:flex-end;margin-bottom:30px}
+.movies-head p{color:var(--muted);font-size:1.08rem;max-width:520px}
+.movie-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.mcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:7px;transition:transform .28s cubic-bezier(.34,1.28,.64,1),box-shadow .28s,border-color .28s;animation:rise .5s ease both}
+.mcard:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 16px 38px rgba(106,73,216,.14)}
+.mrow{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.mgenre{font-family:var(--sans);font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.mbadge{font-family:var(--sans);font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--accent-soft);color:var(--accent-deep);white-space:nowrap}
+[data-theme="dark"] .mbadge{color:#d8cdff}
+.mtitle{font-family:var(--sans);font-weight:800;font-size:1.12rem;letter-spacing:-.02em;line-height:1.25}
+.mrate{font-family:var(--sans);font-weight:800;font-size:.84rem;color:#c78a00;white-space:nowrap}
+.myear{font-family:var(--sans);font-size:.76rem;color:var(--muted)}
+.mtake{font-style:italic;color:var(--muted);font-size:1rem;line-height:1.6;border-top:1px solid var(--line);padding-top:10px;margin-top:4px}
+.more-wrap{text-align:center;margin-top:34px}
+.more-btn{display:inline-flex;align-items:center;gap:9px;padding:13px 30px;border-radius:999px;border:1.5px solid var(--accent);background:var(--surface);color:var(--accent-deep);font-weight:700;font-size:.92rem;transition:all .25s}
+[data-theme="dark"] .more-btn{color:var(--accent)}
+.more-btn:hover{background:var(--accent-deep);color:#fff;transform:translateY(-2px)}
+.more-btn .count{background:var(--accent-deep);color:#fff;border-radius:999px;font-size:.72rem;padding:2px 9px}
+.more-btn:hover .count{background:#fff;color:var(--accent-deep)}
+
+/* beliefs */
+.belief-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:30px}
+.belief{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+.belief b{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:var(--accent-soft);color:var(--accent-deep);font-family:var(--sans);font-weight:800;margin-bottom:16px}
+.belief h3{font-size:1.3rem;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+.belief p{font-size:1.05rem;color:var(--muted);margin:0}
+
+/* newsletter */
+.cta{background:linear-gradient(135deg,var(--accent) 0%,#b49bff 100%);border-radius:30px;padding:70px 32px;text-align:center;color:#1e1535;position:relative;overflow:hidden}
+[data-theme="dark"] .cta{background:linear-gradient(135deg,#3b2a78,#5b3fc0);color:#fff}
+.cta h2{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.03em;margin-bottom:12px}
+.cta p{font-size:1.2rem;margin-bottom:28px;opacity:.85}
+.cta .signup{margin:0 auto}
+
+.disclaimer{border-left:4px solid var(--accent-soft);padding:6px 0 6px 22px;color:var(--muted);font-size:.95rem;margin-top:70px}
+.disclaimer b{font-family:var(--sans);color:var(--ink)}
+.disclaimer p+p{margin-top:8px}
+
+/* footer */
+footer{background:var(--footer);color:var(--footer-ink);padding:70px 0 34px;margin-top:90px}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:50px}
+footer h3{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:12px}
+footer p{opacity:.88;font-size:1.05rem}
+.foot-links{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;font-family:var(--sans);font-weight:600}
+.foot-links a{text-decoration:none;opacity:.9}.foot-links a:hover{opacity:1;text-decoration:underline}
+.social{display:flex;gap:14px;margin-top:26px}
+.social a{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.15);display:grid;place-items:center;transition:all .25s}
+.social a:hover{background:#fff;color:var(--accent-deep);transform:translateY(-3px)}
+.social svg{width:20px;height:20px;fill:currentColor}
+.copy{border-top:1px solid rgba(255,255,255,.2);margin-top:46px;padding-top:22px;font-family:var(--sans);font-size:.85rem;opacity:.8}
+
+.fade{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.fade.visible{opacity:1;transform:none}
+
+@media(max-width:860px){
+  .hero-grid{grid-template-columns:1fr;padding:40px 0 56px;gap:0}
+  .phone-wrap{display:none}
+  .hero h1{font-size:2.15rem;margin-bottom:14px}
+  .hero p.lead{font-size:1.05rem;color:var(--ink);opacity:.78;margin-bottom:8px}
+  .signup{
+    flex-direction:column;
+    align-items:stretch;
+    gap:10px;
+    margin-top:22px;
+    padding:14px;
+    border-radius:22px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    box-shadow:0 12px 32px rgba(30,21,53,.08);
+  }
+  .signup input{
+    height:50px;
+    border-radius:14px;
+    background:var(--bg);
+    border:1px solid var(--line);
+    padding:0 16px;
+  }
+  .signup .btn{width:100%;height:50px;border-radius:14px}
+  .fine{margin-top:10px}
+  .foot-grid,.belief-grid{grid-template-columns:1fr}
+  .quote-grid{columns:1}
+  .burger{display:grid}
+  .nav-links{position:absolute;top:68px;left:0;right:0;background:var(--bg);flex-direction:column;gap:0;align-items:stretch;max-height:0;overflow:hidden;transition:max-height .3s;border-bottom:1px solid var(--line)}
+  .nav-links.active{max-height:420px}
+  .nav-links li{border-top:1px solid var(--line)}
+  .nav-links a{display:block;padding:16px 24px}
+  .nav-cta{display:none}
+  section{padding:52px 0}
+  .post-body{padding:24px 22px 12px}
+  .post-sum{padding-right:0}
+  .today{padding:28px 22px}
+  .cta{padding:48px 18px;border-radius:22px}
+  #festival-banner{padding:12px 44px 12px 16px;font-size:.82rem}
+  .promo{font-size:.78rem;line-height:1.45;padding:10px 14px}
+}
+@media(max-width:520px){.movie-grid{grid-template-columns:1fr}.wrap,.narrow{padding:0 18px}}
+
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+a,button,.mcard,.qcard,.belief,.post-head,.chev,.chip,.icon-btn,.copy-btn,.more-btn{
+  transition-duration:.35s;
+  transition-timing-function:cubic-bezier(.22,1,.36,1);
+}
+.phone{transition:transform .6s cubic-bezier(.22,1,.36,1)}
+
+</style>
+</head>
+<body>
+<div id="scroll-progress"></div>
+
+<div id="festival-banner" role="banner" aria-live="polite">
+  <div id="fp-container"></div>
+  <div class="banner-inner"><span id="festival-emoji"></span><span id="festival-message"></span><span id="festival-emoji2"></span></div>
+  <button class="close-banner" onclick="closeFestivalBanner()" aria-label="Close banner">&#10005;</button>
+</div>
+
+<div class="promo">New essays every week on politics, tech, frameworks &amp; film. <a href="#newsletter">Join the newsletter →</a></div>
+
+<nav>
+  <div class="wrap nav-in">
+    <a href="#home" class="logo">Yagnik!</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about" onclick="closeMenu()">About</a></li>
+      <li><a href="#writing" onclick="closeMenu()">Writing</a></li>
+      <li><a href="#quotes" onclick="closeMenu()">Quotes</a></li>
+      <li><a href="#movies" onclick="closeMenu()">Movies</a></li>
+      <li><a href="#newsletter" onclick="closeMenu()">Newsletter</a></li>
+      <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="btn sm nav-cta" href="#newsletter">Sign Up</a>
+      <button class="icon-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+      </button>
+      <button class="icon-btn burger" onclick="toggleMenu()" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Writer · Thinker · Creator</span>
+      <h1>Greetings! I’m exploring writing ideas that matter and making them fun.</h1>
+      <p class="lead">I write about productivity, philosophy, frameworks, politics, trending news, movies, and the fun side of it all.</p>
+      <p class="lead">Let’s join and dive into these insights together.</p>
+      <form class="signup" onsubmit="handleSubscribe(event)">
+        <input type="email" placeholder="Enter your email address" required aria-label="Email address">
+        <button class="btn" type="submit">Subscribe</button>
+      </form>
+      <p class="fine">High-signal ideas designed to challenge your thinking.</p>
+    </div>
+    <div class="phone-wrap">
+      <div class="phone"><div class="screen">
+        <div class="pill"></div>
+        <small>Quote of the day</small>
+        <blockquote id="phone-quote"></blockquote>
+        <div class="mini"><b>Latest essay</b>Cockroach Janta Party: The Insult India’s Government Should Never Have Thrown</div>
+        <div class="mini"><b>Framework</b>How to Stop Procrastinating</div>
+        <div class="mini"><b>Watch next</b>Swades · 3 Idiots · Interstellar</div>
+      </div></div>
+    </div>
+  </div>
+</header>
+
+<section id="about" class="fade">
+  <div class="narrow prose">
+    <div class="kicker">About me</div>
+    <h2 class="title">Questioning systems instead of blindly adapting to them.</h2>
+    <p>I’m a writer, thinker, and creator exploring the frameworks that help us live better lives. I study ICT Engineering, but I don’t always resonate with the system around it. Too often, education feels like rote learning — outdated methods focused more on memorization than real understanding. The pressure is on marks, placements, and performance metrics rather than curiosity, experimentation, and applied knowledge.</p>
+    <p>Many students are guided toward one predictable loop: score well, get placed, enter corporate life, repeat for 30–40 years. But I question that pattern. A job can be a short-term solution to a long-term problem. In many cases, employees spend their prime years building wealth for owners and shareholders while their own leverage stays limited. Your effort contributes more to someone else’s retirement than your own freedom.</p>
+    <p>At the same time, social media feels increasingly engineered for distraction. Endless scrolling, shallow trends, attention traps, and rising normalization of nudity and sensational content — all designed to keep people stimulated, not aware. It feels like another loop quietly consuming focus and ambition.</p>
+    <p>Maybe I’m wrong. I’m still learning. But I would rather question systems than blindly adapt to them. I’m trying to wake myself up — and maybe others too.</p>
+    <p>And yes, if I’m wrong, don’t ignore me. Just tell me straight: “Your flex is wrong. You’re not that smart. You’re being dumb.” I can take it. Growth needs friction. xD</p>
+    <p>In 1789, philosopher Jeremy Bentham mused on the two forces that control our lives: <span class="highlight">the pursuit of pleasure and the avoidance of pain</span>. This simple idea became the foundation for understanding human motivation and behavior.</p>
+    <p>I believe that by understanding these fundamental patterns—the mental models, cognitive frameworks, and timeless principles—we can make better decisions, build better habits, and ultimately lead more meaningful lives.</p>
+    <div class="pull"><p>"The quality of your life is determined by the quality of the questions you ask yourself."</p><cite>— Ancient wisdom, modern application</cite></div>
+    <p>My mission is to surface these powerful ideas, distill them into actionable frameworks, and share them with people who are committed to continuous growth. Every week, I research, synthesize, and publish insights that you can apply immediately to your work and life.</p>
+  </div>
+</section>
+
+<section id="writing" class="alt fade">
+  <div class="narrow">
+    <div class="kicker">Featured writing</div>
+    <h2 class="title">Essays, frameworks &amp; mental models</h2>
+    <p style="font-size:1.15rem;color:var(--muted)">I publish essays, frameworks, and mental models on philosophy, productivity, politics, real-world issues, trendy movies, news, and social media culture, pop-culture. Here are some of my personal favorite pieces:</p>
+
+    <div class="archive-tools">
+      <label class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input id="post-search" type="search" placeholder="Looking for something specific?" aria-label="Search writing"></label>
+      <div class="chips" id="post-chips">
+        <button class="chip active" data-cat="all">All</button>
+        <button class="chip" data-cat="politics">Politics</button>
+        <button class="chip" data-cat="tech">Tech</button>
+        <button class="chip" data-cat="frameworks">Frameworks</button>
+        <button class="chip" data-cat="philosophy">Philosophy</button>
+      </div>
+    </div>
+
+    <div id="posts">
+
+<article class="post" data-cat="politics">
+  <button class="post-head" aria-expanded="false"><span class="post-cat">Indian Politics &amp; Youth · Opinion</span><span class="post-title">Cockroach Janta Party: The Insult India's Government Should Never Have Thrown</span><span class="chev"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+  <p class="post-sum">A judge called India's unemployed youth "cockroaches." Within a month, a satire account had more followers than the ruling party. Here's why I think that's the most honest political development India has seen in years.</p>
+  <div class="post-body">
+    <h4>The Insult That Became a Mirror</h4>
+    <p>On 15 May 2026, the Chief Justice of India compared unemployed young Indians to cockroaches and parasites. He later clarified he meant people using fake degrees to enter respected professions. Doesn't matter. The internet doesn't do nuance, and honestly, neither does the lived experience of being twenty-something in this country right now.</p>
+    <p>Within a day, a political communications strategist named Abhijeet Dipke had registered a domain, written a manifesto, and launched something called the Cockroach Janta Party. Within a week it had more Instagram followers than the actual ruling party. Within a month, people were marching to Jantar Mantar in cockroach masks demanding a minister's resignation.</p>
+    <p>That escalation isn't really about an insult. It's about what happens when you finally hand a generation a word ugly enough to match how they already feel.</p>
+    <h4>Read the Manifesto Before You Laugh</h4>
+    <p>The name is satire — a direct jab at the Bharatiya Janata Party, spelled out in case anyone missed it. But the five-point manifesto underneath the joke is not a joke. No Rajya Sabha seat for a retiring Chief Justice. Criminal liability for anyone who tampers with a legitimate vote. Fifty percent reservation for women in Parliament and Cabinet, without inflating the size of either. Media licenses pulled from the conglomerates that happen to be close to the people currently in power.</p>
+    <p>Strip away the cockroach costumes and you're left with a fairly serious diagnosis of what's broken: a judiciary whose retired members keep landing in government appointments, an electoral system whose integrity keeps getting questioned, and a media landscape owned by two families who aren't exactly known for asking hard questions of the government.</p>
+    <h4>Why a Meme Outgrew a Ruling Party</h4>
+    <p>Within a week of launch, CJP had crossed roughly 19 to 20 million followers on Instagram. The BJP's own account sits at around 9 million. Congress, the main opposition, manages about 13 million. A movement with no office, no salaried staff, and no actual candidates was outperforming both of India's largest political organisations combined, using nothing but a joke and a manifesto written by one guy skipping sleep in Chicago.</p>
+    <p>You don't get numbers like that from people who think everything is fine. You get them from a country where youth unemployment has stayed stubbornly high for over a decade, where the most recent national medical entrance exam was hit by yet another leak scandal, and where an entire generation has watched "developed India by 2047" get promised to them every year while their own job market gets worse.</p>
+    <h4>The Tell: They Blocked It</h4>
+    <p>If you ever doubt whether a piece of satire has actually landed, watch what the target does next. Within days, CJP's official X handle became inaccessible inside India, with the platform citing a vague "legal demand." It came back within minutes under a new name: Cockroach is Back. A government secure in its standing wouldn't need to make a joke account disappear. You don't censor things that don't threaten you.</p>
+    <p>This is the same government that, by its critics' own long-running account, has spent over a decade tightening its grip on what gets broadcast, who gets to ask the Prime Minister a question on camera, and which journalists keep their jobs after asking the wrong one. A satirical party catching nearly twenty million followers in a week isn't a meme problem for that establishment. It's a legitimacy problem.</p>
+    <h4>What I Actually Think Is Happening Here</h4>
+    <p>I don't think the Cockroach Janta Party is going to contest the next election and win seats. I don't think Abhijeet Dipke is auditioning to be Prime Minister. I think what's happening is simpler and more important than that: an entire generation has finally found a register — funny, sharp, impossible to dismiss as "anti-national" — to say the thing it's been afraid to say directly for years.</p>
+    <p>When the country's most powerful judge calls you a parasite and the most effective response available to you is comedy, that tells you everything about how much room is left for the sincere version of that complaint. CJP isn't a punchline. It's a pressure valve for a decade of accumulated frustration that had nowhere else legal, safe, or loud enough to go.</p>
+    <p class="note">— This is my personal opinion, based on public reporting on the Cockroach Janta Party. The other side, fairly stated: critics — including some young Indians themselves — have called CJP a privileged, urban, internet-native phenomenon with a sharp social media presence but no concrete policy delivery, and the BJP has consistently denied the broader characterisations of its record referenced above. Read the original reporting and the party's own manifesto, and form your own view.</p>
+  </div>
+</article>
+
+<article class="post" data-cat="politics">
+  <button class="post-head" aria-expanded="false"><span class="post-cat">Indian Politics · Opinion</span><span class="post-title">Gen Z Just Made a Minister Quit. That Has Never Happened Before.</span><span class="chev"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+  <p class="post-sum">Five weeks of protests, a selfie video from the PM, and a resignation nobody expected. Here's what actually happened — and why it matters more than the news cycle suggests.</p>
+  <div class="post-body">
+    <h4>The Sequence That Rewrote the Playbook</h4>
+    <p>In late July 2026, something unusual happened in Indian politics. Five weeks after the Cockroach Janta Party began its protest demanding the resignation of the Education Minister over the NEET exam paper leak, Prime Minister Modi posted a rare selfie video from his phone saying he was pained by the students' suffering. Two days later, the minister stepped down. A youth-led movement — built on memes, Instagram reels, and cockroach masks — had just forced a cabinet resignation in a government not exactly known for backing down.</p>
+    <p>That hasn't happened in India at this scale before. Farmers protested for nearly a year before Modi repealed contentious farm laws in 2021. Students got a result in five weeks.</p>
+    <h4>What Actually Drove the Protest</h4>
+    <p>The trigger was a leaked medical entrance exam — NEET — which is the gateway to every government medical college in the country. When the leak was confirmed, it wasn't just a scandal. It was proof of something an entire generation had been quietly suspecting: that the system they were studying eighteen hours a day to pass was rigged at the gate itself.</p>
+    <p>But the underlying fuel was broader. Youth unemployment in India has stayed stubbornly high for over a decade. And now there's a new fear on top of it: that the IT back-office jobs India built its economic reputation on — the jobs that were supposed to be the safe destination for engineering and science graduates — are exactly the jobs AI is coming for first. A Reuters analysis published the same week noted that anxiety about AI replacing white-collar entry-level work was one of the strongest secondary drivers pushing young people into the streets.</p>
+    <h4>Why This Particular Protest Cut Through</h4>
+    <p>One detail keeps appearing in the analysis: a large number of people at the CJP protests were likely BJP supporters. That's a different beast entirely from opposition-led street movements, which the government can and usually does dismiss as politically motivated. You can't easily dismiss your own voters marching against you. A SOAS anthropology professor who studies Indian civil society put it plainly in Reuters reporting: this cross-over is what made the protest structurally different from anything in recent memory.</p>
+    <p>The opposition tried to capitalise, as oppositions always do. But the story wasn't about them. It was about a generation that had been handed a word ugly enough to describe how it felt — "cockroaches" — and decided to wear it like armour.</p>
+    <h4>What Comes Next, Honestly</h4>
+    <p>The next tests of this anger are state elections in Uttar Pradesh, Punjab, and Modi's own home state of Gujarat. Tamil Nadu already handed a template: an actor running on his own platform, propelled by an Instagram-first Gen Z fanbase, recently won the chief ministership. The 2029 national election is further out, but analysts who cover South Asia are now openly discussing what happens if CJP decides to contest seats.</p>
+    <p>I don't know if the movement survives long enough to matter at that scale. Movements have a way of getting absorbed, co-opted, or simply exhausted. What I do think is that this resignation proved something that a generation of activists had started to doubt: the system can still be moved. Not easily, and not by asking politely. But it can be moved.</p>
+    <p class="note">— This is my personal opinion, based on Reuters reporting from July 25–26, 2026, and public coverage of the CJP movement. The government's stated position is that the ministerial change reflects its genuine commitment to students' welfare. Read the primary sources and form your own view.</p>
+  </div>
+</article>
+
+<article class="post" data-cat="politics">
+  <button class="post-head" aria-expanded="false"><span class="post-cat">Media &amp; Democracy · Opinion</span><span class="post-title">India's Youth Protests Revealed Something Worse Than Exam Leaks: The Media Won't Cover Them</span><span class="chev"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+  <p class="post-sum">When students marched in cockroach masks demanding accountability, most of India's biggest channels were busy with something else entirely. Here's what that tells you about whose side the press is actually on.</p>
+  <div class="post-body">
+    <h4>The Blackout That Wasn't Accidental</h4>
+    <p>When the Cockroach Janta Party protests were drawing thousands to Jantar Mantar, a consistent pattern emerged: several of India's largest Hindi news channels — the ones with the most reach, the ones that shape what most of India thinks about most things — gave the protests minimal coverage or framed them as opposition mischief. Meanwhile, the BBC, Reuters, Al Jazeera, TIME magazine, and CNN International were all running full analytical pieces on what they were calling one of the most significant youth political movements India had seen in a generation.</p>
+    <p>The gap between how domestic and international press covered the same event wasn't subtle. It was the story inside the story.</p>
+    <h4>What "Lapdog Media" Actually Means</h4>
+    <p>The phrase appeared in international coverage — a BBC analysis headline explicitly used the term "lapdog media" in the context of Indian youth protests highlighting their distrust of mainstream outlets. That's not a fringe characterisation anymore. It's the phrase that young Indians themselves were using in their protest signs, and that foreign correspondents were now putting in headlines.</p>
+    <p>The structural explanation isn't complicated. Two large conglomerates own a significant portion of India's most-watched television news. Both have documented financial relationships — through advertising, through access, through a shared interest in regulatory goodwill — with the current government. That doesn't mean every editorial decision is a phone call from Delhi. It doesn't need to be. Institutional self-interest produces editorial caution without anyone needing to pick up a phone. The result is the same: stories that embarrass the government get shorter, later, softer. Stories that don't, don't.</p>
+    <h4>Why Young Indians Already Knew This</h4>
+    <p>The protests revealed something that pollsters and media critics had been documenting for years but that hadn't quite broken into public consciousness: a significant portion of Gen Z in India does not trust television news. They get their information from YouTube journalists, independent podcasts, international outlets accessible through VPN, and each other. The CJP itself was built entirely on Instagram and X. It didn't need a single minute of primetime television to cross 20 million followers.</p>
+    <p>That's new. Ten years ago, if the dominant TV channels didn't cover a protest, the protest didn't exist for most of the country. Now there's a generation that has built entirely parallel information infrastructure — and they're using it to organise against the very institutions that control the channels.</p>
+    <h4>The Question I Keep Coming Back To</h4>
+    <p>If India's mainstream press had covered the NEET leak and the student anger with the same urgency it gave to, say, celebrity divorce proceedings or IPL controversies, would the minister have resigned faster? Would the system have fixed the exam integrity problem sooner? Would fewer students have felt so cornered that they took their own lives after results they believed were manipulated?</p>
+    <p>I don't know. But I think it's worth asking. A free press doesn't just report on power — it applies pressure on it. When it stops doing the second part, the gap doesn't stay empty. Cockroach masks fill it instead.</p>
+    <p class="note">— This is my personal opinion based on public coverage of India's 2026 youth protests and media analysis. Indian news organisations and their ownership groups have consistently denied editorially compromising their coverage, and the government denies exerting pressure on the press. Read from multiple sources and judge for yourself.</p>
+  </div>
+</article>
+
+<article class="post" data-cat="tech">
+  <button class="post-head" aria-expanded="false"><span class="post-cat">Technology &amp; Policy · Opinion</span><span class="post-title">India Just Passed AI Labelling Rules. They're Smart. They're Also Dangerous.</span><span class="chev"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+  <p class="post-sum">Mandatory labels on deepfakes, three-hour takedowns, platforms losing safe harbour if they don't comply. The new IT Amendment Rules 2026 are India's boldest tech regulation yet. Here's why I'm genuinely split on them.</p>
+  <div class="post-body">
+    <h4>What the Rules Actually Say</h4>
+    <p>Effective 20 February 2026, India's amended IT Rules introduced mandatory labelling for all AI-generated or AI-altered content. That means deepfake videos, cloned audio, manipulated images, and synthetic text all need clear labels — covering at least 10 percent of the visual surface area, or the first 10 percent of an audio clip's duration. Platforms must embed non-removable metadata and unique identifiers in files so origin can be traced across platforms.</p>
+    <p>The takedown timelines are aggressive: illegal AI content must be removed within three hours of a government order. Non-consensual deepfake imagery — the kind used to harass and destroy reputations — must come down within two hours of a complaint. Platforms that fail to comply lose safe harbour protection and face criminal prosecution. If a platform knowingly allows unlabelled deepfakes, it can be held directly liable for the content.</p>
+    <h4>The Genuinely Good Part</h4>
+    <p>Let's start where it deserves credit. The deepfake problem in India is real and it's getting worse fast. Fabricated celebrity videos circulated during the 2024 elections. Non-consensual intimate images generated using AI have destroyed careers and lives. The UNICEF has been sounding alarms about AI-driven tools being used to produce imagery targeting children. A government that waited longer to act on this would have been negligent.</p>
+    <p>The mandatory labelling requirement is particularly sensible. India has almost one billion internet users, spread across dozens of languages, varying levels of media literacy, and highly fractured information ecosystems. In that environment, the assumption that people can detect AI-generated content on their own is wrong. Labels help. Metadata trails help. Making platforms financially liable for knowingly ignoring this helps.</p>
+    <h4>The Part That Should Make You Uncomfortable</h4>
+    <p>The three-hour government takedown window is where the regulation gets complicated. The same government that moved its regulatory machinery so quickly against a YouTube comedy show — India's Got Latent — now has a legally backed mechanism to order the removal of AI-labelled content in less time than it takes to review whether the order is valid. Three hours is not enough time for a platform's legal team to assess whether a takedown request is legitimate. It's designed to be complied with first and challenged later, if at all.</p>
+    <p>Platforms that push back lose safe harbour. In practice, that creates an overwhelming incentive to over-comply — to take things down whenever the government asks, regardless of whether the content actually violates any provision. Add to that the vagueness in how "harmful" and "synthetic" content is defined, and you have rules that can be applied narrowly against genuine deepfake abuse, or broadly against political satire, opposition messaging, or journalism that uses AI tools to process data.</p>
+    <h4>Where I Actually Land</h4>
+    <p>I think the labelling provisions are genuinely good policy. The consent and victim-protection clauses are overdue. Holding platforms liable for knowingly hosting non-consensual imagery is correct. But the government takedown timeline, combined with safe harbour removal as the penalty, gives the state a regulatory lever that goes well beyond protecting victims from deepfakes. It creates a mechanism for fast content removal that doesn't distinguish between a fabricated harassment video and a satirical meme of a politician. Those are not the same thing, and the rules don't treat them differently enough.</p>
+    <p>Good regulation protects people from technology's worst uses without handing a government the same tools in the process. These rules do the first thing reasonably well. They don't do the second thing at all.</p>
+    <p class="note">— This is my personal opinion based on India's IT Amendment Rules 2026 and public analysis of them. The government's stated purpose for the rules is protecting citizens from deepfake abuse and misinformation, not expanding content control. Read the rules themselves at meity.gov.in and form your own view.</p>
+  </div>
+</article>
+
+<article class="post" data-cat="politics">
+  <button class="post-head" aria-expanded="false"><span class="post-cat">Free Speech &amp; Censorship · Opinion</span><span class="post-title">India's Got Latent: A Joke Got Deleted. The Crackdown Didn't.</span><span class="chev"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+  <p class="post-sum">One crude question on a YouTube show triggered FIRs, ministry advisories, and a national debate about censorship. The joke was bad. The response tells you a lot more about the country than the joke ever could.</p>
+  <div class="post-body">
+    <h4>The Joke, Briefly</h4>
+    <p>In February 2025, podcaster Ranveer Allahbadia asked a contestant on the YouTube show India's Got Latent a crude hypothetical involving his parents. It was a bad joke. Not edgy, not clever — just bad, and it landed about as well as you'd expect. Within hours it was everywhere. Within days, host Samay Raina had pulled every episode of the show off YouTube, an archive built over almost a year, gone overnight.</p>
+    <p>I'm not here to defend the joke. I think it was genuinely unfunny, and Allahbadia has said as much himself. What I want to talk about is everything that happened after — because the response to one bad joke ended up looking less like child protection and a lot more like a regulatory machine that had been waiting for an excuse.</p>
+    <h4>From One Bad Joke to a National Security Apparatus</h4>
+    <p>Within ten days, the Ministry of Information and Broadcasting had issued a formal advisory to every OTT platform and self-regulatory body in the country, reiterating the Code of Ethics under the IT Rules. A parliamentary standing committee directed the IT Ministry to assess whether existing law needed tightening. FIRs were filed against Raina, Allahbadia, and other guests across multiple states. The Supreme Court itself said there was a "vacuum" in the law covering platforms like YouTube.</p>
+    <p>That is an extraordinary amount of state machinery to mobilise over one tasteless question on a comedy show. Compare that speed and scale to how slowly the same system tends to move on platforms that child-rights bodies had already flagged for genuinely obscene content, with far less urgency. The difference isn't the offensiveness of the content. It's who was watching, how viral the clip went, and how useful the outrage was to people who already wanted broader power to regulate online video.</p>
+    <h4>The Pattern Is the Point</h4>
+    <p>India's Got Latent didn't happen in a vacuum. The same year, a major Hindi news channel was made unavailable inside India on national security grounds. Tens of thousands of X accounts were blocked on government order, frequently without any cited post or evidence — among them Kashmiri news outlets, a national newspaper's deputy editor, and for a period, even Reuters' own handle. A respected English-language outlet was blocked for running a story sourced from international reporting, then unblocked only after public pressure. Independent analysis of these takedowns has pointed to one consistent thread that has nothing to do with obscenity or national security: criticism of the Prime Minister or of the ruling party's ideology.</p>
+    <p>Seen next to that pattern, the India's Got Latent advisory stops looking like an isolated reaction to a crude joke and starts looking like one more brick in a wall that was already being built — a wall that reaches for "obscenity" and "national security" interchangeably whenever convenient, and just happened to find an unusually useful pretext in a YouTube comedy show.</p>
+    <h4>A Fair Note on the Disability Jokes</h4>
+    <p>I want to be honest about one part of this story that isn't a free-speech issue at all: the show's pattern of jokes aimed at people with disabilities, which the Supreme Court later addressed by directing several of the comedians involved to issue public apologies and host disability-inclusive events. That's a different conversation from the obscenity panic, and a fair one. Punching down at a community that already gets a fraction of the accessibility and respect it deserves isn't edgy comedy, it's just cruelty with a microphone. Defending comedians from a censorship-hungry state doesn't require defending every joke they told.</p>
+    <h4>Why I'm Still on Their Side</h4>
+    <p>Samay Raina rebuilt the show, his comeback special told the story of how badly that year broke him, and India's Got Latent returned for a second season streaming on Netflix and YouTube in mid-2026 — proof the audience never actually left, even after the state did everything short of banning it outright. That's the part I keep coming back to. A government that genuinely cared about protecting minors from obscene content would apply a consistent, proportionate, content-neutral standard. What we got instead was a single viral clip turned into the justification for tightening control over online video that had clearly been drafted long before anyone heard that question about parents.</p>
+    <p>Bad jokes deserve criticism, sometimes a lot of it. They don't deserve to become the pretext for a state deciding it gets to define what an entire country is allowed to laugh at.</p>
+    <p class="note">— This is my personal opinion, based on public reporting on the India's Got Latent controversy and India's broader digital regulation environment. The government's consistent position is that its advisories and the IT Rules exist purely to protect minors from obscene content and aren't politically motivated. Read the primary reporting and the IT Rules themselves, and decide where you land.</p>
+  </div>
+</article>
+
+<article class="post" data-cat="tech">
+  <button class="post-head" aria-expanded="false"><span class="post-cat">Technology &amp; Future of Work · Opinion</span><span class="post-title">Your Degree Was Never the Plan. AI Just Made That Obvious</span><span class="chev"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+  <p class="post-sum">Engineering colleges are still grading us on things a model can now do in seconds. Here's why that's not a crisis — it's the clearest signal yet that the old plan was always a placeholder.</p>
+  <div class="post-body">
+    <h4>The Quiet Panic in Every Lecture Hall</h4>
+    <p>Every semester, somewhere in a classroom full of engineering students, someone asks the question nobody wants to say out loud: if AI can already write the code, debug the circuit, or draft the report — what exactly am I being trained to do for the next forty years?</p>
+    <p>Professors don't have a clean answer. Neither do placement cells. The syllabus hasn't caught up, and it probably won't for a while. But the discomfort in the room is real, and I think it's worth sitting in rather than rushing past.</p>
+    <h4>The Old Deal Is Breaking, Not the Industry</h4>
+    <p>For decades, the deal was simple: study hard, get the degree, get placed, and the credential does the talking for the rest of your career. That deal worked when information and execution were scarce and expensive. Neither is scarce anymore. A model can already produce a passable first draft of code, a circuit simulation, or a report outline — the exact deliverables that used to define entry-level competence.</p>
+    <p>That doesn't mean engineers become irrelevant. It means the bar moves from "can you produce the artifact" to "can you judge whether the artifact is correct, and can you build the thing nobody's automated yet." Those are very different skills, and almost nobody is teaching the second one on purpose.</p>
+    <h4>Why This Actually Helps the Honest Student</h4>
+    <p>If your only skill was memorizing and reproducing, this is a genuinely uncomfortable moment. But if you were already the kind of person who builds things out of curiosity — who tinkers with a robotics project at 1 a.m. because the mechanism is interesting, not because it's graded — this shift quietly rewards you. Tools that compress execution time mean ideas move faster from sketch to working prototype. The constraint shifts from "can I make this" to "do I actually understand the problem worth solving."</p>
+    <p>That's a better game for a curious person to play than the one built around marks and rank lists.</p>
+    <h4>The Real Risk Isn't Automation. It's Standing Still.</h4>
+    <p>The danger isn't that AI takes engineering jobs. It's that an entire generation keeps optimizing for credentials built for a world that's already gone, while a smaller group quietly uses the same tools to compress years of learning into months and starts building things on the side before they even graduate.</p>
+    <p>I'd rather be in the second group. Not because I have it figured out — I clearly don't — but because the first principles question is finally honest: what can I build, understand, or fix that's actually useful, regardless of what's printed on the certificate?</p>
+    <p>That question was always the real syllabus. AI just stopped letting us pretend otherwise.</p>
+  </div>
+</article>
+
+<article class="post" data-cat="politics">
+  <button class="post-head" aria-expanded="false"><span class="post-cat">International Political News · Opinion</span><span class="post-title">The Epstein Files and the Two-Tiered World You Live In</span><span class="chev"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+  <p class="post-sum">The Epstein case isn't just a scandal — it's a mirror. And most people don't like what they see. Here's what I think is really going on, and why we keep looking away.</p>
+  <div class="post-body">
+    <h4>The Matrix Is Laughing at You</h4>
+    <p>I've spent days buried in the Epstein files. Names, flight logs, island records, documented connections to the most powerful institutions on earth. The evidence of organised depravity at the highest levels of power is not a theory — it is documented, it is public, and almost nothing has happened as a result.</p>
+    <p>Think about that for a second. Really sit with it.</p>
+    <h4>Two Sets of Rules</h4>
+    <p>You speed five kilometres over the limit — there's a fine waiting. You miss a tax payment — the system crushes you with interest, penalties, and paperwork. You work sixty hours a week, pay your taxes, follow the rules, and still feel like you're barely keeping up.</p>
+    <p>Meanwhile, individuals with documented connections to one of the most notorious criminal networks in modern history continue to attend galas, sit on boards, advise governments, and go golfing on weekdays. The same institutions that will prosecute an ordinary person for a paperwork error somehow move at glacial pace — or not at all — when power is involved.</p>
+    <p>This is not a conspiracy theory. This is a pattern that plays out in court records, in settled lawsuits, in names that appear on flight manifests and then quietly disappear from news cycles. The files exist. The documentation exists. The accountability, for the most part, does not.</p>
+    <h4>The Drip Strategy</h4>
+    <p>Information about Epstein has been released slowly, selectively, over years. Each release generates a week of outrage, millions of social media posts, trending hashtags — and then the conversation moves on. A new controversy replaces it. A culture war erupts somewhere else. Left fights right. Right fights left. Everyone is exhausted and nobody is focused.</p>
+    <p>Whether this is coordinated or simply the natural behaviour of a media ecosystem that profits from attention churn doesn't ultimately matter. The effect is the same: sustained accountability becomes impossible when outrage has a 72-hour shelf life.</p>
+    <p>You are not crazy for noticing this. You are paying attention.</p>
+    <h4>The Real Humiliation</h4>
+    <p>The deepest insult isn't that powerful people protect each other — that has been true throughout history. The real insult is that we are handed just enough information to feel informed, just enough outrage to feel engaged, and just enough distraction to never actually organise around any of it.</p>
+    <p>We debate left vs. right. We argue about which politician is worse. We scroll. We react. We move on. The structural conditions that allow this kind of impunity — the lobbying, the legal insulation, the revolving doors between regulators and the industries they regulate — remain completely untouched.</p>
+    <p>That is the system working exactly as designed. Not for you. For the people at the top of it.</p>
+    <h4>What Actually Changes Things</h4>
+    <p>I don't have a clean answer. I'm twenty-something years old studying engineering in India — I'm not pretending to have the solution to centuries of institutional capture. But I do think the starting point is refusing the left-vs-right trap entirely. That framing is a gift to the people who benefit from your distraction.</p>
+    <p>The question worth asking is never "which party is better?" It is: who does this system actually serve, and what would have to change structurally for that to be different?</p>
+    <p>Read the documents. Not the headlines about the documents — the actual documents. Follow the money, not the talking heads arguing about it. Stay with a story longer than the algorithm wants you to.</p>
+    <p>And the next time someone tells you "that's just how power works" — ask them why they've decided that's acceptable.</p>
+    <p class="note">— This is my personal opinion, based on publicly available information and court records. I encourage you to read primary sources and form your own view.</p>
+  </div>
+</article>
+
+<article class="post" data-cat="frameworks">
+  <button class="post-head" aria-expanded="false"><span class="post-cat">Frameworks &amp; Tools</span><span class="post-title">How to Stop Procrastinating</span><span class="chev"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+  <p class="post-sum">A deep dive into Skinner's Law and the pleasure-pain framework that governs human behavior. Learn how to hack your motivation when you find yourself avoiding important work.</p>
+  <div class="post-body">
+    <h4>Understanding Skinner's Law</h4>
+    <p>In 1789, philosopher Jeremy Bentham mused on the two forces that control our lives: the pursuit of pleasure and the avoidance of pain. This general idea is the basis for the most useful productivity framework you've probably never heard of.</p>
+    <p>It's called Skinner's Law. The law is named after behavioral psychologist B.F. Skinner, who was a pioneer in the study of how rewards and punishments shape human behavior.</p>
+    <p>Skinner's Law says that to get yourself to do something, you need to either:</p>
+    <ul><li>Make the pain of not doing it greater than the pain of doing it, or</li><li>Make the pleasure of doing it greater than the pleasure of not doing it</li></ul>
+    <p>It's a very simple way of hacking your motivation when you find yourself procrastinating on or avoiding something important.</p>
+    <h4>Practical Application</h4>
+    <p>When I was writing my book, I kept saying it was my top priority, but weeks would pass without meaningful progress. Why? Ultimately, it was because of a pleasure-pain mismatch. Given how far out the deadline was, it was much easier (higher pleasure, lower pain) to skip writing on any given day than it was to sit down and work.</p>
+    <p>To fix this, I needed to adjust the equation. I made the pain of not writing greater by creating public accountability and setting up daily check-ins with a writing partner. I made the pleasure of writing greater by rewarding myself after each writing session.</p>
+    <p>The framework is simple, but the impact is profound. Next time you find yourself procrastinating, ask: How can I adjust the pleasure-pain equation?</p>
+  </div>
+</article>
+
+<article class="post" data-cat="frameworks">
+  <button class="post-head" aria-expanded="false"><span class="post-cat">Productivity</span><span class="post-title">The 5 Types of Wealth</span><span class="chev"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+  <p class="post-sum">Money is just one form of wealth. Discover the five types that truly matter and how to build a rich life across all dimensions.</p>
+  <div class="post-body">
+    <h4>Redefining Wealth</h4>
+    <p>We live in a world that equates wealth with money. But true wealth is measured across multiple dimensions, and financial wealth is just one piece of the puzzle.</p>
+    <h4>The Five Types of Wealth</h4>
+    <p><strong>1. Social Wealth:</strong> The strength of your relationships and community. This includes deep friendships, family bonds, and meaningful connections. No amount of money can replace the joy of genuine human connection.</p>
+    <p><strong>2. Time Wealth:</strong> The freedom to spend your time as you choose. It's not about having unlimited time, but having control over how you use it. The wealthiest people guard their time fiercely.</p>
+    <p><strong>3. Physical Wealth:</strong> Your health and vitality. No amount of money can compensate for poor health. Energy, strength, and wellness are the foundation for everything else in life.</p>
+    <p><strong>4. Mental Wealth:</strong> Peace of mind, emotional well-being, and mental clarity. This is the foundation for everything else. Without mental wealth, no other form of wealth truly matters.</p>
+    <p><strong>5. Financial Wealth:</strong> Yes, money matters. But it's a tool to build the other four types of wealth, not an end in itself. Money provides options, security, and freedom—but only when used intentionally.</p>
+    <h4>Building True Wealth</h4>
+    <p>The wealthiest people I know aren't necessarily the richest. They're the ones who have achieved balance across all five dimensions. Start tracking your wealth across all five types, and make intentional choices to build each one.</p>
+  </div>
+</article>
+
+<article class="post" data-cat="frameworks">
+  <button class="post-head" aria-expanded="false"><span class="post-cat">Mental Models</span><span class="post-title">First Principles Thinking</span><span class="chev"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+  <p class="post-sum">Break down complex problems to their fundamental truths. This is how Elon Musk, Aristotle, and other great thinkers approach challenges.</p>
+  <div class="post-body">
+    <h4>What Is First Principles Thinking?</h4>
+    <p>First principles thinking is the practice of breaking down complex problems into their most basic, foundational elements—the "first principles"—and rebuilding from there.</p>
+    <p>Instead of reasoning by analogy (doing things because that's how they've always been done), first principles thinking asks: What are the fundamental truths? What do we know to be absolutely true?</p>
+    <h4>The Elon Musk Example</h4>
+    <p>When Elon Musk wanted to build SpaceX, everyone told him rockets were too expensive. The going rate to buy a rocket was $65 million. Instead of accepting this, he asked: What are rockets made of? What is the raw material cost?</p>
+    <p>He discovered that the materials cost was only about 2% of the typical rocket price. The rest was markup, inefficiency, and legacy costs. By rebuilding from first principles, SpaceX was able to reduce costs by 10x.</p>
+    <h4>How to Apply It</h4>
+    <p>1. Identify and challenge your assumptions<br>2. Break the problem down to fundamental truths<br>3. Create new solutions from the ground up</p>
+    <p>This approach works for business problems, personal challenges, and strategic decisions. The next time you face a complex problem, resist the urge to reason by analogy. Go back to first principles.</p>
+  </div>
+</article>
+
+<article class="post" data-cat="philosophy">
+  <button class="post-head" aria-expanded="false"><span class="post-cat">Philosophy</span><span class="post-title">The Stoic Path to Resilience</span><span class="chev"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+  <p class="post-sum">Ancient Stoic wisdom applied to modern challenges. How to build unshakeable mental strength in an age of constant change.</p>
+  <div class="post-body">
+    <h4>The Core of Stoicism</h4>
+    <p>Stoicism, developed in ancient Greece and Rome, offers a practical philosophy for navigating life's challenges. At its core is a simple but profound insight: We cannot control what happens to us, but we can always control how we respond.</p>
+    <h4>The Dichotomy of Control</h4>
+    <p>The Stoics divided everything into two categories: things we can control and things we cannot. We can control our thoughts, actions, and responses. We cannot control other people, external events, or outcomes.</p>
+    <p>Most of our suffering comes from trying to control what we cannot control, and neglecting what we can. The path to resilience is accepting this dichotomy and focusing our energy accordingly.</p>
+    <h4>Three Stoic Practices for Modern Life</h4>
+    <p><strong>Negative Visualization:</strong> Regularly imagine losing what you have. This builds gratitude and prepares you for potential loss. By mentally rehearsing loss, you become more resilient when challenges actually arise.</p>
+    <p><strong>The View from Above:</strong> Zoom out and see your problems from a cosmic perspective. Most of what troubles us is small when viewed from this lens. This practice helps you maintain perspective and avoid being overwhelmed by minor setbacks.</p>
+    <p><strong>Voluntary Discomfort:</strong> Deliberately practice discomfort (cold showers, fasting, hard workouts) to build resilience and reduce dependence on comfort. By choosing discomfort, you train yourself to handle involuntary discomfort better.</p>
+    <h4>Building Unshakeable Strength</h4>
+    <p>Stoicism isn't about suppressing emotions—it's about not being controlled by them. It's about building mental strength that serves you in both good times and bad.</p>
+  </div>
+</article>
+
+    </div>
+    <p class="empty" id="posts-empty">Nothing matches that search. Try another word.</p>
+  </div>
+</section>
+
+<section id="quotes" class="fade">
+  <div class="wrap">
+    <div class="kicker">Quote journal</div>
+    <h2 class="title">My Quote Journal!</h2>
+    <p style="font-size:1.15rem;color:var(--muted)">A collection of thoughts I chose to write instead of ignore.</p>
+    <div class="today"><small>Quote of the day</small><p id="daily-quote-text"></p></div>
+    <div class="quote-grid" id="quote-grid">
+      <div class="qcard"><p>“We suffer more in imagination than in reality.” — Seneca</p><button class="copy-btn">Copy</button></div>
+      <div class="qcard"><p>“All is flux, nothing stays still” ― Plato</p><button class="copy-btn">Copy</button></div>
+      <div class="qcard"><p>"Do it or don't do it, you will regret both." — Søren Kierkegaard</p><button class="copy-btn">Copy</button></div>
+      <div class="qcard"><p>“No one is more hated than he who speaks the truth.” ― Plato</p><button class="copy-btn">Copy</button></div>
+      <div class="qcard"><p>"People do not act according to truth. They act according to the truths they can live with." - The Modern Machiavelli</p><button class="copy-btn">Copy</button></div>
+      <div class="qcard"><p>I love people who post whatever they want on social media. It means they've learned to choose self-expression over other people's opinions. And that's beautiful.</p><button class="copy-btn">Copy</button></div>
+      <div class="qcard"><p>Mother is waiting for success, but Son cries all night for a girl.</p><button class="copy-btn">Copy</button></div>
+      <div class="qcard"><p>Be powerful, and people will pretend to love you." – Aline Frisch</p><button class="copy-btn">Copy</button></div>
+      <div class="qcard"><p>"The impediment to action advances action. What stands in the way becomes the way." — Marcus Aurelius</p><button class="copy-btn">Copy</button></div>
+      <div class="qcard"><p>"He who has a why to live for can bear almost any how." — Friedrich Nietzsche</p><button class="copy-btn">Copy</button></div>
+      <div class="qcard"><p>"Knowing yourself is the beginning of all wisdom." — Aristotle</p><button class="copy-btn">Copy</button></div>
+      <div class="qcard"><p>Everyone wants the version of you that benefits them. Almost no one wants the version of you that frees you.</p><button class="copy-btn">Copy</button></div>
+    </div>
+  </div>
+</section>
+
+<section id="movies" class="alt">
+  <div class="wrap">
+    <div class="movies-head">
+      <div>
+        <div class="kicker">Watchlist</div>
+        <h2 class="title" style="margin-bottom:10px">Movies I Recommend</h2>
+        <p>Handpicked films that stayed with me long after the credits rolled. <span style="font-size:.9rem">(Ratings shown are IMDb ratings)</span></p>
+      </div>
+      <div class="chips" id="movie-chips">
+        <button class="chip active" data-type="all">All</button>
+        <button class="chip" data-type="bollywood">Bollywood</button>
+        <button class="chip" data-type="south">South</button>
+        <button class="chip" data-type="hollywood">Hollywood</button>
+      </div>
+    </div>
+    <div class="movie-grid" id="movie-grid"></div>
+    <div class="more-wrap" id="more-wrap"></div>
+  </div>
+</section>
+
+<section id="beliefs" class="fade">
+  <div class="wrap">
+    <div class="kicker">Principles</div>
+    <h2 class="title">What I Believe</h2>
+    <p style="font-size:1.15rem;color:var(--muted)">Through exploration and self-discovery, I’ve shaped these core values:</p>
+    <div class="belief-grid">
+      <div class="belief"><b>1</b><h3>Simple beats complex</h3><p>The most powerful ideas are often the simplest. My goal is to take complex concepts and distill them into frameworks you can remember and apply. If you can't explain it simply, you don't understand it well enough.</p></div>
+      <div class="belief"><b>2</b><h3>Action beats theory</h3><p>Knowledge without application is just trivia. Every framework I share comes with concrete steps you can take today. The gap between knowing and doing is where most people get stuck—I help you bridge that gap.</p></div>
+      <div class="belief"><b>3</b><h3>Timeless beats trendy</h3><p>I'm more interested in principles that have worked for centuries than tactics that might work this quarter. Stoic philosophy, cognitive psychology, behavioral economics—these fields offer insights that remain relevant regardless of technological change.</p></div>
+      <div class="belief"><b>4</b><h3>Questions beat answers</h3><p>The right question is more valuable than the right answer. I try to equip you with better questions to ask yourself, your team, and your work. Questions open doors; answers close them.</p></div>
+    </div>
+    <div class="disclaimer">
+      <p><b>Note:</b> Some ideas, frameworks, and quotations shared on this website are inspired by and derived from various books, research papers, articles, and online platforms including X (formerly Twitter). Wherever possible, I aim to provide proper attribution to the original creators.</p>
+      <p>If you believe any content has been shared without appropriate credit, please feel free to reach out. I will gladly review and resolve the matter promptly.</p>
+    </div>
+  </div>
+</section>
+
+<section id="newsletter" style="padding-top:0" class="fade">
+  <div class="wrap">
+    <div class="cta">
+      <h2>Join the Movement</h2>
+      <p>High-signal ideas designed to challenge your thinking.</p>
+      <form class="signup" onsubmit="handleSubscribe(event)">
+        <input type="email" placeholder="Enter your email" required aria-label="Email address">
+        <button class="btn" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h3>Yagnik N. Patel</h3>
+        <p>Writer, thinker, and creator exploring the frameworks that help us live better lives. ICT Engineering student, question-asker, and occasional movie obsessive.</p>
+        <div class="social">
+          <a href="https://x.com/theiYags" aria-label="X (Formerly Twitter)"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.linkedin.com/in/yagnik-n-patel" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="mailto:yagnikpatel@zohomail.in" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+      </div>
+      <ul class="foot-links">
+        <li><a href="#about">About</a></li><li><a href="#quotes">Quotes</a></li>
+        <li><a href="#writing">Writing</a></li><li><a href="#movies">Movies</a></li>
+        <li><a href="#beliefs">What I Believe</a></li><li><a href="#newsletter">Newsletter</a></li>
+        <li><a href="mailto:yagnikpatel@zohomail.in">Contact</a></li>
+      </ul>
+    </div>
+    <div class="copy">&copy; 2026 Yagnik N. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+/* ---------- theme / menu ---------- */
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t)}
+function toggleTheme(){
+  var n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+  applyTheme(n);try{localStorage.setItem('theme',n)}catch(e){}
+}
+(function(){var t='light';try{t=localStorage.getItem('theme')||'light'}catch(e){}applyTheme(t)})();
+function toggleMenu(){document.getElementById('nav-links').classList.toggle('active')}
+function closeMenu(){document.getElementById('nav-links').classList.remove('active')}
+function handleSubscribe(e){
+  e.preventDefault();
+  var form=e.target, btn=form.querySelector('button'), input=form.querySelector('input');
+  var email=(input.value||'').trim().toLowerCase();
+  if(!email) return;
+  var original=btn.textContent;
+  btn.disabled=true; btn.textContent='Sending…';
+  var save=fetch('https://zrzbjrmjzgateojadmco.supabase.co/rest/v1/subscribers',{
+    method:'POST',
+    headers:{
+      apikey:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpyemJqcm1qemdhdGVvamFkbWNvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3NTA1MTAsImV4cCI6MjEwODMyNjUxMH0.WIwiLBIM9MgikoWyiu-KzX-ZG6PWROd9PfwicXb3yuY',
+      Authorization:'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpyemJqcm1qemdhdGVvamFkbWNvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3NTA1MTAsImV4cCI6MjEwODMyNjUxMH0.WIwiLBIM9MgikoWyiu-KzX-ZG6PWROd9PfwicXb3yuY',
+      'Content-Type':'application/json',
+      Prefer:'return=minimal'
+    },
+    body:JSON.stringify({email:email})
+  }).catch(function(){return null});
+  var mail=fetch('https://api.emailjs.com/api/v1.0/email/send',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      service_id:'service_al69lsy',
+      template_id:'template_knsleoq',
+      user_id:'DDeUqRaPC_HpLGR66',
+      template_params:{
+        user_email:email,
+        time:new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'})
+      }
+    })
+  });
+  Promise.all([save, mail]).then(function(res){
+    if(!res[1] || !res[1].ok) throw new Error('mail');
+    btn.textContent='Subscribed';
+    form.reset();
+  }).catch(function(){
+    btn.textContent='Try again';
+  }).then(function(){
+    setTimeout(function(){btn.textContent=original;btn.disabled=false},2600);
+  });
+}
+
+/* ---------- scroll progress + fade ---------- */
+var bar=document.getElementById('scroll-progress');
+window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.width=(h>0?scrollY/h*100:0)+'%'},{passive:true});
+var fio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');fio.unobserve(e.target)}})},{threshold:.08});
+document.querySelectorAll('.fade').forEach(function(el){fio.observe(el)});
+
+/* ---------- writing archive ---------- */
+var posts=[].slice.call(document.querySelectorAll('.post')),curCat='all';
+posts.forEach(function(p){
+  function toggle(){var open=!p.classList.contains('open');posts.forEach(function(o){o.classList.remove('open');o.querySelector('.post-head').setAttribute('aria-expanded','false')});
+    if(open){p.classList.add('open');p.querySelector('.post-head').setAttribute('aria-expanded','true');setTimeout(function(){p.scrollIntoView({behavior:'smooth',block:'start'})},80)}}
+  p.querySelector('.post-head').addEventListener('click',toggle);
+  p.querySelector('.post-sum').addEventListener('click',toggle);
+});
+function filterPosts(){
+  var q=document.getElementById('post-search').value.trim().toLowerCase(),n=0;
+  posts.forEach(function(p){
+    var ok=(curCat==='all'||p.dataset.cat===curCat)&&(!q||p.textContent.toLowerCase().indexOf(q)>-1);
+    p.style.display=ok?'':'none';if(ok)n++;
+  });
+  document.getElementById('posts-empty').style.display=n?'none':'block';
+}
+document.getElementById('post-search').addEventListener('input',filterPosts);
+document.querySelectorAll('#post-chips .chip').forEach(function(c){c.addEventListener('click',function(){
+  document.querySelectorAll('#post-chips .chip').forEach(function(x){x.classList.remove('active')});c.classList.add('active');curCat=c.dataset.cat;filterPosts()})});
+
+/* ---------- quotes ---------- */
+var dq=["Your comfort zone is renting space in your potential.","Discipline is choosing what you want most over what you want now.","If you can control your focus, you can control your future.","Pain is temporary. Regret is permanent.","Small actions done daily beat motivation done occasionally.","You don't lack talent — you lack consistent effort.","Be the driver of your life, not the passenger of your habits.","Your future is hidden inside your daily routine."];
+var todays=dq[new Date().getDate()%dq.length];
+document.getElementById('daily-quote-text').textContent=todays;
+document.getElementById('phone-quote').textContent=todays;
+var qio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.querySelectorAll('.qcard').forEach(function(c,i){setTimeout(function(){c.classList.add('active')},i*90)});qio.unobserve(e.target)}})},{threshold:.05});
+qio.observe(document.getElementById('quote-grid'));
+function fallbackCopy(t,b){var a=document.createElement('textarea');a.value=t;a.style.cssText='position:fixed;top:-9999px;opacity:0';document.body.appendChild(a);a.select();try{document.execCommand('copy');showCopied(b)}catch(e){b.textContent='Failed';setTimeout(function(){b.textContent='Copy'},1600)}document.body.removeChild(a)}
+function showCopied(b){b.textContent='Copied!';b.style.background='var(--accent-deep)';b.style.color='#fff';setTimeout(function(){b.textContent='Copy';b.style.background='';b.style.color=''},1600)}
+document.querySelectorAll('.copy-btn').forEach(function(b){b.addEventListener('click',function(){
+  var t=b.parentNode.querySelector('p').textContent.trim();
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(function(){showCopied(b)}).catch(function(){fallbackCopy(t,b)})}else fallbackCopy(t,b)})});
+
+/* ---------- movies ---------- */
+var M=[
+["b","Drama · Patriotism","Swades","8.2","2004 · Ashutosh Gowariker","What does it mean to truly come home? This film asks that question better than any philosophy book ever could."],
+["s","Drama · Legal","Jai Bhim","8.7","2021 · T. J. Gnanavel","Justice for the voiceless — powerful, emotional, unforgettable."],
+["h","Sci-Fi · Drama","Interstellar","8.7","2014 · Christopher Nolan","Love as a force of nature across spacetime. Watch it when you need reminding how small and how significant you are."],
+["b","Comedy · Drama","3 Idiots","8.4","2009 · Rajkumar Hirani","A film that makes you laugh and then quietly question every choice you've made in the name of success."],
+["s","Action · Drama","K.G.F: Chapter 2","8.3","2022 · Prashanth Neel","Raw power, epic scale — Yash commands every frame."],
+["h","Biography · Drama","The Pursuit of Happyness","8.0","2006 · Gabriele Muccino","Don't let anyone tell you that you can't do something. Watch this on your hardest days — guaranteed to reset you."],
+["b","Epic · Sports","Lagaan","8.1","2001 · Ashutosh Gowariker","The greatest underdog story ever told. Every frame screams that ordinary people can do extraordinary things."],
+["s","Action · Drama","RRR","7.8","2022 · S. S. Rajamouli","Pure cinematic spectacle — friendship and rebellion collide."],
+["h","Action · Thriller","The Dark Knight","9.0","2008 · Christopher Nolan","Not a superhero film — a study in chaos, order, and what happens when a man with no rules meets a man with too many."],
+["b","Coming-of-Age · Friendship","Dil Chahta Hai","8.1","2001 · Farhan Akhtar","Friendship, freedom, and figuring out adulthood — it captures something most films can't even name."],
+["s","Action · Drama","Baahubali 2","8.0","2017 · S. S. Rajamouli","Why did Kattappa kill Baahubali? The answer broke records."],
+["h","Drama · Psychology","Good Will Hunting","8.3","1997 · Gus Van Sant","It's not your fault. Three words that carry the weight of an entire philosophy. This film lives rent-free in my head."],
+["b","Music · Romance · Drama","Rockstar","7.9","2011 · Imtiaz Ali","Pain as the price of greatness. Ranbir Kapoor became a legend in this film. The music alone changes something in you."],
+["s","Action · Thriller","Kantara","8.2","2022 · Rishab Shetty","Folklore meets ferocity — primal, visceral storytelling."],
+["h","Biography · Sport","F1 (Rush)","8.1","2013 · Ron Howard","Rivalry at 200mph — adrenaline meets human drama."],
+["b","Action · Drama","Animal","7.1","2023 · Sandeep Reddy Vanga","Raw, intense, and polarizing — a film that stays under your skin."],
+["s","Action · Thriller","Vikram","8.2","2022 · Lokesh Kanagaraj","Kamal Haasan returns with vengeance and style."],
+["h","Biography · Sport","Ford v Ferrari","8.1","2019 · James Mangold","Engineering passion meets racing glory — absolutely thrilling."],
+["b","Romance · Comedy","Barfi!","8.1","2012 · Anurag Basu","A wordless love story told with pure heart and infectious joy."],
+["s","Romance · Comedy","Bheeshma","6.6","2020 · Venkat Akkineni","Nithiin's easy charm in a breezy, feel-good entertainer."],
+["h","Animation · Adventure","Puss in Boots","6.6","2011 · Chris Miller","Swashbuckling cat with charm — DreamWorks at its playful best."],
+["b","Comedy · Drama","OMG","8.1","2012 · Umesh Shukla","A brave film that questions blind faith with humor and wisdom."],
+["s","Action · Thriller","Master","7.7","2021 · Lokesh Kanagaraj","Thalapathy Vijay vs Vijay Sethupathi — a clash for the ages."],
+["h","Action · Thriller","Fast & Furious","6.5","2009 · Justin Lin","Family. Cars. Heists. The franchise that refuses to brake."],
+["b","Drama · Social","OMG 2","7.5","2023 · Amit Rai","Tackles taboo with grace — bold storytelling that sparks conversation."],
+["s","Romance · Drama","Ala Vaikunthapurramuloo","7.2","2020 · Trivikram Srinivas","Allu Arjun at full power — high energy, big emotions, great music."],
+["h","Animation · Drama","The Lion King","8.5","1994 · Roger Allers","Circle of life — timeless story, unforgettable music."],
+["b","Romance · Drama","Cocktail","6.2","2012 · Homi Adajania","Modern love triangle done right — messy, raw, and relatable."],
+["s","Action · Drama","Sivaji","7.6","2007 · S. Shankar","Rajinikanth vs corruption — stylish, loud, and unforgettable."],
+["h","Sci-Fi · Action","The Matrix","8.7","1999 · Wachowskis","Red pill or blue pill? Reality will never be the same."],
+["b","Comedy","Good Newwz","7.0","2019 · Raj Mehta","Laugh-out-loud funny with surprising emotional depth."],
+["s","Drama · Adventure","777 Charlie","8.7","2022 · Kiranraj K","A man and his dog redefine what it means to truly live. Keep tissues close."],
+["h","Sci-Fi · Thriller","Inception","8.8","2010 · Christopher Nolan","Dream within a dream within... Nolan's masterpiece."],
+["b","Biography · Drama","Pad Man","7.9","2018 · R. Balki","Breaking stigma with simplicity — Akshay Kumar at his finest."],
+["s","Sports · Drama","Jersey","8.6","2019 · Gowtam Tinnanuri","A father's redemption on the cricket field — raw, emotional, beautiful."],
+["h","Horror · Thriller","Final Destination","6.7","2000 · James Wong","Death is inevitable — the kills are unforgettable."],
+["b","Comedy · Drama","Badhaai Ho","7.9","2018 · Amit Sharma","Awkward, hilarious, and heartwarming — a story about family."],
+["h","Animation · Family","Coco","8.4","2017 · Lee Unkrich","Day of the Dead, celebration of memory — pure emotion."],
+["b","Action · Comedy","Happy New Year","5.0","2014 · Farah Khan","Pure masala fun — don't think, just enjoy the ride."],
+["h","Animation · Musical","Encanto","7.2","2021 · Jared Bush","We don't talk about Bruno — but we sing about everything else."],
+["b","Action · Thriller","Jawan","7.1","2023 · Atlee","SRK unleashed — high-octane spectacle with a social message."],
+["h","Animation · Adventure","Abominable","7.0","2019 · Jill Culton","A Yeti journey home — heartwarming and visually stunning."],
+["b","War · Biography","Shershaah","8.4","2021 · Vishnuvardhan","A soldier's love and sacrifice told with respect and emotion."],
+["h","Animation · Comedy","Ice Age","7.5","2002 · Chris Wedge","Scrat's acorn quest is eternal — friendship warms the ice."],
+["b","Biography · Drama","Srikanth","7.4","2024 · Tushar Hiranandani","Against all odds — a story of vision beyond sight."],
+["h","Animation · Comedy","Ratatouille","8.1","2007 · Brad Bird","Anyone can cook — Pixar's love letter to passion."],
+["b","Mystery · Thriller","Badla","7.8","2019 · Sujoy Ghosh","Twists upon twists — keeps you guessing until the end."],
+["h","Animation · Sport","Cars","7.2","2006 · John Lasseter","Life in the slow lane — surprisingly deep for a car movie."],
+["b","Horror · Fantasy","Tumbbad","8.2","2018 · Rahi Anil Barve","Stunning visuals, slow-burn horror — Indian cinema at its boldest."],
+["h","Animation · Coming-of-Age","Turning Red","7.0","2022 · Domee Shi","Puberty as a giant red panda — bold, colorful, relatable."],
+["b","Action · Thriller","Jigra","6.7","2024 · Vasan Bala","Sister on a mission — gritty, raw, and fiercely loyal."],
+["b","Thriller · Drama","Runway 34","7.2","2022 · Ajay Devgn","Edge-of-your-seat aviation thriller with Ajay Devgn's intensity."],
+["b","Biography · Drama","Gunjan Saxena","7.1","2020 · Sharan Sharma","Breaking barriers in the sky — courage over comfort."],
+["b","War · History","Panipat","5.4","2019 · Ashutosh Gowariker","Epic scale, ambitious vision — history brought to screen."],
+["b","Romance · Comedy","Jab We Met","7.9","2007 · Imtiaz Ali","Spontaneous, chaotic, unforgettable — peak Imtiaz Ali magic."],
+["b","Romance · Drama","Tamasha","7.3","2015 · Imtiaz Ali","Finding yourself through losing yourself — beautifully layered."],
+["b","Romance · Comedy","Rab Ne Bana Di Jodi","7.2","2008 · Aditya Chopra","SRK's quiet charm in a story about rediscovering love."],
+["b","Romance · Drama","Ae Dil Hai Mushkil","5.8","2016 · Karan Johar","Heartbreak as poetry — beautifully shot, deeply felt."],
+["b","Romance · Comedy","Ajab Prem Ki Ghazab Kahani","6.4","2009 · Rajkumar Santoshi","Ranbir's innocence meets quirky comedy — pure fun."],
+["b","Action · Comedy","Dabangg 3","4.3","2019 · Prabhu Deva","Salman Khan doing Salman Khan things — no apologies."],
+["b","Action · Romance","Bodyguard","4.9","2011 · Siddique","Salman's charm powers through a simple love story."],
+["b","Romance · Drama","Kuch Kuch Hota Hai","7.5","1998 · Karan Johar","The OG love triangle — nostalgia packed in every frame."],
+["b","Romance · Comedy","Pyaar Kiya To Darna Kya","6.6","1998 · Sohail Khan","Salman romancing with full energy — 90s romance at its peak."],
+["b","Romance · Comedy","Tu Jhoothi Main Makkaar","6.5","2023 · Luv Ranjan","Modern dating done Bollywood style — witty and relatable."],
+["b","Fantasy · Adventure","Brahmastra","5.5","2022 · Ayan Mukerji","Ambitious VFX spectacle — Marvel meets Indian mythology."],
+["b","Comedy · Drama","PK","8.1","2014 · Rajkumar Hirani","Alien asks hard questions — Aamir Khan at his curious best."],
+["b","Coming-of-Age · Romance","Wake Up Sid","7.6","2009 · Ayan Mukerji","Growing up, falling in love, finding yourself — gently told."],
+["b","Drama · Music","Gully Boy","7.9","2019 · Zoya Akhtar","Apna time aayega — the most honest hip-hop origin story Mumbai's underbelly ever produced."],
+["b","Drama · Thriller","Pink","8.1","2016 · Aniruddha Roy Chowdhury","\"No means no.\" Full stop. One of the most necessary courtroom dramas Bollywood has made."],
+["b","Drama · Social","Thappad","7.8","2020 · Anubhav Sinha","One slap. An entire marriage unravels. This is what happens when you finally ask why you're supposed to stay quiet."],
+["b","Drama · Coming-of-Age","Dear Zindagi","7.4","2016 · Gauri Shinde","Therapy without the stigma, delivered by SRK on a skateboard. Quietly important for how it talks about mental health."],
+["b","Crime · Drama","Udta Punjab","7.4","2016 · Abhishek Chaubey","Punjab's drug crisis, unflinching and uncomfortable — Bollywood at its rawest."],
+["b","Romance · Comedy","Jab Harry Met Sejal","4.3","2017 · Imtiaz Ali","Imtiaz Ali chasing the Jab We Met high again — doesn't fully land, but the journey has its moments."],
+["b","Drama · Family","English Vinglish","7.5","2012 · Gauri Shinde","Sridevi's comeback, and a quiet lesson in dignity — learning a language was never really the point."],
+["b","Epic · Mythology","Ramayana Part 1","TBA","2026 · Nitesh Tiwari","India's most ambitious cinematic bet — the scale alone is historic. Whether it earns its mythology is what everyone will be debating after the credits."],
+["b","Romance · Comedy","Cocktail 2","TBA","2026 · Homi Adajania","Shahid, Rashmika, Kriti — the original was messy and real. The sequel has a tough act to follow, but this cast could pull it off."],
+["s","Thriller · Crime","Drishyam 3","TBA","2026 · Jeethu Joseph","Mohanlal back as Georgekutty — the franchise that made us all question what we'd do to protect our family. Every chapter raises the stakes."]
+];
+var TYPE={b:["bollywood","Bollywood"],s:["south","South"],h:["hollywood","Hollywood"]};
+var SHOW=12,mFilter='all',mExpanded=false;
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+function renderMovies(){
+  var list=M.filter(function(m){return mFilter==='all'||TYPE[m[0]][0]===mFilter});
+  var shown=mExpanded?list:list.slice(0,SHOW),hidden=list.length-shown.length;
+  document.getElementById('movie-grid').innerHTML=shown.map(function(m,i){
+    return '<div class="mcard" style="animation-delay:'+Math.min(i,11)*0.05+'s"><div class="mrow"><span class="mgenre">'+esc(m[1])+'</span><span class="mbadge">'+TYPE[m[0]][1]+'</span></div>'
+    +'<div class="mrow" style="align-items:baseline"><span class="mtitle">'+esc(m[2])+'</span><span class="mrate">★ '+m[3]+'</span></div>'
+    +'<div class="myear">'+esc(m[4])+'</div><p class="mtake">'+esc(m[5])+'</p></div>'}).join('');
+  var chev='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="transform:rotate('+(mExpanded?180:0)+'deg)"><polyline points="6 9 12 15 18 9"/></svg>';
+  var w=document.getElementById('more-wrap');
+  if(list.length<=SHOW){w.innerHTML=''}
+  else w.innerHTML='<button class="more-btn" onclick="toggleMovies()">'+(mExpanded?'See Less':'See More <span class="count">+'+hidden+'</span>')+chev+'</button>';
+}
+function toggleMovies(){mExpanded=!mExpanded;renderMovies();if(!mExpanded)document.getElementById('movies').scrollIntoView({behavior:'smooth'})}
+document.querySelectorAll('#movie-chips .chip').forEach(function(c){c.addEventListener('click',function(){
+  document.querySelectorAll('#movie-chips .chip').forEach(function(x){x.classList.remove('active')});c.classList.add('active');mFilter=c.dataset.type;mExpanded=false;renderMovies()})});
+renderMovies();
+
+/* ---------- smooth anchors ---------- */
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){
+  var id=a.getAttribute('href');if(id.length<2)return;var t=document.querySelector(id);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
+
+/* ---------- festival banner ---------- */
+(function(){
+  var F=[
+  {n:"Diwali",m:10,d:20,t:"diwali",e:"&#127774;",s:"Happy Diwali! May your life always be lit with knowledge and love."},
+  {n:"Holi",m:3,d:14,t:"holi",e:"&#127912;",s:"Happy Holi! May your life be as colourful as today!"},
+  {n:"Navratri",m:10,d:3,t:"navratri",e:"&#128131;",s:"Happy Navratri! Nine nights of divine energy — dance, celebrate, shine!"},
+  {n:"Ganesh Chaturthi",m:9,d:2,t:"ganesh",e:"&#128024;",s:"Ganpati Bappa Morya! May Ganesha remove every obstacle in your path."},
+  {n:"Janmashtami",m:8,d:16,t:"janmashtami",e:"&#129438;",s:"Happy Janmashtami! May Lord Krishna's wisdom guide you always."},
+  {n:"Raksha Bandhan",m:8,d:19,t:"raksha",e:"&#127872;",s:"Happy Raksha Bandhan! Celebrate the beautiful bond of siblings."},
+  {n:"Independence Day",m:8,d:15,t:"independence",e:"&#127988;",s:"Happy Independence Day! Freedom is precious — use it wisely. Jai Hind!"},
+  {n:"Republic Day",m:1,d:26,t:"republic",e:"&#127988;",s:"Happy Republic Day! Proud to be Indian. Jai Hind!"},
+  {n:"Lohri",m:1,d:13,t:"lohri",e:"&#128293;",s:"Lohri Mubarak! Wishing you warmth, joy, and a bonfire of good vibes!"},
+  {n:"Makar Sankranti",m:1,d:14,t:"pongal",e:"&#129361;",s:"Happy Makar Sankranti! May this harvest season fill your life with sweetness."},
+  {n:"Eid al-Fitr",m:3,d:31,t:"eid",e:"&#127773;",s:"Eid Mubarak! Wishing you peace, joy, and countless blessings!"},
+  {n:"Christmas",m:12,d:25,t:"christmas",e:"&#127876;",s:"Merry Christmas! May the season fill your home with warmth and wonder."},
+  {n:"New Year",m:1,d:1,t:"newyear",e:"&#127881;",s:"Happy New Year! A blank page — make it a masterpiece."},
+  {n:"New Year's Eve",m:12,d:31,t:"newyear",e:"&#129346;",s:"Happy New Year's Eve! Reflect, reset, and get ready to rise."},
+  {n:"Valentine's Day",m:2,d:14,t:"valentines",e:"&#128140;",s:"Happy Valentine's Day! Spread love, always."},
+  {n:"Halloween",m:10,d:31,t:"halloween",e:"&#127875;",s:"Happy Halloween! Be spooky, be curious, be you!"},
+  {n:"Thanksgiving",m:11,d:28,t:"thanksgiving",e:"&#129411;",s:"Happy Thanksgiving! Gratitude is the highest form of thought."},
+  {n:"Easter",m:4,d:20,t:"easter",e:"&#128035;",s:"Happy Easter! May this season bring renewal and new beginnings!"}];
+  var C=["#fff","#fbbf24","#f9a8d4","#a5b4fc","#fb923c"];
+  function active(){var n=new Date(),m=n.getMonth()+1,d=n.getDate();for(var i=0;i<F.length;i++){var x=(m-F[i].m)*30+(d-F[i].d);if(x>=-1&&x<=1)return F[i]}return null}
+  var f=active();if(!f)return;
+  var key="fb_dismissed_"+f.n.replace(/\s/g,"_");
+  try{if(sessionStorage.getItem(key))return}catch(e){}
+  var b=document.getElementById('festival-banner');
+  document.getElementById('festival-emoji').innerHTML=f.e;document.getElementById('festival-emoji2').innerHTML=f.e;
+  document.getElementById('festival-message').textContent=f.s;
+  b.className="theme-"+f.t;b.style.display="block";
+  var box=document.getElementById('fp-container');
+  for(var i=0;i<18;i++){var p=document.createElement('div');p.className='fp';var s=4+Math.random()*5;
+    p.style.cssText='left:'+Math.random()*93+'%;top:'+(15+Math.random()*65)+'%;width:'+s+'px;height:'+s+'px;background:'+C[i%C.length]+';border-radius:'+(Math.random()>.5?'50%':'2px')+';animation-duration:'+(2.2+Math.random()*2.5)+'s;animation-delay:'+Math.random()*3.5+'s';
+    box.appendChild(p)}
+  window.closeFestivalBanner=function(){b.style.display="none";try{sessionStorage.setItem(key,"1")}catch(e){}};
+})();
+</script>
+</body>
+</html>
